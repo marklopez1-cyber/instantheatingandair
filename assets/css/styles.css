@@ -145,18 +145,35 @@ p { margin: 0 0 1em; }
 .hero .rating { display: flex; align-items: center; gap: 8px; margin-top: 14px; font-size: 0.75rem; color: var(--mute); }
 .stars { color: var(--orange); letter-spacing: 2px; }
 
-/* Embedded quote tool — hero card variant */
-.hero .quote-card { padding: 20px; }
-.hero .quote-card h4 { margin-bottom: 4px; }
-.hero .quote-card p { margin-bottom: 12px; font-size: 0.875rem; }
-.quote-embed { position: relative; width: 100%; background: #fafbfc; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
-.quote-embed iframe { width: 100%; height: 560px; border: 0; display: block; background: #fff; }
-@media (max-width: 900px) { .quote-embed iframe { height: 640px; } }
+/* Hero with embedded quote tool — flagship layout */
+.hero-quote { padding: 56px 0 64px; }
+.hero-quote-grid { display: grid; grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.15fr); gap: 40px; align-items: start; position: relative; z-index: 1; }
+.hero-quote .hero-text { padding-top: 8px; }
+.hero-quote .hero-text h1 { font-size: clamp(2rem, 4.6vw, 3.4rem); margin-bottom: 16px; }
+.hero-quote .hero-text .lead { font-size: 1.0625rem; max-width: none; }
+.hero-quote .hero-phone { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin: 24px 0 22px; }
+.hero-quote .hero-phone-note { color: #b7c8d7; font-size: 0.8125rem; }
+.hero-quote .trust { font-size: 0.7rem; }
+.hero-quote-frame { position: relative; }
+.quote-frame-label { display: inline-flex; align-items: center; gap: 8px; background: var(--orange); color: #fff; padding: 6px 14px; border-radius: 999px; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 10px; box-shadow: 0 4px 14px -4px rgba(236,138,35,0.6); }
+.dot-live { width: 8px; height: 8px; border-radius: 50%; background: #fff; box-shadow: 0 0 0 0 rgba(255,255,255,0.6); animation: dot-pulse 1.8s ease-in-out infinite; }
+@keyframes dot-pulse { 0%,100% { box-shadow: 0 0 0 0 rgba(255,255,255,0.6); } 50% { box-shadow: 0 0 0 6px rgba(255,255,255,0); } }
 
-/* Embedded quote tool — full-width book page variant */
-.quote-wrap { width: 100%; max-width: 920px; margin: 0 auto; background: #fff; border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-card); }
+/* Embedded quote tool — common card */
+.quote-wrap { width: 100%; background: #fff; border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); }
 .quote-wrap iframe { width: 100%; height: 820px; border: 0; display: block; background: #fff; }
-@media (max-width: 640px) { .quote-wrap iframe { height: 720px; } }
+.quote-wrap-hero iframe { height: 720px; }
+
+@media (max-width: 1024px) {
+  .hero-quote-grid { grid-template-columns: 1fr; gap: 32px; }
+  .hero-quote .hero-text { padding-top: 0; }
+  .quote-wrap-hero iframe { height: 760px; }
+}
+@media (max-width: 640px) {
+  .hero-quote { padding: 40px 0 48px; }
+  .quote-wrap-hero iframe { height: 720px; }
+  .quote-wrap iframe { height: 720px; }
+}
 
 .quote-fallback { text-align: center; margin-top: 14px; font-size: 0.8125rem; color: var(--mute); }
 .quote-fallback a { color: var(--orange); font-weight: 600; text-decoration: none; }
