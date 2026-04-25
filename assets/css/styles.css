@@ -374,9 +374,29 @@ footer .base { border-top: 1px solid rgba(255,255,255,.08); margin-top: 36px; pa
 .related a:hover { border-color: var(--orange); color: var(--orange); }
 @media (max-width: 780px) { .related { grid-template-columns: 1fr; } }
 
-/* Comfort Club signup form — sits on the navy hero */
-.club-signup { background: #fff; color: var(--ink); border-radius: var(--radius-lg); padding: 28px 28px 24px; max-width: 540px; margin: 0 auto; box-shadow: var(--shadow-lg); text-align: left; }
-.club-signup h3 { color: var(--navy); text-transform: none; font-size: 1.5rem; margin-bottom: 18px; text-align: center; font-family: 'Barlow Condensed', sans-serif; letter-spacing: 0; }
+/* === Modal === */
+.modal { position: fixed; inset: 0; z-index: 1000; display: none; }
+.modal[aria-hidden="false"] { display: block; animation: modal-fade .18s ease-out; }
+@keyframes modal-fade { from { opacity: 0; } to { opacity: 1; } }
+.modal-backdrop { position: fixed; inset: 0; background: rgba(11,36,54,0.7); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); cursor: pointer; }
+.modal-dialog { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: calc(100% - 32px); max-width: 560px; max-height: calc(100vh - 32px); overflow-y: auto; background: #fff; border-radius: var(--radius-lg); box-shadow: 0 40px 80px rgba(0,0,0,0.4); padding: 36px 28px 24px; }
+.modal-close { position: absolute; top: 8px; right: 12px; background: none; border: none; font-size: 2rem; line-height: 1; color: var(--mute); cursor: pointer; width: 40px; height: 40px; border-radius: 50%; padding: 0; display: grid; place-items: center; }
+.modal-close:hover { background: var(--sand); color: var(--navy); }
+.modal-success { text-align: center; padding: 12px 0 4px; }
+.modal-success-icon { width: 64px; height: 64px; border-radius: 50%; background: var(--success); color: #fff; font-size: 1.75rem; display: grid; place-items: center; margin: 0 auto 18px; font-weight: 800; }
+.modal-success h3 { color: var(--navy); font-size: 1.625rem; margin-bottom: 12px; text-transform: none; font-family: 'Barlow Condensed', sans-serif; letter-spacing: 0; }
+.modal-success p { color: var(--mute); margin-bottom: 14px; font-size: 0.9375rem; }
+.modal-success p a { color: var(--orange); font-weight: 600; }
+.modal-success .btn { margin-top: 8px; padding: 12px 32px; }
+body.modal-open { overflow: hidden; }
+@media (max-width: 540px) {
+  .modal-dialog { padding: 32px 18px 20px; max-height: 92vh; }
+  .modal-close { top: 4px; right: 6px; }
+}
+
+/* Comfort Club signup form (lives inside the modal — no card chrome of its own) */
+.club-signup { color: var(--ink); text-align: left; }
+.club-signup h3 { color: var(--navy); text-transform: none; font-size: 1.625rem; margin-bottom: 18px; text-align: center; font-family: 'Barlow Condensed', sans-serif; letter-spacing: 0; }
 .club-signup .cc-field { margin-bottom: 12px; }
 .club-signup label { display: block; font-size: 0.72rem; font-weight: 700; color: var(--navy); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 4px; }
 .club-signup .cc-optional { color: var(--mute); font-weight: 500; text-transform: none; letter-spacing: 0; }

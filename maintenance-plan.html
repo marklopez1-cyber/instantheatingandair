@@ -70,14 +70,25 @@
 </header>
 <main id="main">
   <div class="crumbs"><div class="container"><a href="/instantheatingandair/">Home</a> → <b>Comfort Club</b></div></div>
-  <section class="hero" style="padding:56px 0 64px">
+  <section class="hero" style="padding:60px 0 70px">
     <div class="container" style="max-width:760px;text-align:center">
       <span class="badge">The Comfort Club</span>
       <h1>$18 a Month. <span class="o">Peace of Mind.</span></h1>
       <p class="lead" style="margin:0 auto 26px">Two precision tune-ups a year, 15% off all repairs, priority dispatch, no overtime charges. Pays for itself the first time we catch something before summer does.</p>
+      <div class="ctas" style="justify-content:center">
+        <button type="button" class="btn btn-orange" data-modal-open="comfort-modal" data-track="comfort_club_click">Sign Me Up →</button>
+        <a class="btn btn-outline-white" href="tel:+16233529802">📞 (623) 352-9802</a>
+      </div>
+    </div>
+  </section>
 
-      <!-- Signup form — submissions emailed to service@instantheatingandair.com via FormSubmit.co -->
-      <form class="club-signup" action="https://formsubmit.co/service@instantheatingandair.com" method="POST" aria-labelledby="cc-heading">
+  <!-- Comfort Club signup modal — opens via [data-modal-open="comfort-modal"] -->
+  <div class="modal" id="comfort-modal" aria-hidden="true">
+    <div class="modal-backdrop" data-modal-close></div>
+    <div class="modal-dialog" role="dialog" aria-labelledby="cc-heading" aria-modal="true">
+      <button type="button" class="modal-close" data-modal-close aria-label="Close form">&times;</button>
+
+      <form class="club-signup" id="comfort-form" action="https://formsubmit.co/service@instantheatingandair.com" method="POST" novalidate>
         <h3 id="cc-heading">Sign Up in 30 Seconds</h3>
         <input type="hidden" name="_subject" value="Comfort Club Signup — Instant Heating and Air">
         <input type="hidden" name="_template" value="table">
@@ -88,7 +99,7 @@
 
         <div class="cc-field">
           <label for="cc-name">Full name</label>
-          <input id="cc-name" name="name" type="text" required autocomplete="name" placeholder="Mark Lopez">
+          <input id="cc-name" name="name" type="text" required autocomplete="name" placeholder="Your name">
         </div>
 
         <div class="cc-row2">
@@ -104,7 +115,7 @@
 
         <div class="cc-field">
           <label for="cc-address">Service address</label>
-          <input id="cc-address" name="address" type="text" required autocomplete="street-address" placeholder="34975 N. Valley Pkwy, Phoenix, AZ 85086">
+          <input id="cc-address" name="address" type="text" required autocomplete="street-address" placeholder="Street, City, AZ ZIP">
         </div>
 
         <div class="cc-row2">
@@ -135,12 +146,18 @@
         </div>
 
         <button type="submit" class="btn btn-orange cc-submit">Sign Me Up →</button>
-        <p class="cc-foot">By submitting, we'll call within 1 business day to confirm and schedule your first tune-up. No charge until your first visit.</p>
+        <p class="cc-foot">We'll call within 1 business day to confirm and schedule your first tune-up. No charge until that visit.</p>
       </form>
 
-      <p style="font-size:0.875rem;color:#c9d7e3;margin-top:18px">Prefer to talk? Call <a href="tel:+16233529802" style="color:#fff;text-decoration:underline">(623) 352-9802</a> — we'll set you up in 30 seconds.</p>
+      <div class="modal-success" hidden>
+        <div class="modal-success-icon" aria-hidden="true">&#10003;</div>
+        <h3>You're In!</h3>
+        <p>We got your info. A real human will call within one business day to confirm and schedule your first tune-up.</p>
+        <p style="font-size:0.875rem">If it's urgent, call us at <a href="tel:+16233529802">(623) 352-9802</a>.</p>
+        <button type="button" class="btn btn-orange" data-modal-close>Done</button>
+      </div>
     </div>
-  </section>
+  </div>
   <section class="section">
     <div class="container">
       <div class="twocol">
