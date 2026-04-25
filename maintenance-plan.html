@@ -70,15 +70,75 @@
 </header>
 <main id="main">
   <div class="crumbs"><div class="container"><a href="/instantheatingandair/">Home</a> → <b>Comfort Club</b></div></div>
-  <section class="hero" style="padding:60px 0 70px">
+  <section class="hero" style="padding:56px 0 64px">
     <div class="container" style="max-width:760px;text-align:center">
       <span class="badge">The Comfort Club</span>
       <h1>$18 a Month. <span class="o">Peace of Mind.</span></h1>
-      <p class="lead" style="margin:0 auto 26px">Two precision tune-ups a year, 15% off all repairs, priority dispatch, and no overtime charges — ever. For less than the cost of one diagnostic, the club pays for itself the first time we catch something before summer does.</p>
-      <div class="ctas" style="justify-content:center">
-        <a class="btn btn-orange" href="/instantheatingandair/book.html?plan=comfort-club" data-track="comfort_club_click">Sign Me Up →</a>
-        <a class="btn btn-outline-white" href="tel:+16233529802">📞 (623) 352-9802</a>
-      </div>
+      <p class="lead" style="margin:0 auto 26px">Two precision tune-ups a year, 15% off all repairs, priority dispatch, no overtime charges. Pays for itself the first time we catch something before summer does.</p>
+
+      <!-- Signup form — submissions emailed to service@instantheatingandair.com via FormSubmit.co -->
+      <form class="club-signup" action="https://formsubmit.co/service@instantheatingandair.com" method="POST" aria-labelledby="cc-heading">
+        <h3 id="cc-heading">Sign Up in 30 Seconds</h3>
+        <input type="hidden" name="_subject" value="Comfort Club Signup — Instant Heating and Air">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="https://marklopez1-cyber.github.io/instantheatingandair/thanks.html">
+        <input type="hidden" name="form_type" value="comfort_club">
+        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+
+        <div class="cc-field">
+          <label for="cc-name">Full name</label>
+          <input id="cc-name" name="name" type="text" required autocomplete="name" placeholder="Mark Lopez">
+        </div>
+
+        <div class="cc-row2">
+          <div class="cc-field">
+            <label for="cc-phone">Phone</label>
+            <input id="cc-phone" name="phone" type="tel" required autocomplete="tel" placeholder="(623) 555-0123">
+          </div>
+          <div class="cc-field">
+            <label for="cc-email">Email</label>
+            <input id="cc-email" name="email" type="email" required autocomplete="email" placeholder="you@email.com">
+          </div>
+        </div>
+
+        <div class="cc-field">
+          <label for="cc-address">Service address</label>
+          <input id="cc-address" name="address" type="text" required autocomplete="street-address" placeholder="34975 N. Valley Pkwy, Phoenix, AZ 85086">
+        </div>
+
+        <div class="cc-row2">
+          <div class="cc-field">
+            <label for="cc-systems">How many systems?</label>
+            <select id="cc-systems" name="systems">
+              <option value="1">1 system — $18/mo</option>
+              <option value="2">2 systems — $28/mo</option>
+              <option value="3">3 systems — $38/mo</option>
+              <option value="4+">4 or more — call for pricing</option>
+            </select>
+          </div>
+          <div class="cc-field">
+            <label for="cc-when">Best time to call</label>
+            <select id="cc-when" name="best_time">
+              <option value="anytime">Any time today</option>
+              <option value="morning">Morning</option>
+              <option value="afternoon">Afternoon</option>
+              <option value="evening">Evening</option>
+              <option value="weekend">Weekend</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="cc-field">
+          <label for="cc-notes">Anything we should know? <span class="cc-optional">(optional)</span></label>
+          <textarea id="cc-notes" name="notes" rows="2" placeholder="System age, recent issues, second home, etc."></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-orange cc-submit">Sign Me Up →</button>
+        <p class="cc-foot">By submitting, we'll call within 1 business day to confirm and schedule your first tune-up. No charge until your first visit.</p>
+      </form>
+
+      <p style="font-size:0.875rem;color:#c9d7e3;margin-top:18px">Prefer to talk? Call <a href="tel:+16233529802" style="color:#fff;text-decoration:underline">(623) 352-9802</a> — we'll set you up in 30 seconds.</p>
     </div>
   </section>
   <section class="section">
