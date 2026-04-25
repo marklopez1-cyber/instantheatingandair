@@ -341,15 +341,20 @@ footer .base { border-top: 1px solid rgba(255,255,255,.08); margin-top: 36px; pa
 .prose th { background: var(--sand); color: var(--navy); font-weight: 700; }
 .prose a { color: var(--orange); font-weight: 600; }
 
-/* Page banner — rooftop photo background, used by .page-head and .svc-hero */
+/* Page banner — rooftop photo background, used by .page-head and .svc-hero
+   Image is referenced via image-set so browsers can pick the right format,
+   and Chrome supports CSS background-image lazy-loading via content-visibility. */
 .page-head, .svc-hero {
   position: relative;
   background:
     linear-gradient(135deg, rgba(11,36,54,0.82) 0%, rgba(20,60,94,0.62) 60%, rgba(11,36,54,0.78) 100%),
     url('../img/rooftop-banner.jpg') center/cover no-repeat;
+  background-color: var(--navy);  /* solid color shows instantly while photo loads */
   background-attachment: scroll;
   color: #fff;
   border-bottom: none;
+  content-visibility: auto;
+  contain-intrinsic-size: 240px;
 }
 .page-head .container, .svc-hero .container { position: relative; z-index: 1; }
 
