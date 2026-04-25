@@ -341,10 +341,32 @@ footer .base { border-top: 1px solid rgba(255,255,255,.08); margin-top: 36px; pa
 .prose th { background: var(--sand); color: var(--navy); font-weight: 700; }
 .prose a { color: var(--orange); font-weight: 600; }
 
-/* Page head (non-hero internal pages) */
-.page-head { background: var(--sand); padding: 56px 0 44px; border-bottom: 1px solid var(--line); }
-.page-head h1 { color: var(--navy); margin-bottom: 10px; }
-.page-head p { color: var(--mute); max-width: 720px; font-size: 1.0625rem; }
+/* Page banner — rooftop photo background, used by .page-head and .svc-hero */
+.page-head, .svc-hero {
+  position: relative;
+  background:
+    linear-gradient(135deg, rgba(11,36,54,0.82) 0%, rgba(20,60,94,0.62) 60%, rgba(11,36,54,0.78) 100%),
+    url('../img/rooftop-banner.jpg') center/cover no-repeat;
+  background-attachment: scroll;
+  color: #fff;
+  border-bottom: none;
+}
+.page-head .container, .svc-hero .container { position: relative; z-index: 1; }
+
+/* Page head (about, contact, financing, blog, etc.) */
+.page-head { padding: 70px 0 60px; }
+.page-head h1 { color: #fff; margin-bottom: 10px; }
+.page-head p { color: #d8e3ec; max-width: 720px; font-size: 1.0625rem; }
+.page-head .eyebrow { color: #FFC78F; }
+
+/* Svc-hero — service detail and service-area pages — overrides for photo bg */
+.svc-hero h1 { color: #fff; }
+.svc-hero h1 .o { color: var(--orange); }
+.svc-hero .intro { color: #d8e3ec; }
+.svc-hero .eyebrow { color: #FFC78F; }
+.svc-hero .kv .i { background: rgba(255,255,255,0.97); border-left-color: var(--orange); backdrop-filter: blur(2px); }
+.svc-hero .kv .i b { color: var(--navy); }
+.svc-hero .kv .i span { color: var(--mute); }
 
 /* Related links */
 .related { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 24px; }
