@@ -97,14 +97,16 @@ p { margin: 0 0 1em; }
 
 /* Header / nav */
 .header { background: #fff; border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 50; }
-.header .row { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; }
-.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+.header .row { display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 12px 0; }
+.header-left { display: flex; align-items: center; gap: 14px; min-width: 0; flex: 1 1 auto; }
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; flex-shrink: 0; }
 .brand img { width: 180px; height: auto; }
+.cta-quote { padding: 10px 16px; font-size: 0.8125rem; white-space: nowrap; flex-shrink: 0; }
 .nav { display: flex; align-items: center; gap: 22px; }
 .nav a { color: var(--ink); text-decoration: none; font-size: 0.9375rem; font-weight: 600; padding: 8px 2px; }
 .nav a:hover { color: var(--orange); }
 .nav .btn { padding: 10px 18px; font-size: 0.8125rem; }
-.menu-toggle { display: none; background: var(--navy); color: #fff; border: none; padding: 10px 12px; border-radius: 6px; font-size: 1.25rem; line-height: 1; }
+.menu-toggle { display: none; background: var(--navy); color: #fff; border: none; padding: 10px 12px; border-radius: 6px; font-size: 1.25rem; line-height: 1; flex-shrink: 0; }
 
 @media (max-width: 960px) {
   .nav { display: none; position: absolute; top: 100%; left: 0; right: 0; background: #fff; flex-direction: column; padding: 20px; gap: 8px; box-shadow: var(--shadow-card); border-bottom: 1px solid var(--line); align-items: stretch; }
@@ -113,6 +115,17 @@ p { margin: 0 0 1em; }
   .nav a:last-child { border-bottom: none; }
   .menu-toggle { display: inline-block; }
   .brand img { width: 150px; }
+}
+@media (max-width: 540px) {
+  .header .row { padding: 10px 0; gap: 8px; }
+  .header-left { gap: 8px; }
+  .brand img { width: 120px; }
+  .cta-quote { padding: 8px 12px; font-size: 0.72rem; letter-spacing: 0.02em; }
+  .menu-toggle { padding: 8px 10px; font-size: 1.125rem; }
+}
+@media (max-width: 380px) {
+  .brand img { width: 100px; }
+  .cta-quote { padding: 7px 10px; font-size: 0.68rem; }
 }
 
 /* Hero */
