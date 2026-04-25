@@ -83,7 +83,7 @@
           <div class="i"><b>Coverage</b><span>Phoenix, Anthem &amp; North Valley</span></div>
         </div>
         <div class="ctas">
-          <a class="btn btn-orange" href="/book.html" data-track="book_online_click">Get Free Estimate →</a>
+          <button type="button" class="btn btn-orange" data-modal-open="estimate-modal" data-track="estimate_click">Get Free Estimate →</button>
           <a class="btn btn-outline" href="tel:+16233529802" data-track="phone_click">📞 (623) 352-9802</a>
         </div>
       </div>
@@ -92,7 +92,7 @@
         <p>Same-day appointments in Phoenix &amp; Anthem.</p>
         <div class="price">$149</div>
         <small>Emergency Call-Out — Diagnostic + dispatch — waived with repair · $0 for Comfort Club members</small>
-        <a class="btn btn-orange" href="/book.html">Get Free Estimate →</a>
+        <button type="button" class="btn btn-orange" data-modal-open="estimate-modal" data-track="estimate_click" style="width:100%">Get Free Estimate →</button>
         <a class="btn btn-outline-white" href="tel:+16233529802">📞 Call Now</a>
       </aside>
     </div>
@@ -168,7 +168,7 @@
     <h2>Comfort is Our <span class="o">Obsession.</span></h2>
     <p>Let's get your home back to the temperature you pay for. Same-day service, straight-shooter pricing, written warranties.</p>
     <div class="ctas">
-      <a class="btn btn-orange" href="/book.html" data-track="book_online_click">Get Free Estimate →</a>
+      <button type="button" class="btn btn-orange" data-modal-open="estimate-modal" data-track="estimate_click">Get Free Estimate →</button>
       <a class="btn btn-white" href="tel:+16233529802" data-track="phone_click">📞 (623) 352-9802</a>
     </div>
     <div class="lic-line">AZ ROC #348556 · Licensed · Bonded · Insured · Family Owned</div>
@@ -215,6 +215,87 @@
     </div>
   </div>
 </footer>
+<!-- Estimate request modal — opened by [data-modal-open="estimate-modal"] -->
+<div class="modal" id="estimate-modal" aria-hidden="true">
+  <div class="modal-backdrop" data-modal-close></div>
+  <div class="modal-dialog" role="dialog" aria-labelledby="est-heading" aria-modal="true">
+    <button type="button" class="modal-close" data-modal-close aria-label="Close form">&times;</button>
+
+    <form class="club-signup ajax-form" id="estimate-form" action="https://formsubmit.co/service@instantheatingandair.com" method="POST" novalidate>
+      <h3 id="est-heading">Get Your Free Estimate</h3>
+      <input type="hidden" name="_subject" value="New Estimate Request — Instant Heating and Air">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="https://marklopez1-cyber.github.io/instantheatingandair/thanks.html">
+      <input type="hidden" name="form_type" value="estimate_request">
+      <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+
+      <div class="cc-field">
+        <label for="est-name">Full name</label>
+        <input id="est-name" name="name" type="text" required autocomplete="name" placeholder="Your name">
+      </div>
+
+      <div class="cc-row2">
+        <div class="cc-field">
+          <label for="est-phone">Phone</label>
+          <input id="est-phone" name="phone" type="tel" required autocomplete="tel" placeholder="(623) 555-0123">
+        </div>
+        <div class="cc-field">
+          <label for="est-email">Email</label>
+          <input id="est-email" name="email" type="email" required autocomplete="email" placeholder="you@email.com">
+        </div>
+      </div>
+
+      <div class="cc-field">
+        <label for="est-address">Service address</label>
+        <input id="est-address" name="address" type="text" required autocomplete="street-address" placeholder="Street, City, AZ ZIP">
+      </div>
+
+      <div class="cc-row2">
+        <div class="cc-field">
+          <label for="est-service">What do you need?</label>
+          <select id="est-service" name="service">
+            <option value="ac-repair">AC repair / not cooling</option>
+            <option value="ac-install">New AC install or replacement</option>
+            <option value="ac-tuneup">AC tune-up / maintenance</option>
+            <option value="heating-repair">Heating repair</option>
+            <option value="heating-install">New heating install</option>
+            <option value="emergency">24/7 emergency service</option>
+            <option value="commercial">Commercial HVAC</option>
+            <option value="iaq">Indoor air quality / duct cleaning</option>
+            <option value="other">Other / not sure</option>
+          </select>
+        </div>
+        <div class="cc-field">
+          <label for="est-when">Best time to reach you</label>
+          <select id="est-when" name="best_time">
+            <option value="anytime">Any time today</option>
+            <option value="morning">Morning</option>
+            <option value="afternoon">Afternoon</option>
+            <option value="evening">Evening</option>
+            <option value="weekend">Weekend</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="cc-field">
+        <label for="est-notes">Tell us about your project <span class="cc-optional">(optional)</span></label>
+        <textarea id="est-notes" name="notes" rows="2" placeholder="System age, what's going on, urgency..."></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-orange cc-submit">Get My Free Estimate &rarr;</button>
+      <p class="cc-foot">No spam. We'll review and reach out by phone or text within one business day.</p>
+    </form>
+
+    <div class="modal-success" hidden>
+      <div class="modal-success-icon" aria-hidden="true">&#10003;</div>
+      <h3>Got It!</h3>
+      <p>We received your request. A real human will get back to you within one business day with honest pricing and next steps.</p>
+      <p style="font-size:0.875rem">If it's urgent, call us at <a href="tel:+16233529802">(623) 352-9802</a>.</p>
+      <button type="button" class="btn btn-orange" data-modal-close>Done</button>
+    </div>
+  </div>
+</div>
 <script src="/assets/js/main.js" defer></script>
 </body>
 </html>

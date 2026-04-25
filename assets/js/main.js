@@ -49,20 +49,20 @@
     }
   });
 
-  // ===== Comfort Club AJAX submit =====
-  // Posts to FormSubmit's AJAX endpoint so we stay on the page and show success inline.
-  // Falls back to standard form submit (with _next redirect) if fetch is unavailable.
-  const cf = document.getElementById('comfort-form');
-  if (cf && 'fetch' in window) {
-    cf.addEventListener('submit', (e) => {
+  // ===== AJAX form submit =====
+  // Any form with class="ajax-form" submits via FormSubmit's AJAX endpoint —
+  // user stays on the page, success state shown inline in the parent modal.
+  // Falls back to standard form submit (with _next redirect) if fetch unavailable.
+  function setupAjaxForm(form) {
+    if (!('fetch' in window)) return;
+    form.addEventListener('submit', (e) => {
       e.preventDefault();
-      const btn = cf.querySelector('button[type="submit"]');
+      const btn = form.querySelector('button[type="submit"]');
       const orig = btn.textContent;
       btn.disabled = true;
       btn.textContent = 'Submitting\u2026';
 
-      const data = new FormData(cf);
-      // Use FormSubmit's AJAX endpoint (no redirect, returns JSON)
+      const data = new FormData(form);
       fetch('https://formsubmit.co/ajax/service@instantheatingandair.com', {
         method: 'POST',
         headers: { 'Accept': 'application/json' },
@@ -71,9 +71,8 @@
         .then((res) => res.json())
         .then((json) => {
           if (json && (json.success === true || json.success === 'true')) {
-            // Hide form, show success state
-            cf.style.display = 'none';
-            const success = cf.parentElement.querySelector('.modal-success');
+            form.style.display = 'none';
+            const success = form.parentElement.querySelector('.modal-success');
             if (success) success.hidden = false;
           } else {
             throw new Error((json && json.message) || 'Submission failed');
@@ -86,6 +85,7 @@
         });
     });
   }
+  document.querySelectorAll('form.ajax-form').forEach(setupAjaxForm);
 
   // ===== CTA click tracking (GA + GTM) =====
   document.addEventListener('click', (e) => {
