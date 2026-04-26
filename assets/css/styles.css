@@ -306,8 +306,29 @@ p { margin: 0 0 1em; }
 .chip:hover { background: var(--navy); color: #fff; border-color: var(--navy); }
 
 /* Brands logo wall */
-.brands { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; align-items: center; }
+.brands { display: flex; flex-wrap: wrap; gap: 28px 36px; justify-content: center; align-items: center; max-width: 980px; margin: 0 auto; }
 .brands .brand-chip { background: var(--sand); border: 1px solid var(--line); padding: 10px 18px; border-radius: 6px; color: var(--mute); font-weight: 700; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.03em; }
+.brand-logo-wrap { display: inline-flex; align-items: center; justify-content: center; height: 60px; min-width: 110px; padding: 6px 10px; }
+.brand-logo {
+  max-height: 100%;
+  max-width: 160px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: grayscale(100%) brightness(0.55) contrast(1.1);
+  opacity: 0.7;
+  transition: filter 0.25s ease, opacity 0.25s ease, transform 0.25s ease;
+}
+.brand-logo-wrap:hover .brand-logo {
+  filter: none;
+  opacity: 1;
+  transform: scale(1.05);
+}
+@media (max-width: 600px) {
+  .brands { gap: 20px 24px; }
+  .brand-logo-wrap { height: 48px; min-width: 88px; }
+  .brand-logo { max-width: 130px; }
+}
 
 /* FAQ */
 .faq { max-width: 820px; margin: 0 auto; }
