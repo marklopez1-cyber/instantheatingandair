@@ -102,6 +102,64 @@
   }
   document.querySelectorAll('form.ajax-form').forEach(setupAjaxForm);
 
+  // ===== Reviews carousel — auto-rotating, swipeable, accessible =====
+  const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  document.querySelectorAll('.reviews-carousel').forEach((carousel) => {
+    const track = carousel.querySelector('.reviews-track');
+    const prev = carousel.querySelector('.rev-prev');
+    const next = carousel.querySelector('.rev-next');
+    const autoplayMs = parseInt(carousel.dataset.autoplay || '0', 10);
+
+    if (!track || track.children.length === 0) return;
+
+    function step(direction) {
+      const firstCard = track.children[0];
+      const cardWidth = firstCard.offsetWidth;
+      const gap = parseInt(getComputedStyle(track).gap || '20', 10);
+      const distance = cardWidth + gap;
+      const maxScroll = track.scrollWidth - track.clientWidth;
+
+      let target = track.scrollLeft + direction * distance;
+      // Loop: if we're at or past the end going forward, jump to start
+      if (direction > 0 && track.scrollLeft >= maxScroll - 5) {
+        target = 0;
+      } else if (direction < 0 && track.scrollLeft <= 5) {
+        target = maxScroll;
+      }
+      track.scrollTo({ left: target, behavior: 'smooth' });
+    }
+
+    let timer = null;
+    function start() {
+      if (autoplayMs <= 0 || reduceMotion) return;
+      stop();
+      timer = setInterval(() => step(1), autoplayMs);
+    }
+    function stop() {
+      if (timer) { clearInterval(timer); timer = null; }
+    }
+
+    if (prev) prev.addEventListener('click', () => { step(-1); start(); });
+    if (next) next.addEventListener('click', () => { step(1); start(); });
+
+    // Pause on hover / focus / touch
+    carousel.addEventListener('mouseenter', stop);
+    carousel.addEventListener('mouseleave', start);
+    track.addEventListener('focusin', stop);
+    track.addEventListener('focusout', start);
+    track.addEventListener('touchstart', stop, { passive: true });
+    track.addEventListener('touchend', () => setTimeout(start, 4000), { passive: true });
+
+    // Keyboard navigation when track is focused
+    track.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') { e.preventDefault(); step(1); start(); }
+      if (e.key === 'ArrowLeft')  { e.preventDefault(); step(-1); start(); }
+    });
+
+    start();
+  });
+
   // ===== CTA click tracking (GA + GTM) =====
   document.addEventListener('click', (e) => {
     const t = e.target.closest('[data-track]');
