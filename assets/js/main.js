@@ -20,6 +20,30 @@
     });
   }
 
+  // ===== Live Phoenix temperature =====
+  // Free, no API key needed. Open-Meteo returns ~current temp in F.
+  const tempChip = document.getElementById('phx-temp');
+  const tempValue = document.getElementById('phx-temp-value');
+  if (tempChip && tempValue && 'fetch' in window) {
+    // Coordinates: Phoenix Sky Harbor International Airport (KPHX) —
+    // the standard Phoenix weather reference station.
+    const url = 'https://api.open-meteo.com/v1/forecast?latitude=33.4373&longitude=-112.0078&current=temperature_2m&temperature_unit=fahrenheit&timezone=America%2FPhoenix';
+    fetch(url)
+      .then((r) => (r.ok ? r.json() : Promise.reject('Weather fetch failed')))
+      .then((data) => {
+        const t = data && data.current && data.current.temperature_2m;
+        if (typeof t !== 'number' || !isFinite(t)) return;
+        const temp = Math.round(t);
+        tempValue.textContent = temp;
+        if (temp >= 95) tempChip.classList.add('temp-hot');
+        else if (temp <= 50) tempChip.classList.add('temp-cold');
+        tempChip.hidden = false;
+      })
+      .catch(() => {
+        // Quietly stay hidden if the API fails — never block the page.
+      });
+  }
+
   // ===== Mobile menu =====
   const toggle = document.querySelector('.menu-toggle');
   const nav = document.getElementById('site-nav');

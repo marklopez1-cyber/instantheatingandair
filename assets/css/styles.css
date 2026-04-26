@@ -93,7 +93,41 @@ p { margin: 0 0 1em; }
 .topbar .row { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
 .topbar a { color: #fff; text-decoration: none; font-weight: 600; }
 .topbar .pill { background: var(--orange); color: #fff; padding: 3px 10px; border-radius: 999px; font-weight: 700; font-size: 0.7rem; letter-spacing: 0.06em; text-transform: uppercase; margin-right: 6px; }
-@media (max-width: 640px) { .topbar .lic { display: none; } .topbar .row { justify-content: center; } }
+.topbar-right { display: inline-flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+
+/* Live Phoenix temperature pill */
+.temp-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: #dbe7f0;
+  padding: 3px 10px 3px 8px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+  margin-right: 4px;
+  white-space: nowrap;
+  transition: background 0.3s, color 0.3s, border-color 0.3s;
+}
+.temp-chip .temp-icon { flex-shrink: 0; }
+.temp-chip.temp-hot {
+  background: rgba(236,138,35,0.22);
+  border-color: rgba(236,138,35,0.45);
+  color: #ffd9a8;
+}
+.temp-chip.temp-cold {
+  background: rgba(135,180,230,0.18);
+  border-color: rgba(135,180,230,0.4);
+  color: #b6d6f5;
+}
+@media (max-width: 640px) {
+  .topbar .lic { display: none; }
+  .topbar .row { justify-content: center; gap: 8px; }
+  .temp-chip { font-size: 0.66rem; }
+}
 
 /* Header / nav */
 .header { background: #fff; border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 50; }

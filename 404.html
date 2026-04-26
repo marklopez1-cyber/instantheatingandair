@@ -14,7 +14,7 @@
   <meta name="ICBM" content="33.854, -112.1476">
 
   <!-- Security headers (delivered via meta — GitHub Pages doesn't expose HTTP headers) -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; frame-src https://instant-hvac-quote.com https://book.housecallpro.com; form-action 'self' https://formsubmit.co; connect-src 'self' https://formsubmit.co https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; upgrade-insecure-requests">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; frame-src https://instant-hvac-quote.com https://book.housecallpro.com; form-action 'self' https://formsubmit.co; connect-src 'self' https://formsubmit.co https://api.open-meteo.com https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; upgrade-insecure-requests">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=(), interest-cohort=()">
@@ -58,7 +58,14 @@
 <div class="topbar">
   <div class="container row">
     <div class="lic">AZ ROC #348556 · Licensed · Bonded · Insured · Family Owned</div>
-    <div><span class="pill">Open Now</span><a href="tel:+16233529802" data-track="phone_click">📞 (623) 352-9802 · 24/7 Emergency</a></div>
+    <div class="topbar-right">
+      <span class="temp-chip" id="phx-temp" hidden aria-live="polite">
+        <svg class="temp-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/></svg>
+        Phoenix <span id="phx-temp-value">--</span>°F
+      </span>
+      <span class="pill">Open Now</span>
+      <a href="tel:+16233529802" data-track="phone_click">📞 (623) 352-9802 · 24/7 Emergency</a>
+    </div>
   </div>
 </div>
 <header class="header">
