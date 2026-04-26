@@ -288,6 +288,27 @@ p { margin: 0 0 1em; }
 .svc-card p { color: var(--mute); font-size: 0.9375rem; margin: 0 0 14px; }
 .svc-card .more { color: var(--orange); font-weight: 800; font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; }
 
+/* Photo-backed service card — same shape, image background with overlay, light text */
+.svc-card-photo {
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  border-color: transparent;
+  min-height: 220px;
+  position: relative;
+  overflow: hidden;
+}
+.svc-card-photo::before { background: var(--orange); }  /* keep the orange left bar */
+.svc-card-photo .ic {
+  background: rgba(255,255,255,0.95);
+  color: var(--navy);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+}
+.svc-card-photo h3 { color: #fff; text-shadow: 0 1px 2px rgba(0,0,0,0.4); }
+.svc-card-photo p { color: #f1f5f9; text-shadow: 0 1px 2px rgba(0,0,0,0.5); }
+.svc-card-photo .more { color: #ffd9a8; }
+.svc-card-photo:hover { transform: translateY(-3px); box-shadow: 0 12px 30px -10px rgba(11,36,54,0.5); }
+
 .section-sand { background: var(--sand); }
 
 /* Comfort Club band */
