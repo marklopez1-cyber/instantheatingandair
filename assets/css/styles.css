@@ -410,7 +410,7 @@ p { margin: 0 0 1em; }
   .reviews-track { scroll-behavior: auto; }
 }
 
-/* Service-area embedded map */
+/* Service-area interactive map (Leaflet) */
 .service-map {
   position: relative;
   width: 100%;
@@ -422,14 +422,18 @@ p { margin: 0 0 1em; }
   overflow: hidden;
   box-shadow: var(--shadow-card);
 }
-.service-map iframe {
+#service-map {
+  width: 100%;
+  height: 520px;
+  background: #eef1f5;
+}
+.service-map iframe {  /* legacy fallback if iframe is ever used here again */
   display: block;
   width: 100%;
   height: 480px;
   border: 0;
-  background: #eef1f5;
 }
-@media (max-width: 640px) { .service-map iframe { height: 360px; } }
+@media (max-width: 640px) { #service-map { height: 380px; } }
 
 /* Service area chips */
 .chips { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
