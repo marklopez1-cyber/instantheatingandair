@@ -1,10 +1,25 @@
 /* Instant Heating and Air — site enhancement script
+   - Google Analytics 4 init (ID baked into <html data-ga="...">)
    - Mobile menu toggle
-   - Modal open/close (Comfort Club signup, etc.)
+   - Modal open/close (Comfort Club signup, Get Estimate)
    - AJAX form submit so users stay on page
-   - CTA click tracking
+   - CTA click tracking (auto-routed to gtag if loaded)
 */
 (function () {
+  // ===== Google Analytics 4 =====
+  // Reads the measurement ID from <html data-ga="G-XXXXXXXXXX">.
+  // No inline script tags needed — keeps CSP script-src strict.
+  const ga4Id = document.documentElement.getAttribute('data-ga');
+  if (ga4Id) {
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { window.dataLayer.push(arguments); };
+    window.gtag('js', new Date());
+    window.gtag('config', ga4Id, {
+      send_page_view: true,
+      anonymize_ip: true
+    });
+  }
+
   // ===== Mobile menu =====
   const toggle = document.querySelector('.menu-toggle');
   const nav = document.getElementById('site-nav');
