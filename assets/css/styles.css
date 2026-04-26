@@ -257,14 +257,17 @@ p { margin: 0 0 1em; }
   scrollbar-width: none;
   -ms-overflow-style: none;
   padding: 4px 0 16px;
+  align-items: stretch;  /* equal-height cards */
 }
 .reviews-track::-webkit-scrollbar { display: none; }
 .reviews-track > .rev {
   scroll-snap-align: start;
   flex: 0 0 calc(33.333% - 14px);
   min-width: 0;
-  height: auto;
+  display: flex;
+  flex-direction: column;
 }
+.reviews-track > .rev blockquote { flex: 1 1 auto; }  /* push cite to bottom for even alignment */
 @media (max-width: 900px) { .reviews-track > .rev { flex: 0 0 calc(50% - 10px); } }
 @media (max-width: 600px) { .reviews-track > .rev { flex: 0 0 calc(100% - 4px); } }
 

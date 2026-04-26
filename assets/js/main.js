@@ -115,13 +115,18 @@
 
     function step(direction) {
       const firstCard = track.children[0];
+      if (!firstCard) return;
       const cardWidth = firstCard.offsetWidth;
       const gap = parseInt(getComputedStyle(track).gap || '20', 10);
-      const distance = cardWidth + gap;
+      const stride = cardWidth + gap;
+      // Advance a full "page" per rotation — number of cards currently visible.
+      // Desktop = 3, tablet = 2, mobile = 1.
+      const cardsInView = Math.max(1, Math.round(track.clientWidth / stride));
+      const distance = cardsInView * stride;
       const maxScroll = track.scrollWidth - track.clientWidth;
 
       let target = track.scrollLeft + direction * distance;
-      // Loop: if we're at or past the end going forward, jump to start
+      // Loop: if at/past end going forward, jump to start
       if (direction > 0 && track.scrollLeft >= maxScroll - 5) {
         target = 0;
       } else if (direction < 0 && track.scrollLeft <= 5) {
