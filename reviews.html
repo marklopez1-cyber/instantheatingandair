@@ -59,9 +59,9 @@
   <div class="container row">
     <div class="lic">AZ ROC #348556 · Licensed · Bonded · Insured · Family Owned</div>
     <div class="topbar-right">
-      <span class="temp-chip" id="phx-temp" hidden aria-live="polite">
+      <span class="temp-chip temp-chip-dark" data-phx-temp hidden aria-live="polite">
         <svg class="temp-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/></svg>
-        Phoenix <span id="phx-temp-value">--</span>°F
+        Phoenix <span data-phx-temp-value>--</span>°F
       </span>
       <span class="pill">Open Now</span>
       <a href="tel:+16233529802" data-track="phone_click">📞 (623) 352-9802 · 24/7 Emergency</a>
@@ -76,6 +76,10 @@
       </a>
       <a class="btn btn-orange cta-quote" href="/book.html" data-track="quote_click">New AC Quote</a>
     </div>
+    <span class="temp-chip temp-chip-light" data-phx-temp hidden aria-live="polite">
+      <svg class="temp-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/></svg>
+      <span data-phx-temp-value>--</span>°F
+    </span>
     <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="site-nav">☰</button>
     <nav class="nav" id="site-nav" aria-label="Main navigation">
       <a href="/services/">Services</a><a href="/service-areas/">Service Areas</a><a href="/maintenance-plan.html">Comfort Club</a><a href="/financing.html">Financing</a><a href="/reviews.html" aria-current="page">Reviews</a><a href="/blog/">Blog</a><a href="/about.html">About</a>

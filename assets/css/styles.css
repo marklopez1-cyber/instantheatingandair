@@ -95,38 +95,67 @@ p { margin: 0 0 1em; }
 .topbar .pill { background: var(--orange); color: #fff; padding: 3px 10px; border-radius: 999px; font-weight: 700; font-size: 0.7rem; letter-spacing: 0.06em; text-transform: uppercase; margin-right: 6px; }
 .topbar-right { display: inline-flex; align-items: center; gap: 6px; flex-wrap: wrap; }
 
-/* Live Phoenix temperature pill */
+/* Live Phoenix temperature pill — shared visual */
 .temp-chip {
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.15);
-  color: #dbe7f0;
   padding: 3px 10px 3px 8px;
   border-radius: 999px;
   font-weight: 700;
   font-size: 0.7rem;
   letter-spacing: 0.04em;
-  margin-right: 4px;
   white-space: nowrap;
   transition: background 0.3s, color 0.3s, border-color 0.3s;
 }
+.temp-chip[hidden] { display: none !important; }
 .temp-chip .temp-icon { flex-shrink: 0; }
-.temp-chip.temp-hot {
+
+/* Dark variant (navy topbar) */
+.temp-chip-dark {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: #dbe7f0;
+  margin-right: 4px;
+}
+.temp-chip-dark.temp-hot {
   background: rgba(236,138,35,0.22);
   border-color: rgba(236,138,35,0.45);
   color: #ffd9a8;
 }
-.temp-chip.temp-cold {
+.temp-chip-dark.temp-cold {
   background: rgba(135,180,230,0.18);
   border-color: rgba(135,180,230,0.4);
   color: #b6d6f5;
 }
+
+/* Light variant (white header — mobile only) */
+.temp-chip-light {
+  background: var(--sand);
+  border: 1px solid var(--line);
+  color: var(--navy);
+  flex-shrink: 0;
+}
+.temp-chip-light.temp-hot {
+  background: rgba(236,138,35,0.14);
+  border-color: rgba(236,138,35,0.4);
+  color: var(--orange-dk);
+}
+.temp-chip-light.temp-cold {
+  background: rgba(20,60,94,0.08);
+  border-color: rgba(20,60,94,0.25);
+  color: var(--navy);
+}
+
+/* Show dark chip on desktop only; light chip on mobile only */
 @media (max-width: 640px) {
+  .temp-chip-dark { display: none !important; }
   .topbar .lic { display: none; }
   .topbar .row { justify-content: center; gap: 8px; }
   .temp-chip { font-size: 0.66rem; }
+}
+@media (min-width: 641px) {
+  .temp-chip-light { display: none !important; }
 }
 
 /* Header / nav */
