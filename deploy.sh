@@ -32,14 +32,32 @@ if [[ ! -d ".git" ]]; then
   exit 1
 fi
 
-# Find newest site-updated*.zip in Downloads (handles "site-updated (1).zip" etc.)
-DOWNLOADS="$HOME/Downloads"
-ZIP_PATH=$(ls -t "$DOWNLOADS"/site-updated*.zip 2>/dev/null | head -n1)
+# Search every candidate folder and pick the GLOBALLY newest zip — not just the
+# first folder that happens to contain one. This avoids stale Downloads zips
+# winning over a freshly-built OneDrive zip.
+CANDIDATES=(
+  "/c/Users/markl/OneDrive/Claude/Projects/Instant Heating and Air Website"
+  "$HOME/Downloads"
+  "$HOME"
+)
+ZIP_PATH=""
+NEWEST_MTIME=0
+for dir in "${CANDIDATES[@]}"; do
+  for f in "$dir"/site-updated*.zip; do
+    [[ -f "$f" ]] || continue
+    mtime=$(stat -c %Y "$f" 2>/dev/null || stat -f %m "$f" 2>/dev/null)
+    if [[ -n "$mtime" && "$mtime" -gt "$NEWEST_MTIME" ]]; then
+      NEWEST_MTIME=$mtime
+      ZIP_PATH="$f"
+    fi
+  done
+done
 
 if [[ -z "$ZIP_PATH" ]]; then
-  echo "❌ No site-updated*.zip found in $DOWNLOADS"
+  echo "❌ Could not find site-updated*.zip in any of:"
+  printf '   %s\n' "${CANDIDATES[@]}"
   echo ""
-  echo "   Save the zip from Cowork to Downloads first, then re-run."
+  echo "   Make sure Cowork has rebuilt the zip and try again."
   exit 1
 fi
 
