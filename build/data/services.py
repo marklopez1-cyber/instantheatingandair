@@ -75,21 +75,25 @@ SERVICES = [
         "bg_image": "/assets/img/services/ac-installation-job.jpg",
         "bg_alt": "Newly installed packaged HVAC unit on a tile-roof Phoenix home by Instant Heating and Air",
         "meta_title": "AC Installation Phoenix | New Unit & Replacement | Instant Heating and Air",
-        "meta_description": "Phoenix AC installation and replacement done right — proper load calc, right-sized system, written workmanship warranty, 0% financing available.",
-        "keywords": ["ac installation phoenix", "new ac unit phoenix", "air conditioner replacement phoenix", "ac install cost phoenix"],
+        "meta_description": "Phoenix R-454B AC installation done right — proper Manual-J load calc, SRP Cool Cash rebates handled, written workmanship warranty, 0% financing. 5.0★ on 56 Google reviews.",
+        "keywords": ["ac installation phoenix", "new ac unit phoenix", "air conditioner replacement phoenix", "ac install cost phoenix", "r-454b phoenix", "srp cool cash rebate", "a2l refrigerant phoenix"],
         "short_desc": "Right-sized systems, proper load calc, lifetime workmanship warranty.",
         "hero_subhead": "The new AC you'll forget about — because it just works.",
         "intro": (
             "A new AC is the single biggest appliance purchase most Arizona homeowners make. We treat it that way. Every Instant install "
             "starts with a Manual-J load calculation — no lazy 'same size as the old one' guesswork — because an oversized Phoenix AC is "
-            "the #1 cause of humid homes, short cycling, and premature compressor failure. We right-size, install clean, and back the "
-            "workmanship for the life of the system."
+            "the #1 cause of humid homes, short cycling, and premature compressor failure. As of 2026 we exclusively install R-454B "
+            "(A2L) systems per federal requirements, and we file the SRP Cool Cash rebate paperwork for SRP customers at no extra "
+            "charge — that's up to $1,125 back on a variable-speed system. We right-size, install clean, and back the workmanship "
+            "for the life of the system."
         ),
         "included": [
             "Manual-J load calculation sized to your home — not your neighbor's",
+            "R-454B (A2L) refrigerant compliant with 2026 EPA AIM Act requirements",
             "Code-compliant refrigerant line, pad, and disconnect",
             "New Nest or Ecobee smart thermostat (your pick)",
             "Duct inspection and minor sealing at no charge",
+            "SRP Cool Cash rebate paperwork filed for you (SRP customers, up to $1,125 back)",
             "Haul-away of the old unit",
             "Full commissioning with superheat/subcooling log",
             "Lifetime workmanship warranty + manufacturer's parts warranty (10 years typical)"
@@ -110,11 +114,14 @@ SERVICES = [
             ("Commission", "Full system startup, refrigerant charge logged, thermostat programmed, walk-through before we leave.")
         ],
         "pricing_label": "Installed From",
-        "pricing_value": "$7,800",
-        "pricing_note": "3-ton 14.3 SEER2 — financing from $109/mo OAC · Free in-home estimate",
+        "pricing_value": "$8,400",
+        "pricing_note": "3-ton 14.3 SEER2 R-454B — financing from $115/mo OAC · Free in-home estimate · SRP Cool Cash filed for you",
         "cta_type": "free_estimate",
         "faqs": [
-            ("What does a new AC cost in Phoenix?", "Installed pricing ranges from $7,800 for a basic 3-ton single-stage up to $16,500 for a high-efficiency variable-speed system. Most North Valley homes land in the $9,500–$12,000 range."),
+            ("What does a new AC cost in Phoenix in 2026?", "Installed pricing ranges from $8,400 for a basic 3-ton single-stage R-454B system up to $17,000 for a high-efficiency variable-speed system. Most North Valley homes land in the $10,000–$12,500 range. Prices ticked up roughly 5–10% in 2026 because of the new A2L refrigerant requirement."),
+            ("What is R-454B and why does my new AC use it?", "R-454B is the low-global-warming-potential refrigerant the EPA's AIM Act required for all new residential systems installed January 1, 2026 or later. It replaces R-410A. The chemistry is different (78% lower GWP), the safety equipment is more extensive, and the install cost runs 5–10% higher — but performance, efficiency, and reliability are functionally the same. Your existing R-410A system is fine; the change only affects new installs."),
+            ("Do you handle SRP Cool Cash rebates?", "Yes — every install we do for SRP customers includes the Cool Cash rebate paperwork at no charge. SRP's 2026 program pays $75 per ton for single-stage, $150/ton for two-stage, and $225/ton for variable-speed inverter systems — up to $1,125 back on a 5-ton variable-speed install. APS ended residential rebates on January 1, 2026, so APS-territory customers no longer receive a utility rebate."),
+            ("What about federal tax credits?", "The federal 25C tax credit for air-source heat pumps expired December 31, 2025, so air-source heat pumps installed in 2026 do not qualify. Geothermal heat pumps still get a 30% federal credit through 2032. State-administered IRA programs are still active in Arizona — HEAR for income-qualifying households (up to $8,000) and the upcoming HOMES program (no income cap, up to $4,000)."),
             ("What SEER rating should I buy in Arizona?", "SEER2 15.2 is the 2023+ federal minimum for the Southwest. For most Phoenix homes, 16–18 SEER2 is the efficiency sweet spot — higher ratings only pay back in large, heavily-cooled homes."),
             ("How long does the install take?", "Most residential replacements are done in a single day. Full-system changeouts with new line-set and duct work can run into a second day."),
             ("Do you offer financing?", "Yes — 0% APR for qualified buyers plus 12-, 24-, 36-, and 60-month terms through our financing partners."),

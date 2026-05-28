@@ -7,7 +7,7 @@ POSTS = [
     {
         "slug": "how-much-new-ac-unit-cost-phoenix-2026",
         "title": "How Much Does a New AC Unit Cost in Phoenix in 2026?",
-        "meta_description": "2026 Phoenix AC installation costs: real pricing, SEER2 decisions, financing, rebates, and what's actually driving the number. From $7,800 to $16,500 installed.",
+        "meta_description": "2026 Phoenix AC installation costs: real pricing, R-454B refrigerant change, SEER2 decisions, SRP Cool Cash rebates, and what's actually driving the number. From $8,400 to $17,000 installed.",
         "keywords": ["new ac cost phoenix", "ac installation cost phoenix", "ac replacement cost arizona"],
         "author": "Instant Heating and Air",
         "date": "2026-03-14",
@@ -16,25 +16,27 @@ POSTS = [
         "hero_dek": "What Phoenix homeowners actually pay in 2026 — and why quotes vary by thousands.",
         "body": [
             ("h2", "The short answer"),
-            ("p", "A new AC installed in a Phoenix-area home in 2026 typically costs <strong>$7,800 to $16,500</strong>, with most 3-ton single-family replacements landing between $9,500 and $12,000. The spread comes down to four things: system size, efficiency (SEER2), single-stage vs. variable-speed, and the condition of your existing ductwork."),
+            ("p", "A new AC installed in a Phoenix-area home in 2026 typically costs <strong>$8,400 to $17,000</strong>, with most 3-ton single-family replacements landing between $10,000 and $12,500. The spread comes down to five things: system size, efficiency (SEER2), single-stage vs. variable-speed, the condition of your existing ductwork, and the new A2L refrigerant requirement that took effect January 1, 2026."),
             ("h2", "What you're actually paying for"),
             ("p", "It's tempting to think of HVAC pricing as \"the box outside and the box inside.\" It's not. A clean install includes a Manual-J load calculation, code-compliant refrigerant line set, new pad and disconnect, often a new thermostat, duct inspection and minor sealing, full commissioning with refrigerant charge logged, and a haul-away. When you see a bid thousands lower than the others, one of those line items is missing. In Arizona summers, skipping any one of them shortens the system's life."),
             ("h2", "2026 price ranges by tier"),
             ("table", [
                 ["Tier", "Typical size", "Efficiency", "Installed price range"],
-                ["Entry", "2.5–3 ton", "14.3 SEER2", "$7,800 – $9,500"],
-                ["Mid", "3–4 ton", "16 SEER2 two-stage", "$9,500 – $12,500"],
-                ["Premium", "4–5 ton", "18+ SEER2 variable-speed", "$12,500 – $16,500"],
-                ["Luxury", "Zoned / dual-fuel", "20+ SEER2", "$17,000 – $24,000"]
+                ["Entry", "2.5–3 ton", "14.3 SEER2 R-454B", "$8,400 – $10,200"],
+                ["Mid", "3–4 ton", "16 SEER2 two-stage R-454B", "$10,200 – $13,200"],
+                ["Premium", "4–5 ton", "18+ SEER2 variable-speed R-454B", "$13,200 – $17,000"],
+                ["Luxury", "Zoned / dual-fuel R-454B", "20+ SEER2", "$17,500 – $24,500"]
             ]),
+            ("h2", "What changed in 2026: the A2L refrigerant rule"),
+            ("p", "Every new residential AC and heat pump installed in the U.S. starting January 1, 2026 uses R-454B (sold as Puron Advance, Opteon XL41, or Solstice 454B) or R-32 — both A2L \"mildly flammable\" refrigerants that replace the R-410A standard we've used since the early 2000s. The new chemistry has roughly 78% less global warming potential than R-410A, which is the whole point of the rule. The equipment itself is redesigned with new safety sensors, valves, and electrical components, which is why prices ran up about 5–10% across the board. <strong>If your current system uses R-410A, don't panic</strong> — R-410A refrigerant remains available for service and repairs, and parts will be supported for years. The mandate only affects new system installs."),
             ("h2", "What SEER2 actually buys you in Phoenix"),
             ("p", "SEER2 is the 2023 efficiency standard — stricter than old SEER. In the Southwest region, the minimum for new installs is 15.2. Moving from 15.2 to 17 or 18 in a typical Phoenix home saves roughly $30 to $60 per month during cooling season, depending on home size and usage. The upgrade pays back in 4–7 years. Going from 18 to 22 SEER2? The payback usually stretches past the warranty life of the unit, which is why we don't push ultra-high-efficiency on everyone."),
             ("h2", "Single-stage vs. variable-speed"),
             ("p", "Single-stage compressors run at 100% whenever they're on. They're cheaper, simpler, and perfectly fine in a well-insulated home. Variable-speed systems ramp from about 25% to 100% — which is a big deal in Phoenix because they remove more humidity, cycle less, and produce quieter, more even cooling. The comfort difference is real; the efficiency difference is meaningful but smaller than brochures claim."),
             ("h2", "Ductwork: the silent budget-killer"),
             ("p", "Half the AC bids we second-opinion skip duct evaluation entirely. If your ductwork is leaky R-4.2 flex from the 1990s, you can install a $16,000 top-tier system and still be disappointed — the air never reaches the far bedrooms with full pressure. On every Instant bid we check static pressure, inspect accessible ducts, and tell you honestly whether sealing or limited replacement should be part of the project."),
-            ("h2", "Rebates and tax credits in 2026"),
-            ("p", "APS and SRP both run rebate programs for high-efficiency heat pumps (typically $200–$1,200 depending on system). The federal Inflation Reduction Act (IRA) adds a 30% tax credit on qualifying heat pumps, capped at $2,000 per year. If you're installing a variable-speed heat pump in 2026, there's a realistic path to $2,500–$3,200 total in combined rebates and credits. We handle the paperwork."),
+            ("h2", "Rebates and tax credits in 2026 (the honest version)"),
+            ("p", "The biggest change here is the federal 25C tax credit for air-source heat pumps <strong>expired December 31, 2025</strong>. Air-source heat pumps installed in 2026 no longer qualify for that 30%/$2,000 credit. Only geothermal heat pumps still get the 30% federal credit (good through 2032). On the utility side, <strong>SRP's Cool Cash program is still active</strong> and pays $75 per ton for single-stage, $150/ton for two-stage, and $225/ton for variable-speed inverter systems — that's up to $1,125 back on a 5-ton variable-speed install. APS, on the other hand, ended all residential energy-efficiency rebates on January 1, 2026. Arizona's HEAR program (income-qualifying, up to $8,000) and the upcoming HOMES program (performance-based, no income cap, up to $4,000 per home) are filling the gap as state-administered IRA programs come online. We handle the SRP Cool Cash paperwork on every install we do for SRP customers."),
             ("h2", "Financing: the number that actually matters"),
             ("p", "Most homeowners end up financing some or all of a new install. 0% APR for 18–24 months is typical for qualified buyers; longer terms (60–120 months) are available with competitive fixed rates. For a $10,500 install, that's roughly $109–$175 per month depending on term and credit. We don't push financing — we just make it available, because it's often the difference between \"replace now\" and \"limp the old unit another summer and pray.\""),
             ("h2", "The #1 question we get asked"),
@@ -99,7 +101,7 @@ POSTS = [
             ("ul", [
                 "One piece of equipment covers heating and cooling — simpler and cleaner",
                 "Quieter operation than most gas furnaces",
-                "Federal 30% tax credit (up to $2,000) and utility rebates add up fast",
+                "SRP Cool Cash rebate up to $1,125 on variable-speed heat pumps (SRP customers)",
                 "No combustion = no CO risk, no flue, no gas bill",
                 "Typical operating cost beats gas + AC by 15–25% per year in North Phoenix"
             ]),
@@ -113,7 +115,9 @@ POSTS = [
             ("h2", "The compromise: dual-fuel"),
             ("p", "Dual-fuel installs a heat pump for 80% of your heating hours (it's cheaper to run from roughly 35°F upward) and hands off to your gas furnace when it's truly cold. It's the best of both worlds, and honestly the right answer for most Anthem, Cave Creek, and Carefree homes sitting above 2,000 ft elevation."),
             ("h2", "What we install most"),
-            ("p", "Our 2025 install mix was roughly 55% heat pump, 30% AC + gas furnace, 15% dual-fuel. The heat pump share has been climbing 10 points a year, driven almost entirely by the federal tax credit and customers who've done the math. It'll probably be 70%+ by 2027."),
+            ("p", "Our 2025 install mix was roughly 55% heat pump, 30% AC + gas furnace, 15% dual-fuel. The heat pump share has been climbing 10 points a year, mostly driven by customers who've done the operating-cost math and SRP customers stacking the Cool Cash rebate. The federal 25C tax credit on air-source heat pumps expired at the end of 2025, so 2026 has shifted the decision more toward operating cost and utility rebates than tax incentives — but the math still favors heat pumps for most Phoenix homes."),
+            ("h2", "Federal incentives in 2026 — the truth"),
+            ("p", "The 30% federal tax credit on air-source heat pumps (Section 25C) <strong>ended December 31, 2025</strong>. Geothermal heat pumps still qualify for the 30% credit through 2032. State-administered IRA programs are filling part of the gap: Arizona's HEAR program offers up to $8,000 to income-qualifying households, and the HOMES program — which isn't income-restricted — is expected to launch in Arizona later in 2026 with up to $4,000 per home based on measured energy savings. On the utility side, SRP's Cool Cash rebate is still very much active and is the cleanest path to immediate dollars off your install. APS ended residential energy-efficiency rebates on January 1, 2026."),
             ("h2", "Want the math for your specific home?"),
             ("p", "We do a free side-by-side 10-year operating-cost comparison on every install estimate. No pressure — just the numbers. <a href=\"/contact.html\">Get in touch</a> to get yours.")
         ]
@@ -224,6 +228,44 @@ POSTS = [
             ("p", "Once the ice is fully melted (plan on 2–4 hours with the fan running), try the system again. If it refreezes or doesn't cool, you need a diagnostic — something beyond a filter is causing it. Call <a href=\"tel:+16233529802\">(623) 352-9802</a> and we'll come diagnose. Same-day is the norm, even in July."),
             ("h2", "Prevent the next one"),
             ("p", "Change your filter every 60–90 days in Phoenix (more often with pets). Get a tune-up before summer. Those two habits alone eliminate 80% of freeze calls. Our <a href=\"/maintenance-plan.html\">Comfort Club</a> bundles it all in at $18/month.")
+        ]
+    },
+    {
+        "slug": "r-454b-refrigerant-phoenix-2026",
+        "title": "What R-454B Means for Your Next AC in Phoenix (2026 A2L Refrigerant Guide)",
+        "meta_description": "Why new Phoenix AC installs cost more in 2026, what R-454B is, whether your old R-410A system is in trouble, and how the change affects your install timing.",
+        "keywords": ["r-454b phoenix", "a2l refrigerant phoenix", "new ac 2026 refrigerant change", "r-410a phase out arizona", "puron advance phoenix"],
+        "author": "Instant Heating and Air",
+        "date": "2026-05-28",
+        "category": "Industry Update",
+        "related_service": "ac-installation",
+        "hero_dek": "Quick, honest answers to what every Phoenix homeowner is asking about the 2026 refrigerant change.",
+        "body": [
+            ("h2", "The 30-second version"),
+            ("p", "Starting January 1, 2026, every new residential AC and heat pump system installed in the United States must use a low-GWP refrigerant — almost always R-454B (sold as Puron Advance, Opteon XL41, or Solstice 454B), with a few manufacturers using R-32. Those replaced R-410A, the standard since the early 2000s. The new equipment costs roughly 5–10% more. <strong>Your existing R-410A system is fine</strong>. R-410A refrigerant remains available for repairs and parts are still being manufactured. The mandate only applies to new system installations."),
+            ("h2", "Why the change happened"),
+            ("p", "R-410A has a global warming potential (GWP) of about 2,088 — meaning a pound of it released into the atmosphere traps 2,088 times more heat than a pound of CO₂. R-454B's GWP is around 466, a 78% reduction. The EPA's AIM Act, passed in 2020, ratcheted down the U.S. refrigerant industry's allowed annual production of high-GWP refrigerants in stages, with January 1, 2026 marking the cutoff for new residential systems. This is the same kind of phase-out we went through with R-22 (Freon) in the 2010s — except this time R-410A isn't being banned outright, just replaced going forward."),
+            ("h2", "What this means in practical terms for Phoenix homeowners"),
+            ("h3", "If you have an R-410A system right now"),
+            ("p", "Keep it. There is no urgent reason to replace a working R-410A system in 2026 just because of the refrigerant change. R-410A refrigerant is still in production through at least the late 2020s, and reclaimed R-410A from old systems will keep parts and service available for years beyond that. The cost of R-410A may creep up over time as supply tightens, but for routine service the impact on your bills is minor."),
+            ("h3", "If you're planning a new install in 2026"),
+            ("p", "You'll be installing R-454B (or R-32 with a few specific brands). Expect the system itself to run 5–10% more than the equivalent 2025 R-410A model, because the new equipment includes added safety equipment — leak sensors, redesigned electrical components, and updated service valves — that A2L \"mildly flammable\" refrigerants require by code. The performance, efficiency, and warranty terms are functionally the same."),
+            ("h3", "If you're trying to dodge the price bump by hurrying"),
+            ("p", "It's already too late for that in 2026 — distributors stopped shipping new R-410A residential equipment to contractors at the end of 2025, with some small carryover inventory cleared in Q1. By mid-2026 essentially all available new-system inventory in Phoenix is R-454B. We don't currently stock new R-410A equipment because we can't get it."),
+            ("h2", "Is R-454B safe in my home?"),
+            ("p", "Yes. The \"A2L\" classification is the EPA's way of saying the refrigerant is mildly flammable, but only at concentrations and ignition conditions that are exceedingly difficult to reach in a properly installed residential system. To put it in perspective: every modern car uses A2L refrigerant (R-1234yf has been the automotive standard since 2017), and your propane grill is a far more concentrated flammability risk than your AC line set. R-454B's safety record in commercial systems has been excellent. The redesigned residential equipment includes mitigation built in — leak detection sensors that shut the system down before any meaningful refrigerant concentration could build up."),
+            ("h2", "Can you mix R-410A and R-454B?"),
+            ("p", "No. R-410A and R-454B are chemically different and use different oils. They are not interchangeable, and you cannot top off an R-410A system with R-454B (or vice versa). Service techs use separate gauges, recovery machines, and recovery tanks for each refrigerant — and any reputable shop is going to label their equipment clearly. If you ever hear a tech say \"oh, R-454B is basically R-410A\" — different shop."),
+            ("h2", "What this means for SRP Cool Cash rebates"),
+            ("p", "Good news here. SRP's Cool Cash rebate program continues into 2026 with the same per-ton structure that was in place for R-410A systems — $75/ton single-stage, $150/ton two-stage, $225/ton variable-speed (so a 5-ton variable-speed install rebates $1,125 back to you). The rebate is based on SEER2 rating and ENERGY STAR certification, not the refrigerant type, so qualifying R-454B systems get the full rebate. We file the paperwork on every install we do for SRP customers — no extra charge."),
+            ("h2", "What about APS customers?"),
+            ("p", "APS ended all residential energy-efficiency rebates on January 1, 2026, so APS customers no longer get a utility rebate on new system installs. APS still offers their $99 partnered home energy audit, which we recommend because it identifies where your home is leaking efficiency that no new equipment can fully compensate for. For APS-territory customers, the path to rebates in 2026 runs through state-level IRA programs (Arizona's HEAR for income-qualifying households, the upcoming HOMES program for everyone else) rather than the utility."),
+            ("h2", "Federal tax credits — the honest version"),
+            ("p", "The federal 25C tax credit for air-source heat pumps expired December 31, 2025. Heat pumps installed in 2026 (R-454B or otherwise) no longer qualify for that 30%/$2,000 credit. Only geothermal heat pumps still qualify for a federal tax credit — 30% through 2032. State-administered IRA rebates are still the live track for most Phoenix homeowners: HEAR (income-qualifying, up to $8,000) and HOMES (no income cap, up to $4,000) when it launches in Arizona later this year."),
+            ("h2", "Should you wait, install now, or limp the old unit?"),
+            ("p", "Quick framework: if your system is under 10 years old and working, keep it. If it's 10–15 years old and the last repair was minor, ride it another season but start saving for replacement. If it's over 15 years old, or using R-22, replace now — efficiency gains and reliability typically pay back the 2026 R-454B price bump within 3-4 years anyway. If you're SRP territory, schedule before summer hits to lock in Cool Cash funding while it's available."),
+            ("h2", "Get a real number for your home"),
+            ("p", "Every install is different. Want to see what an R-454B install priced for your specific home and SRP/APS situation actually looks like? <a href=\"/services/ac-installation.html\">Our AC installation page</a> walks through our process, or call <a href=\"tel:+16233529802\">(623) 352-9802</a> for a free in-home estimate. No high-pressure sales call, no fee for the visit, no late-night surprise charges. We'll show you the numbers and let you decide.")
         ]
     }
 ]

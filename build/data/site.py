@@ -102,7 +102,15 @@ FOOTER_AREAS = [
 HOME_FAQ = [
     {
         "q": "How much does a new AC unit cost in Phoenix?",
-        "a": "For a standard 3-ton single-stage system installed in a Phoenix-area home, expect $7,800–$11,500 depending on efficiency (SEER2), brand, and ductwork condition. High-efficiency variable-speed systems run $12,500–$16,500. We give itemized estimates — no mystery numbers."
+        "a": "For a standard 3-ton single-stage R-454B system installed in a Phoenix-area home, expect $8,400–$12,500 depending on efficiency (SEER2), brand, and ductwork condition. High-efficiency variable-speed systems run $13,200–$17,000. Prices ticked up about 5–10% in 2026 because of the new A2L refrigerant requirement. We give itemized estimates — no mystery numbers."
+    },
+    {
+        "q": "What is R-454B and will my old R-410A system still work?",
+        "a": "R-454B is the new low-global-warming-potential refrigerant required by the EPA's AIM Act for all residential AC and heat pump systems installed January 1, 2026 or later. It replaces R-410A. Your existing R-410A system is fine — R-410A refrigerant remains available for service and parts will be supported for years. The mandate only affects new system installations. New R-454B systems cost roughly 5–10% more than equivalent 2025 R-410A models. We exclusively install R-454B-compatible equipment from Carrier, Trane, Lennox, Bosch, and others."
+    },
+    {
+        "q": "Do you handle SRP Cool Cash and other Phoenix rebates?",
+        "a": "Yes — every install we do for SRP customers includes the Cool Cash rebate paperwork at no charge. SRP's 2026 rebate pays $75 per ton for single-stage, $150/ton for two-stage, and $225/ton for variable-speed inverter systems — up to $1,125 back on a 5-ton variable-speed heat pump. APS ended residential rebates on January 1, 2026, so APS-territory customers no longer get a utility rebate. For income-qualifying households, Arizona's HEAR program offers up to $8,000 toward HVAC and electrification projects. We walk through the available options on every estimate."
     },
     {
         "q": "Do you offer free estimates?",

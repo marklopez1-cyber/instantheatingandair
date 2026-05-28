@@ -811,8 +811,8 @@ def club_band():
 # ---------------------------------------------------------------------------
 
 def build_home():
-    title = f"Phoenix HVAC Company | {SITE['name']} — Professionals You Can Trust"
-    desc = "Honest Phoenix HVAC: same-day AC repair, installation, and heating service across Phoenix, Anthem, and the North Valley. Licensed, bonded, 24/7 emergency. Call (623) 352-9802."
+    title = f"Phoenix HVAC | AC Repair, R-454B Install & 24/7 Emergency | {SITE['name']}"
+    desc = f"Honest Phoenix HVAC — {SITE['avg_rating']}★ on {SITE['total_reviews']} Google reviews. Same-day AC repair, 2026 R-454B installs, SRP Cool Cash rebates handled. 24/7 emergency across Phoenix, Anthem & North Valley. {SITE['phone_display']}."
 
     # Live Google reviews — fetched from the Places API (data/google_reviews.py)
     # Each rebuild picks up the freshest snapshot in google_reviews.json.
@@ -887,6 +887,27 @@ def build_home():
   </section>
 
   {trust_strip()}
+
+  <!-- 2026 update strip — surfaces the latest industry-shift keywords
+       (R-454B refrigerant, SRP Cool Cash rebates) in the first viewport
+       so Google sees them weighted higher and visitors immediately
+       see we're current with industry changes. -->
+  <section class="update-strip" aria-label="2026 HVAC updates we handle">
+    <div class="container update-strip-inner">
+      <a class="update-chip" href="/blog/r-454b-refrigerant-phoenix-2026.html">
+        <span class="update-chip-icon" aria-hidden="true">🆕</span>
+        <span><strong>Now installing R-454B systems</strong><br><span class="update-chip-sub">2026 refrigerant standard</span></span>
+      </a>
+      <a class="update-chip" href="/services/ac-installation.html#rebates">
+        <span class="update-chip-icon" aria-hidden="true">💰</span>
+        <span><strong>SRP Cool Cash rebates handled</strong><br><span class="update-chip-sub">Up to $1,125 back · we file the paperwork</span></span>
+      </a>
+      <a class="update-chip" href="/about.html">
+        <span class="update-chip-icon" aria-hidden="true">🛡️</span>
+        <span><strong>Family-owned · AZ ROC #348556</strong><br><span class="update-chip-sub">Licensed · bonded · insured</span></span>
+      </a>
+    </div>
+  </section>
 
   <!-- Why us -->
   <section class="section">
