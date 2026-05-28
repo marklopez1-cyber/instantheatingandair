@@ -59,7 +59,7 @@ SERVICES = [
         "pricing_note": "Waived with any completed repair",
         "cta_type": "service_call",
         "faqs": [
-            ("How fast can you get here?", "Same-day in almost every case. Emergency calls in Phoenix, Anthem, and the North Valley are typically on-site within 2 hours."),
+            ("How fast can you get here?", "Same-day in almost every case. Most emergency calls in Phoenix, Anthem, and the North Valley are on-site within 4 hours."),
             ("Do you work on all brands?", "Yes — Carrier, Trane, Lennox, Goodman, Rheem, Amana, Bryant, American Standard, York, Daikin, Mitsubishi, and plenty of older units other shops won't touch."),
             ("How do you charge?", "Flat-rate repair pricing approved before we start. No hourly surprises and no fine-print labor multipliers."),
             ("Is the diagnostic visit free?", "No — the diagnostic visit is $84.50. That covers the trip, a full system inspection, and a written, flat-rate repair quote. The $84.50 is waived the moment you approve the repair, so most customers pay nothing extra. Free estimates are reserved for full system replacements."),
@@ -349,9 +349,9 @@ SERVICES = [
         "bg_image": "/assets/img/services/emergency-hvac-rooftop.jpg",
         "bg_alt": "Instant Heating and Air technicians on a Phoenix rooftop at sunrise during a 24/7 emergency call",
         "meta_title": "24 Hour AC & Heating Repair Phoenix | Emergency HVAC | Instant Heating and Air",
-        "meta_description": "24/7 emergency AC and heating repair across Phoenix, Anthem, and the North Valley. Live dispatch, typical 2-hour response. Call (623) 352-9802.",
+        "meta_description": "24/7 emergency AC and heating repair across Phoenix, Anthem, and the North Valley. Same-day dispatch, most emergencies on-site within 4 hours. Call (623) 352-9802.",
         "keywords": ["24 hour ac repair phoenix", "emergency hvac phoenix", "after hours ac repair phoenix"],
-        "short_desc": "Live dispatch, typical 2-hour response — day, night, or holiday.",
+        "short_desc": "Same-day dispatch — most emergencies on-site within 4 hours, day, night, or holiday.",
         "hero_subhead": "A 118° bedroom at 3am is not a wait-till-Monday problem.",
         "intro": (
             "We run a live 24/7 dispatch because Phoenix heat doesn't care about business hours. Elderly parents, newborns, pets, home offices — "
@@ -360,7 +360,7 @@ SERVICES = [
         ),
         "included": [
             "Live (human) dispatch 24/7/365",
-            "Typical 2-hour on-site response in Phoenix and the North Valley",
+            "Most emergencies on-site within 4 hours in Phoenix and the North Valley",
             "Flat-rate emergency pricing — you see the number before work starts",
             "Fully stocked trucks for the most common Phoenix-area failures",
             "1-year warranty on every emergency repair",
@@ -385,7 +385,7 @@ SERVICES = [
         "cta_type": "service_call",
         "faqs": [
             ("What counts as an emergency?", "Any condition that creates a safety, health, or serious comfort risk. Use your judgment — if you're unsure, call and we'll help you decide."),
-            ("How long until you get here?", "Phoenix metro response is typically under 2 hours. North Valley ZIPs (85086, 85087, 85083, 85262) are often faster because we're based here."),
+            ("How long until you get here?", "Most Phoenix metro emergencies are on-site within 4 hours. North Valley ZIPs (85086, 85087, 85083, 85262) are often faster because we're based here. We'll text you a real ETA the moment your call is dispatched — no vague \"sometime today\" runarounds."),
             ("Is after-hours more expensive?", "Yes for non-members — about 20% above standard rates. Comfort Club members pay no overtime, period."),
             ("Do you work on weekends and holidays?", "Yes. 24/7/365. Including Christmas Eve at 11:30pm — a real call we handled.")
         ],

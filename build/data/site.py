@@ -122,7 +122,7 @@ HOME_FAQ = [
     },
     {
         "q": "Do you offer 24/7 emergency service?",
-        "a": "Yes. 118° summer nights don't wait. Call (623) 352-9802 any time and we'll dispatch the closest licensed technician — typically within 2 hours in Phoenix, Anthem, and the North Valley."
+        "a": "Yes. 118° summer nights don't wait. Call (623) 352-9802 any time and we'll dispatch the closest licensed technician. Most emergency calls in Phoenix, Anthem, and the North Valley are on-site within 4 hours — same-day in nearly every case."
     },
     {
         "q": "What HVAC brands do you service?",
@@ -134,7 +134,7 @@ HOME_FAQ = [
     },
     {
         "q": "How quickly can you get to me in Anthem or New River?",
-        "a": "Same-day appointments are the norm in Anthem, New River, Desert Hills, and Cave Creek. Emergency calls typically see a tech within 2 hours — we stage trucks in the North Valley precisely because these are our home ZIPs."
+        "a": "Same-day appointments are the norm in Anthem, New River, Desert Hills, and Cave Creek. Most emergency calls see a tech within 4 hours — we stage trucks in the North Valley precisely because these are our home ZIPs."
     },
     {
         "q": "Are you licensed, bonded, and insured?",

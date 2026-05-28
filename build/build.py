@@ -1094,7 +1094,7 @@ def build_service_page(svc):
         <p class="intro">{svc['intro']}</p>
         <div class="kv">
           <div class="i"><b>{esc(svc['pricing_label'])}</b><span>{esc(svc['pricing_value'])} — {esc(svc['pricing_note'])}</span></div>
-          <div class="i"><b>Response Time</b><span>Same-day / 2-hour emergency</span></div>
+          <div class="i"><b>Response Time</b><span>Same-day · most emergencies within 4 hrs</span></div>
           <div class="i"><b>Warranty</b><span>1-year written parts &amp; labor</span></div>
           <div class="i"><b>Coverage</b><span>Phoenix, Anthem &amp; North Valley</span></div>
         </div>
@@ -1307,7 +1307,7 @@ def build_area_page(area):
     </div>
   </section>
 
-  {final_cta(title_h2=f'Need HVAC Help in <span class="o">{esc(area["name"])}?</span>', p=f"We're stocked, staged, and scheduled to serve {esc(area['name'])} every day of the week. Same-day service is the norm — emergency response typically under 2 hours.")}
+  {final_cta(title_h2=f'Need HVAC Help in <span class="o">{esc(area["name"])}?</span>', p=f"We're stocked, staged, and scheduled to serve {esc(area['name'])} every day of the week. Same-day service is the norm — most emergency calls on-site within 4 hours.")}
 </main>
 {footer()}"""
     write(f"service-areas/{area['slug']}.html", head(title, desc, f"service-areas/{area['slug']}.html") + page_schema + body)

@@ -12,7 +12,7 @@ AREAS = [
             "Central and North Phoenix homes bear the worst of the summer heat — 115°+ day after day for weeks at a time. "
             "AC capacity and coil cleanliness matter more here than almost anywhere in the country."
         ),
-        "response_claim": "Same-day service across Phoenix ZIPs 85086, 85085, 85083, 85024, and 85027. Emergency dispatch typically on-site within 2 hours.",
+        "response_claim": "Same-day service across Phoenix ZIPs 85086, 85085, 85083, 85024, and 85027. Most emergency calls on-site within 4 hours.",
         "local_detail": (
             "Phoenix is where Instant Heating and Air started — most of our technicians live in the North Phoenix corridor, "
             "which means we've been inside the same floor plans you're standing in. The big-name Phoenix HVAC shops have gotten "
@@ -66,7 +66,7 @@ AREAS = [
             "Cave Creek and nearby Carefree see big day-to-night swings — 105°+ summer afternoons into low 60s overnight. That swing is "
             "actually brutal on HVAC systems, which constantly cycle between max cooling and long idle periods."
         ),
-        "response_claim": "Same-day Cave Creek service. Emergency response typically within 2 hours.",
+        "response_claim": "Same-day Cave Creek service. Most emergency calls on-site within 4 hours.",
         "local_detail": (
             "Cave Creek has a lot of architecturally ambitious homes — ranch-style with tile roofs and brick-heavy construction that holds heat "
             "well into the night. Oversized ACs here are a common problem we inherit from original installs. We right-size and re-commission rather "
@@ -135,7 +135,7 @@ AREAS = [
             "Glendale's West Valley climate runs a couple degrees hotter than Phoenix proper — lots of reflective surfaces, more pavement, "
             "and neighborhoods with less mature tree canopy. Your AC works harder here."
         ),
-        "response_claim": "Same-day Glendale service from our Phoenix dispatch. Typical 2-hour emergency response.",
+        "response_claim": "Same-day Glendale service from our Phoenix dispatch. Most emergency calls on-site within 4 hours.",
         "local_detail": (
             "Glendale has a mix of 1970s–1990s housing stock — a lot of the ductwork is original, R-6 flex with historical leakage rates of 15–30%. "
             "Before spending on a new AC, we always check whether duct sealing would solve half the complaint for a tenth of the cost."
@@ -169,7 +169,7 @@ AREAS = [
             "Surprise runs similarly hot to West Phoenix — in the peak of summer the difference between a 14 SEER and an 18 SEER system "
             "is $70–$100 a month on the utility bill."
         ),
-        "response_claim": "Same-day Surprise service. Typical emergency response within 2 hours.",
+        "response_claim": "Same-day Surprise service. Most emergency calls on-site within 4 hours.",
         "local_detail": (
             "Surprise has large active-adult communities (Sun City Grand, Sun City West border) where fast, respectful, shoe-cover-on, "
             "text-before-arrival service is non-negotiable. That's how we work by default — not just for 55+ customers."
