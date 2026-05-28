@@ -922,8 +922,15 @@ def build_home():
         <p>Real reviews from real Phoenix-area customers — straight from Google. Updated automatically.</p>
       </div>
 
-      <div class="g-reviews-grid">
-        {g_rev_cards}
+      <div class="g-reviews-carousel" data-autoplay="6000" aria-roledescription="carousel" aria-label="Customer reviews from Google">
+        <div class="g-reviews-track" tabindex="0">
+          {g_rev_cards}
+        </div>
+        <button type="button" class="g-rev-arrow g-rev-prev" aria-label="Previous review">‹</button>
+        <button type="button" class="g-rev-arrow g-rev-next" aria-label="Next review">›</button>
+        <div class="g-rev-dots" role="tablist" aria-label="Choose review">
+          {"".join(f'<button type="button" role="tab" aria-label="Show review {i+1}" aria-selected="false"></button>' for i in range(len(LIVE_REVIEWS)))}
+        </div>
       </div>
 
       <div class="g-reviews-cta">

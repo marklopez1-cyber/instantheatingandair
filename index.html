@@ -53,7 +53,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Stylesheet (versioned for cache-busting) -->
-  <link rel="stylesheet" href="/assets/css/styles.css?v=202605281132">
+  <link rel="stylesheet" href="/assets/css/styles.css?v=202605281212">
 
 
 </head>
@@ -252,8 +252,9 @@
         <p>Real reviews from real Phoenix-area customers — straight from Google. Updated automatically.</p>
       </div>
 
-      <div class="g-reviews-grid">
-        <article class="g-rev">
+      <div class="g-reviews-carousel" data-autoplay="6000" aria-roledescription="carousel" aria-label="Customer reviews from Google">
+        <div class="g-reviews-track" tabindex="0">
+          <article class="g-rev">
   <div class="g-rev-head">
     <img class="g-rev-photo" src="https://lh3.googleusercontent.com/a-/ALV-UjXhdrCl2l_jpAdp7TvHY6fnZoRbv5H97VveKm60eQ9ZAHwpKr3F=s96-c" alt="" loading="lazy" width="48" height="48" referrerpolicy="no-referrer" decoding="async">
     <div class="g-rev-meta">
@@ -309,6 +310,12 @@
   <div class="stars" aria-label="5-star review">★★★★★</div>
   <blockquote>"We needed an emergency visit assured as AC unit stopped working and we had the tech visit us the next morning. The issue is identified and fixed (had to wait for parts) in no time and I could get AC back on. I will use Instant heating and cooling for all my future needs. Definitely recommend them."</blockquote>
 </article>
+        </div>
+        <button type="button" class="g-rev-arrow g-rev-prev" aria-label="Previous review">‹</button>
+        <button type="button" class="g-rev-arrow g-rev-next" aria-label="Next review">›</button>
+        <div class="g-rev-dots" role="tablist" aria-label="Choose review">
+          <button type="button" role="tab" aria-label="Show review 1" aria-selected="false"></button><button type="button" role="tab" aria-label="Show review 2" aria-selected="false"></button><button type="button" role="tab" aria-label="Show review 3" aria-selected="false"></button><button type="button" role="tab" aria-label="Show review 4" aria-selected="false"></button><button type="button" role="tab" aria-label="Show review 5" aria-selected="false"></button>
+        </div>
       </div>
 
       <div class="g-reviews-cta">
@@ -496,6 +503,6 @@
     </div>
   </div>
 </div>
-<script src="/assets/js/main.js?v=202605281132" defer></script>
+<script src="/assets/js/main.js?v=202605281212" defer></script>
 </body>
 </html>

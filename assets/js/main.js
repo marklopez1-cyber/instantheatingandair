@@ -193,6 +193,68 @@
     start();
   });
 
+  // ===== Google Reviews carousel — 3 cards in view, center highlighted, auto-rotates =====
+  // This is the homepage's live Google reviews block (data/google_reviews.py).
+  // Only 5 reviews exist (Places API cap), so we visually emphasize the active
+  // center card and let the rotation cycle through to create a sense of depth.
+  document.querySelectorAll('.g-reviews-carousel').forEach((carousel) => {
+    const track = carousel.querySelector('.g-reviews-track');
+    if (!track) return;
+    const cards = Array.from(track.querySelectorAll('.g-rev'));
+    if (cards.length === 0) return;
+
+    const prevBtn = carousel.querySelector('.g-rev-prev');
+    const nextBtn = carousel.querySelector('.g-rev-next');
+    const dots = Array.from(carousel.querySelectorAll('.g-rev-dots button'));
+    const autoplayMs = parseInt(carousel.dataset.autoplay || '0', 10);
+
+    // Start at the middle review so the layout opens with side peeks visible.
+    let current = Math.floor(cards.length / 2);
+    let timer = null;
+    let userInteracted = false;
+
+    function setActive(idx) {
+      current = ((idx % cards.length) + cards.length) % cards.length;
+      cards.forEach((card, i) => card.classList.toggle('is-active', i === current));
+      dots.forEach((dot, i) => dot.setAttribute('aria-selected', i === current ? 'true' : 'false'));
+      const active = cards[current];
+      // Center the active card without scrolling the page itself.
+      const trackRect = track.getBoundingClientRect();
+      const cardRect = active.getBoundingClientRect();
+      const offset = (cardRect.left + cardRect.width / 2) - (trackRect.left + trackRect.width / 2);
+      track.scrollBy({ left: offset, behavior: 'smooth' });
+    }
+
+    function start() {
+      if (autoplayMs <= 0 || reduceMotion) return;
+      stop();
+      timer = setInterval(() => setActive(current + 1), autoplayMs);
+    }
+    function stop() {
+      if (timer) { clearInterval(timer); timer = null; }
+    }
+
+    if (prevBtn) prevBtn.addEventListener('click', () => { userInteracted = true; setActive(current - 1); start(); });
+    if (nextBtn) nextBtn.addEventListener('click', () => { userInteracted = true; setActive(current + 1); start(); });
+    dots.forEach((dot, i) => dot.addEventListener('click', () => { userInteracted = true; setActive(i); start(); }));
+
+    carousel.addEventListener('mouseenter', stop);
+    carousel.addEventListener('mouseleave', start);
+    track.addEventListener('focusin', stop);
+    track.addEventListener('focusout', start);
+    track.addEventListener('touchstart', () => { userInteracted = true; stop(); }, { passive: true });
+    track.addEventListener('touchend', () => setTimeout(start, 5000), { passive: true });
+
+    track.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') { e.preventDefault(); setActive(current + 1); start(); }
+      if (e.key === 'ArrowLeft')  { e.preventDefault(); setActive(current - 1); start(); }
+    });
+
+    // Wait for layout, then snap into the initial centered state.
+    requestAnimationFrame(() => requestAnimationFrame(() => setActive(current)));
+    start();
+  });
+
   // ===== CTA click tracking (GA + GTM) =====
   document.addEventListener('click', (e) => {
     const t = e.target.closest('[data-track]');
