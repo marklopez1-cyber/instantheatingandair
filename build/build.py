@@ -1095,7 +1095,7 @@ def build_service_page(svc):
         <div class="kv">
           <div class="i"><b>{esc(svc['pricing_label'])}</b><span>{esc(svc['pricing_value'])} — {esc(svc['pricing_note'])}</span></div>
           <div class="i"><b>Response Time</b><span>Same-day · most emergencies within 4 hrs</span></div>
-          <div class="i"><b>Warranty</b><span>{'10-year manufacturer parts · labor warranty as paid add-on' if svc.get('cta_type') == 'free_estimate' else '1-year written parts &amp; labor'}</span></div>
+          <div class="i"><b>Warranty</b><span>{svc.get('warranty_label', '10-year manufacturer parts · labor warranty as paid add-on' if svc.get('cta_type') == 'free_estimate' else '90-day parts warranty on repairs')}</span></div>
           <div class="i"><b>Coverage</b><span>Phoenix, Anthem &amp; North Valley</span></div>
         </div>
         <div class="ctas">
@@ -1980,7 +1980,7 @@ def main():
         "Terms governing the use of our website and services. Last updated April 2026.",
         [
             ("Services", "All services provided by Instant Heating and Air, LLC are subject to a written agreement or work order signed at the time of service."),
-            ("Warranty", "Repairs are warranted for 1 year parts and labor. New installations include the manufacturer's 10-year parts warranty as standard; an extended labor warranty is available as an optional add-on for an additional fee, with terms quoted at the time of sale. Warranty service requires proof of original work."),
+            ("Warranty", "Residential repair, tune-up, maintenance, and emergency service work carries a 90-day parts warranty on the work performed. New residential installations (AC, heating) include the manufacturer's 10-year parts warranty as standard, with an optional extended labor warranty available as a paid add-on, quoted at the time of sale. Commercial installations carry a 1-year manufacturer parts and labor warranty. Indoor Air Quality product warranties vary by manufacturer. All warranty service requires proof of original work."),
             ("Limitation of Liability", "Our liability is limited to the amount paid for the specific service at issue. We are not responsible for consequential or incidental damages."),
             ("Payment", "Payment is due at the time of service unless financing has been arranged in advance. We accept credit card, check, ACH, and approved financing."),
             ("Governing Law", "These terms are governed by the laws of the State of Arizona.")

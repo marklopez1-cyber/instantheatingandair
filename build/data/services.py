@@ -20,13 +20,13 @@ SERVICES = [
         "bg_image": "/assets/img/services/ac-repair-tech.jpg",
         "bg_alt": "Instant Heating and Air technician repairing an AC unit on a Phoenix-area home",
         "meta_title": "AC Repair Phoenix, AZ | Same-Day | Instant Heating and Air",
-        "meta_description": "Fast, honest AC repair in Phoenix and the North Valley. Same-day service, flat-rate pricing, 1-year warranty. Call (623) 352-9802 — open 24/7.",
+        "meta_description": "Fast, honest AC repair in Phoenix and the North Valley. Same-day service, flat-rate pricing, 90-day parts warranty on every repair. Call (623) 352-9802 — open 24/7.",
         "keywords": ["ac repair phoenix", "air conditioning repair phoenix", "emergency ac repair phoenix az", "ac not cooling phoenix"],
         "short_desc": "Same-day diagnosis, honest fix, cold air fast. All makes, all models.",
         "hero_subhead": "Your AC quit. It's 112° outside. Here's what happens next.",
         "intro": (
             "Your AC quit. It's 112° outside. Here's what happens next: you call (623) 352-9802, we roll a truck the same day, "
-            "a licensed technician diagnoses the problem, you see the price <em>before</em> we start, and we fix it with a written warranty. "
+            "a licensed technician diagnoses the problem, you see the price <em>before</em> we start, and we fix it with a 90-day written parts warranty. "
             "No surprise fees, no panic-selling you a new system you don't need. That's AC repair the way it should be — and exactly why "
             "homeowners across Phoenix, Anthem, and the North Valley keep our number on the fridge."
         ),
@@ -37,7 +37,7 @@ SERVICES = [
             "Capacitor, contactor, and breaker inspection",
             "Condensate line clearing",
             "Coil temperature-drop and static-pressure test",
-            "1-year written parts and labor warranty on repairs"
+            "90-day written parts warranty on repairs"
         ],
         "signs": [
             "Warm air coming from the vents",
@@ -52,12 +52,13 @@ SERVICES = [
             ("Diagnose", "Full system inspection. Thermostat, refrigerant, electrical, coil, compressor — all of it."),
             ("Explain", "We show you what's wrong in plain English. You approve a flat-rate price before we touch a thing."),
             ("Fix", "Licensed, insured techs with a truck full of common parts — most repairs are done in a single visit."),
-            ("Guarantee", "1-year parts and labor warranty, in writing. If it fails, we come back — no argument.")
+            ("Guarantee", "90-day parts warranty on the repair, in writing. If a part we replaced fails within 90 days, we come back at no charge.")
         ],
         "pricing_label": "Diagnostic Fee",
         "pricing_value": "$84.50",
         "pricing_note": "Waived with any completed repair",
         "cta_type": "service_call",
+        "warranty_label": "90-day parts warranty on every repair",
         "faqs": [
             ("How fast can you get here?", "Same-day in almost every case. Most emergency calls in Phoenix, Anthem, and the North Valley are on-site within 4 hours."),
             ("Do you work on all brands?", "Yes — Carrier, Trane, Lennox, Goodman, Rheem, Amana, Bryant, American Standard, York, Daikin, Mitsubishi, and plenty of older units other shops won't touch."),
@@ -117,6 +118,7 @@ SERVICES = [
         "pricing_value": "$8,400",
         "pricing_note": "3-ton 14.3 SEER2 R-454B — financing from $115/mo OAC · Free in-home estimate · SRP Cool Cash filed for you",
         "cta_type": "free_estimate",
+        "warranty_label": "10-year manufacturer parts · labor warranty as paid add-on",
         "faqs": [
             ("What does a new AC cost in Phoenix in 2026?", "Installed pricing ranges from $8,400 for a basic 3-ton single-stage R-454B system up to $17,000 for a high-efficiency variable-speed system. Most North Valley homes land in the $10,000–$12,500 range. Prices ticked up roughly 5–10% in 2026 because of the new A2L refrigerant requirement."),
             ("What is R-454B and why does my new AC use it?", "R-454B is the low-global-warming-potential refrigerant the EPA's AIM Act required for all new residential systems installed January 1, 2026 or later. It replaces R-410A. The chemistry is different (78% lower GWP), the safety equipment is more extensive, and the install cost runs 5–10% higher — but performance, efficiency, and reliability are functionally the same. Your existing R-410A system is fine; the change only affects new installs."),
@@ -177,6 +179,7 @@ SERVICES = [
         "pricing_value": "$99",
         "pricing_note": "Or $18/mo Comfort Club includes 2 visits + 15% off repairs",
         "cta_type": "service_call",
+        "warranty_label": "90-day parts warranty on any repairs made",
         "faqs": [
             ("How often should I tune up my AC?", "Twice a year in Phoenix — once before cooling season, once before heating season. Our Comfort Club covers both."),
             ("Does maintenance really save money?", "Typically 10–30% on utility bills plus the catastrophic-failure avoidance. A $20 capacitor caught in April is a $2,000 compressor avoided in August."),
@@ -209,7 +212,7 @@ SERVICES = [
             "Electric strip heater element continuity test",
             "Thermostat wiring and control-board verification",
             "Blower motor and inducer amp-draw check",
-            "1-year written parts and labor warranty"
+            "90-day written parts warranty on repairs"
         ],
         "signs": [
             "Furnace lights and then shuts off (short cycling)",
@@ -223,12 +226,13 @@ SERVICES = [
             ("Diagnose", "Full heat-side inspection — gas, electrical, and refrigerant as applicable."),
             ("Explain", "Plain-English findings and a flat-rate repair number approved before we start."),
             ("Fix", "Common parts (ignitors, flame sensors, capacitors, boards) stocked on the truck."),
-            ("Guarantee", "1-year written parts and labor warranty on every heating repair.")
+            ("Guarantee", "90-day written parts warranty on every heating repair.")
         ],
         "pricing_label": "Diagnostic Fee",
         "pricing_value": "$84.50",
         "pricing_note": "Waived with any completed repair",
         "cta_type": "service_call",
+        "warranty_label": "90-day parts warranty on every repair",
         "faqs": [
             ("What brands of furnaces do you service?", "All major brands — Carrier, Trane, Lennox, Goodman, Rheem, American Standard, York, Amana, Bryant, and many more."),
             ("Do heat pumps really work in the desert?", "Modern variable-speed heat pumps work beautifully in the Phoenix metro — most are your most efficient heat source down to about 30°F, with electric strip heat as backup."),
@@ -281,6 +285,7 @@ SERVICES = [
         "pricing_value": "$5,900",
         "pricing_note": "80% AFUE gas furnace — heat pumps and dual-fuel from $9,800 · Free in-home estimate",
         "cta_type": "free_estimate",
+        "warranty_label": "10-year manufacturer parts · labor warranty as paid add-on",
         "faqs": [
             ("Heat pump or furnace in Phoenix?", "For most homes, a heat pump wins on operating cost and moves less carbon. If you already have cheap gas and a newer AC, a matched gas furnace is still fine."),
             ("What's dual-fuel?", "A heat pump that does the heavy lifting down to ~30°F, handing off to a gas furnace below that. Best of both worlds for the North Valley."),
@@ -334,6 +339,7 @@ SERVICES = [
         "pricing_value": "$99",
         "pricing_note": "Or $18/mo Comfort Club includes AC + heat tune-ups",
         "cta_type": "service_call",
+        "warranty_label": "90-day parts warranty on any repairs made",
         "faqs": [
             ("Do I really need this every year?", "For combustion appliances (gas furnaces), yes — it's a safety inspection as much as a tune-up. For heat pumps, every other year is acceptable."),
             ("Will you install a CO detector?", "Yes — we can add one during the tune-up at cost."),
@@ -363,7 +369,7 @@ SERVICES = [
             "Most emergencies on-site within 4 hours in Phoenix and the North Valley",
             "Flat-rate emergency pricing — you see the number before work starts",
             "Fully stocked trucks for the most common Phoenix-area failures",
-            "1-year warranty on every emergency repair",
+            "90-day parts warranty on every emergency repair",
             "Comfort Club members: no overtime or after-hours surcharges"
         ],
         "signs": [
@@ -383,6 +389,7 @@ SERVICES = [
         "pricing_value": "$149",
         "pricing_note": "Diagnostic + dispatch — waived with repair · $0 for Comfort Club members",
         "cta_type": "service_call",
+        "warranty_label": "90-day parts warranty on emergency repairs",
         "faqs": [
             ("What counts as an emergency?", "Any condition that creates a safety, health, or serious comfort risk. Use your judgment — if you're unsure, call and we'll help you decide."),
             ("How long until you get here?", "Most Phoenix metro emergencies are on-site within 4 hours. North Valley ZIPs (85086, 85087, 85083, 85262) are often faster because we're based here. We'll text you a real ETA the moment your call is dispatched — no vague \"sometime today\" runarounds."),
@@ -434,6 +441,7 @@ SERVICES = [
         "pricing_value": "$149/mo",
         "pricing_note": "Per rooftop unit — includes 2 visits/yr and priority response · Free site walk-through",
         "cta_type": "free_estimate",
+        "warranty_label": "1-year manufacturer parts and labor",
         "faqs": [
             ("Do you bid replacement RTUs?", "Yes — 3-ton through 25-ton packaged and split systems. Typically 2-bid competitive pricing."),
             ("Do you work with property managers?", "Absolutely. We invoice and report on whatever cadence your management company requires."),
@@ -487,6 +495,7 @@ SERVICES = [
         "pricing_value": "$449",
         "pricing_note": "UV lamp install — full whole-home systems from $1,200 · Free in-home estimate",
         "cta_type": "free_estimate",
+        "warranty_label": "Manufacturer's parts warranty (varies by product) · 90-day labor",
         "faqs": [
             ("Does duct cleaning actually help?", "In older Phoenix homes with original flex duct or homes after a remodel, yes — very noticeably. In newer, clean homes, the ROI is marginal and we'll tell you so."),
             ("Are UV lamps safe?", "Yes — they live inside the ductwork and never expose occupants. They sterilize the coil and drastically reduce mold growth during monsoon season."),
