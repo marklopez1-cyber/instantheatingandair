@@ -275,6 +275,67 @@ p { margin: 0 0 1em; }
 .card-item h3 { color: var(--navy); margin-bottom: 10px; }
 .card-item p { color: var(--mute); font-size: 0.9375rem; margin: 0; }
 
+/* ===========================================================
+   Why Us cards — photo backgrounds with a navy scrim for legible
+   white text. Each .why-card-<slug> rule pins its own image. The
+   .why-card-scrim layer sits above the photo but under the body
+   content, lifting contrast without darkening the photo to mud.
+   =========================================================== */
+.why-card {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  color: #fff;
+  background-color: var(--navy);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 320px;
+  border-color: transparent;
+}
+.why-card-scrim {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(20, 60, 94, 0.35) 0%, rgba(20, 60, 94, 0.88) 100%);
+  z-index: 1;
+  pointer-events: none;
+  transition: background 0.25s ease;
+}
+.why-card:hover .why-card-scrim {
+  background:
+    linear-gradient(180deg, rgba(20, 60, 94, 0.45) 0%, rgba(20, 60, 94, 0.92) 100%);
+}
+.why-card-body {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.why-card .ic {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: #fff;
+  backdrop-filter: blur(4px);
+}
+.why-card h3 {
+  color: #fff;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+}
+.why-card p {
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 1rem;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
+}
+.why-card-straight-shooter { background-image: url('../img/why/why-straight-shooter.jpg'); }
+.why-card-techs-local      { background-image: url('../img/why/why-techs-local.jpg'); }
+.why-card-fixed-right      { background-image: url('../img/why/why-fixed-right.jpg'); }
+
+@media (max-width: 900px) {
+  .why-card { min-height: 260px; }
+}
+
 /* Services grid */
 .svc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
 @media (max-width: 900px) { .svc-grid { grid-template-columns: 1fr; } }

@@ -138,20 +138,26 @@ HOME_FAQ = [
     }
 ]
 
-# "Why us" 3-up
+# "Why us" 3-up. Each card's `slug` drives a CSS class (.why-card-<slug>)
+# that paints the matching photo from /assets/img/why/why-<slug>.jpg as a
+# dark-overlaid background — so the text stays sharp white over a real
+# Instant Heating and Air scene.
 WHY_US = [
     {
         "icon": "chat",
+        "slug": "straight-shooter",
         "title": "Straight-Shooter Pricing",
         "body": "You see the price before we start. No surprise fees, no panic-sells, no upsells you didn't ask for."
     },
     {
         "icon": "sun",
+        "slug": "techs-local",
         "title": "Techs Who Live Here",
         "body": "We know what a 118° attic does to a condenser because we've been in one this week. Local homes, local solutions."
     },
     {
         "icon": "shield",
+        "slug": "fixed-right",
         "title": "Fixed Right, Guaranteed",
         "body": "Every repair and every install is backed by a written warranty. If it's not right, we come back until it is."
     }

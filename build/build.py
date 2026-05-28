@@ -763,10 +763,15 @@ def brand_wall():
 def why_us_grid():
     cards = ""
     for w in WHY_US:
-        cards += f"""<div class="card-item">
-  <div class="ic">{icon(w['icon'])}</div>
-  <h3>{esc(w['title'])}</h3>
-  <p>{esc(w['body'])}</p>
+        slug = w.get('slug', '')
+        slug_class = f" why-card-{slug}" if slug else ""
+        cards += f"""<div class="card-item why-card{slug_class}">
+  <div class="why-card-scrim"></div>
+  <div class="why-card-body">
+    <div class="ic">{icon(w['icon'])}</div>
+    <h3>{esc(w['title'])}</h3>
+    <p>{esc(w['body'])}</p>
+  </div>
 </div>"""
     return f'<div class="grid-3">{cards}</div>'
 
