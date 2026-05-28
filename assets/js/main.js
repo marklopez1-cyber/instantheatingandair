@@ -213,10 +213,12 @@
     let timer = null;
     let userInteracted = false;
 
-    function setActive(idx) {
+    function setActive(idx, doScroll) {
+      if (doScroll === undefined) doScroll = true;
       current = ((idx % cards.length) + cards.length) % cards.length;
       cards.forEach((card, i) => card.classList.toggle('is-active', i === current));
       dots.forEach((dot, i) => dot.setAttribute('aria-selected', i === current ? 'true' : 'false'));
+      if (!doScroll) return;
       const active = cards[current];
       // Center the active card without scrolling the page itself.
       const trackRect = track.getBoundingClientRect();
@@ -224,6 +226,32 @@
       const offset = (cardRect.left + cardRect.width / 2) - (trackRect.left + trackRect.width / 2);
       track.scrollBy({ left: offset, behavior: 'smooth' });
     }
+
+    // Sync the highlighted card with whatever the user has actually scrolled
+    // to (swipe, scroll wheel, drag, scroll-snap landing). Debounced so we
+    // don't fight a finger that's still moving.
+    let scrollTimer = null;
+    track.addEventListener('scroll', () => {
+      if (scrollTimer) clearTimeout(scrollTimer);
+      scrollTimer = setTimeout(() => {
+        const trackRect = track.getBoundingClientRect();
+        const trackCenter = trackRect.left + trackRect.width / 2;
+        let closestIdx = current;
+        let closestDist = Infinity;
+        cards.forEach((card, i) => {
+          const r = card.getBoundingClientRect();
+          const cardCenter = r.left + r.width / 2;
+          const dist = Math.abs(cardCenter - trackCenter);
+          if (dist < closestDist) {
+            closestDist = dist;
+            closestIdx = i;
+          }
+        });
+        if (closestIdx !== current) {
+          setActive(closestIdx, false);  // update highlight only — no re-scroll
+        }
+      }, 120);
+    }, { passive: true });
 
     function start() {
       if (autoplayMs <= 0 || reduceMotion) return;
