@@ -1095,7 +1095,7 @@ def build_service_page(svc):
         <div class="kv">
           <div class="i"><b>{esc(svc['pricing_label'])}</b><span>{esc(svc['pricing_value'])} — {esc(svc['pricing_note'])}</span></div>
           <div class="i"><b>Response Time</b><span>Same-day · most emergencies within 4 hrs</span></div>
-          <div class="i"><b>Warranty</b><span>1-year written parts &amp; labor</span></div>
+          <div class="i"><b>Warranty</b><span>{'10-year manufacturer parts · labor warranty as paid add-on' if svc.get('cta_type') == 'free_estimate' else '1-year written parts &amp; labor'}</span></div>
           <div class="i"><b>Coverage</b><span>Phoenix, Anthem &amp; North Valley</span></div>
         </div>
         <div class="ctas">
