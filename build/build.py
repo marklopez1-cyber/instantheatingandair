@@ -1980,7 +1980,7 @@ def main():
         "Terms governing the use of our website and services. Last updated April 2026.",
         [
             ("Services", "All services provided by Instant Heating and Air, LLC are subject to a written agreement or work order signed at the time of service."),
-            ("Warranty", "Repairs are warranted for 1 year parts and labor. Installations carry a lifetime workmanship warranty and the manufacturer's parts warranty. Warranty service requires proof of original work."),
+            ("Warranty", "Repairs are warranted for 1 year parts and labor. New installations include the manufacturer's 10-year parts warranty as standard; an extended labor warranty is available as an optional add-on for an additional fee, with terms quoted at the time of sale. Warranty service requires proof of original work."),
             ("Limitation of Liability", "Our liability is limited to the amount paid for the specific service at issue. We are not responsible for consequential or incidental damages."),
             ("Payment", "Payment is due at the time of service unless financing has been arranged in advance. We accept credit card, check, ACH, and approved financing."),
             ("Governing Law", "These terms are governed by the laws of the State of Arizona.")

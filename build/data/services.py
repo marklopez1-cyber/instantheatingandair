@@ -75,17 +75,17 @@ SERVICES = [
         "bg_image": "/assets/img/services/ac-installation-job.jpg",
         "bg_alt": "Newly installed packaged HVAC unit on a tile-roof Phoenix home by Instant Heating and Air",
         "meta_title": "AC Installation Phoenix | New Unit & Replacement | Instant Heating and Air",
-        "meta_description": "Phoenix R-454B AC installation done right — proper Manual-J load calc, SRP Cool Cash rebates handled, written workmanship warranty, 0% financing. 5.0★ on 56 Google reviews.",
+        "meta_description": "Phoenix R-454B AC installation done right — proper Manual-J load calc, SRP Cool Cash rebates handled, 10-year manufacturer parts warranty, 0% financing. 5.0★ on 56 Google reviews.",
         "keywords": ["ac installation phoenix", "new ac unit phoenix", "air conditioner replacement phoenix", "ac install cost phoenix", "r-454b phoenix", "srp cool cash rebate", "a2l refrigerant phoenix"],
-        "short_desc": "Right-sized systems, proper load calc, lifetime workmanship warranty.",
+        "short_desc": "Right-sized systems, proper load calc, 10-year manufacturer parts warranty.",
         "hero_subhead": "The new AC you'll forget about — because it just works.",
         "intro": (
             "A new AC is the single biggest appliance purchase most Arizona homeowners make. We treat it that way. Every Instant install "
             "starts with a Manual-J load calculation — no lazy 'same size as the old one' guesswork — because an oversized Phoenix AC is "
             "the #1 cause of humid homes, short cycling, and premature compressor failure. As of 2026 we exclusively install R-454B "
             "(A2L) systems per federal requirements, and we file the SRP Cool Cash rebate paperwork for SRP customers at no extra "
-            "charge — that's up to $1,125 back on a variable-speed system. We right-size, install clean, and back the workmanship "
-            "for the life of the system."
+            "charge — that's up to $1,125 back on a variable-speed system. We right-size, install clean, and stand behind the work "
+            "with the manufacturer's full 10-year parts warranty included on every system."
         ),
         "included": [
             "Manual-J load calculation sized to your home — not your neighbor's",
@@ -96,7 +96,7 @@ SERVICES = [
             "SRP Cool Cash rebate paperwork filed for you (SRP customers, up to $1,125 back)",
             "Haul-away of the old unit",
             "Full commissioning with superheat/subcooling log",
-            "Lifetime workmanship warranty + manufacturer's parts warranty (10 years typical)"
+            "10-year manufacturer parts warranty included · optional extended labor warranty available for an additional fee — ask for pricing"
         ],
         "signs": [
             "Your AC is 12+ years old",
@@ -125,7 +125,7 @@ SERVICES = [
             ("What SEER rating should I buy in Arizona?", "SEER2 15.2 is the 2023+ federal minimum for the Southwest. For most Phoenix homes, 16–18 SEER2 is the efficiency sweet spot — higher ratings only pay back in large, heavily-cooled homes."),
             ("How long does the install take?", "Most residential replacements are done in a single day. Full-system changeouts with new line-set and duct work can run into a second day."),
             ("Do you offer financing?", "Yes — 0% APR for qualified buyers plus 12-, 24-, 36-, and 60-month terms through our financing partners."),
-            ("Is there a warranty?", "Manufacturer parts warranty (usually 10 years), plus a lifetime workmanship warranty from Instant. In writing.")
+            ("Is there a warranty?", "Yes — the manufacturer's 10-year parts warranty is included as standard on every new system. An extended labor warranty is available as an add-on for an additional fee — ask your installer for current pricing and terms. All warranties are in writing.")
         ],
         "related": ["ac-repair", "ac-maintenance", "heating-installation"]
     },
@@ -245,7 +245,7 @@ SERVICES = [
         "bg_image": "/assets/img/services/heating-installation-crane.jpg",
         "bg_alt": "Crane lifting a new HVAC unit onto a Phoenix tile-roof home for an Instant Heating and Air install",
         "meta_title": "Furnace & Heat Pump Installation Phoenix | Instant Heating and Air",
-        "meta_description": "New furnace and heat pump installation in Phoenix and the North Valley. Right-sized, code-compliant, lifetime workmanship warranty.",
+        "meta_description": "New furnace and heat pump installation in Phoenix and the North Valley. Right-sized, code-compliant, 10-year manufacturer parts warranty included.",
         "keywords": ["heating installation phoenix", "new furnace phoenix", "heat pump installation arizona", "furnace replacement phoenix"],
         "short_desc": "Gas furnace, heat pump, or dual-fuel — sized and installed right.",
         "hero_subhead": "The last heating system you'll think about for 20 years.",
@@ -261,7 +261,7 @@ SERVICES = [
             "Code-compliant flue, gas-line, and condensate",
             "CO and combustion-air testing",
             "Haul-away of the old unit",
-            "Lifetime workmanship warranty + 10-year manufacturer parts"
+            "10-year manufacturer parts warranty included · optional labor warranty available as an add-on for an additional fee"
         ],
         "signs": [
             "Furnace is 15+ years old",
