@@ -410,6 +410,109 @@ p { margin: 0 0 1em; }
   .reviews-track { scroll-behavior: auto; }
 }
 
+/* ===========================================================
+   Live Google Reviews block (homepage)
+   Pulled fresh from Places API on each build (data/google_reviews.py).
+   =========================================================== */
+.section-google-reviews { background: var(--sand); }
+.section-google-reviews .eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.section-google-reviews .eyebrow-g { vertical-align: middle; }
+
+.g-reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin-top: 32px;
+}
+
+.g-rev {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-card);
+}
+.g-rev .stars {
+  font-size: 1.05rem;
+  color: #f5b400;
+  margin-bottom: 10px;
+}
+.g-rev blockquote {
+  margin: 0;
+  font-size: 0.9375rem;
+  color: var(--ink);
+  font-style: italic;
+  line-height: 1.55;
+}
+
+.g-rev-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+.g-rev-photo {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--sand);
+  flex: 0 0 48px;
+}
+.g-rev-photo-empty {
+  display: grid;
+  place-items: center;
+  background: var(--navy);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+.g-rev-meta {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.3;
+}
+.g-rev-meta b {
+  color: var(--navy);
+  font-size: 0.9375rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.g-rev-meta b a { color: inherit; text-decoration: none; }
+.g-rev-meta b a:hover { text-decoration: underline; }
+.g-rev-time {
+  color: var(--mute);
+  font-size: 0.8125rem;
+}
+.g-rev-source {
+  flex: 0 0 20px;
+  opacity: 0.85;
+}
+
+.g-reviews-cta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 32px;
+}
+
+.g-reviews-fineprint {
+  text-align: center;
+  margin-top: 18px;
+  color: var(--mute);
+  font-size: 0.8125rem;
+}
+
 /* Service-area interactive map (Leaflet) — scales with viewport */
 .service-map {
   position: relative;
