@@ -176,3 +176,36 @@ WHY_US = [
         "body": "Every repair and every install is backed by a written warranty. If it's not right, we come back until it is."
     }
 ]
+
+# Legacy-URL redirects. Each entry maps an old path (left, from the previous
+# Wix site or any prior URL Google may have indexed) to the closest equivalent
+# on the current site (right). build.py turns this into:
+#   1. A static HTML stub at each old path with meta-refresh + canonical +
+#      noindex — works on any static host, including Sevalla.
+#   2. A Netlify-style `_redirects` file at the site root that hosts which
+#      support it can use for true server-side 301 redirects.
+# Add new entries any time Search Console flags a soft-404 from a stale URL.
+REDIRECTS = {
+    # Wix shortcut + homepage
+    "/home":                        "/",
+    # Old top-level service URLs from the Wix site
+    "/about-us":                    "/about.html",
+    "/financing":                   "/financing.html",
+    "/heating-installation":        "/services/heating-installation.html",
+    "/heating-maintenance":         "/services/heating-maintenance.html",
+    "/heating-repair-phoenix":      "/services/heating-repair.html",
+    "/ac-repair-phoenix":           "/services/ac-repair.html",
+    "/ac-installation-phoenix":     "/services/ac-installation.html",
+    "/ac-maintenance-phoenix":      "/services/ac-maintenance.html",
+    # Wix collection / hub URLs with the typical "-1" suffix
+    "/services-1":                  "/services/",
+    "/blog-1":                      "/blog/",
+    # Wix had a customer-portal page; we don't, but contact is the closest intent
+    "/customer-portal":             "/contact.html",
+    # Specific Wix blog posts — map each to the topically closest current post
+    "/blog-1/f/should-i-repair-or-replace-my-failing-air-conditioner":          "/blog/replace-or-repair-ac-arizona.html",
+    "/blog-1/f/ac-maintenance-phoenix-how-regular-care-saves-you-money":        "/blog/skipping-ac-maintenance-phoenix.html",
+    "/blog-1/f/will-hvac-equipment-prices-ever-go-back-down":                   "/blog/how-much-new-ac-unit-cost-phoenix-2026.html",
+    "/blog-1/f/anthem-az-ac-replacement-hvac-system-upgrade-services":          "/service-areas/anthem.html",
+    "/blog-1/f/anthem-home-cooling-system-upgrades-regulation-compliant-service": "/service-areas/anthem.html",
+}
