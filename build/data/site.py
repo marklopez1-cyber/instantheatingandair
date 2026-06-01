@@ -204,6 +204,10 @@ REDIRECTS = {
     "/customer-portal":             "/contact.html",
     # Specific Wix blog posts — map each to the topically closest current post
     "/blog-1/f/should-i-repair-or-replace-my-failing-air-conditioner":          "/blog/replace-or-repair-ac-arizona.html",
+    # Truncated version of the URL above — a broken share link that Google has
+    # been hitting since Feb. Maps to the same destination since the user's
+    # intent is unambiguous.
+    "/blog-1/f/should-i-":                                                      "/blog/replace-or-repair-ac-arizona.html",
     "/blog-1/f/ac-maintenance-phoenix-how-regular-care-saves-you-money":        "/blog/skipping-ac-maintenance-phoenix.html",
     "/blog-1/f/will-hvac-equipment-prices-ever-go-back-down":                   "/blog/how-much-new-ac-unit-cost-phoenix-2026.html",
     "/blog-1/f/anthem-az-ac-replacement-hvac-system-upgrade-services":          "/service-areas/anthem.html",
