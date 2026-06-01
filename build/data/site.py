@@ -37,6 +37,12 @@ SITE = {
     # creating the GA4 property (see analytics.google.com → Admin → Data Streams).
     # Leave empty string to disable GA entirely.
     "ga4_id": "G-NCGVDZ7G74",
+    # Google Search Console verification file(s). Each filename in this list is
+    # written to the site root with the standard one-line content
+    # "google-site-verification: <filename>" so GSC's verification check passes.
+    # Get the filename by adding the property at search.google.com/search-console,
+    # picking the HTML-file method, and pasting whatever name Google gave you here.
+    "google_verification_files": ["googlece41c3fbc4337167.html"],
     # Service-area map shown on /services/. Replace with a Google My Maps embed
     # URL like https://www.google.com/maps/d/embed?mid=YOUR_MAP_ID once you've
     # created the custom map with pinned job locations.

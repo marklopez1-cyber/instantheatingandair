@@ -1899,6 +1899,21 @@ Sitemap: {SITE['base_url']}/sitemap.xml
 """
     write("robots.txt", txt)
 
+
+def build_google_verification_files():
+    """Emit one or more Google Search Console verification files at the site
+    root. The filename is provided by Google when you choose the HTML-file
+    verification method. The file content is the standard one-liner GSC
+    expects: 'google-site-verification: <filename>'.
+    """
+    for filename in SITE.get("google_verification_files", []):
+        # Defensive: only emit files that look like Google verification names
+        # (prevents writing arbitrary HTML if someone fat-fingers the list).
+        if not (filename.startswith("google") and filename.endswith(".html")):
+            print(f"  skipped suspicious verification name: {filename}")
+            continue
+        write(filename, f"google-site-verification: {filename}\n")
+
 def build_manifest():
     mf = {
         "name": SITE['name'],
@@ -1998,6 +2013,7 @@ def main():
     build_sitemap()
     build_robots()
     build_manifest()
+    build_google_verification_files()
 
     # If a BASE_PATH is set (e.g. "/instantheatingandair" for GitHub Pages project site),
     # prefix every internal path in the rendered HTML. This runs last so it catches
