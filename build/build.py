@@ -35,6 +35,7 @@ from data.google_reviews import (
     LIVE_REVIEWS, TOTAL_REVIEWS, AVG_RATING,
     GOOGLE_PROFILE_URL, LAST_FETCHED,
 )
+from data.chatbot import INTENTS, QUICK_REPLIES, FALLBACK, SYSTEM_PROMPT
 
 # Auto-sync site-wide rating + review count from the live Google data.
 # Falls back to whatever's hardcoded in site.py if the JSON is missing.
@@ -385,6 +386,7 @@ def footer():
 </footer>
 {estimate_modal()}
 <script src="/assets/js/main.js?v={ASSET_VERSION}" defer></script>
+<script src="/assets/js/chatbot.js?v={ASSET_VERSION}" defer></script>
 </body>
 </html>"""
 
@@ -1900,6 +1902,139 @@ Sitemap: {SITE['base_url']}/sitemap.xml
     write("robots.txt", txt)
 
 
+def build_chatbot_knowledge():
+    """Emit /assets/data/iha-knowledge.json — a single portable JSON file
+    that consolidates everything the chatbot widget (and any downstream
+    LLM / external integration) needs to know about Instant Heating and Air.
+
+    Anyone integrating downstream can fetch this URL and have:
+      - company metadata (NAP, license, hours)
+      - the full live service catalog with pricing + FAQs + warranty per service
+      - service areas with ZIPs + landmarks + response promises
+      - brands serviced + 2026 incentive landscape
+      - 20+ pre-built intents with patterns, responses, and action chips
+      - quick-reply chips for warm-start UX
+      - an LLM system prompt to plug straight into a custom GPT or RAG pipeline
+    """
+    knowledge = {
+        "version": "1.0.0",
+        "generated_at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+        "company": {
+            "name": SITE['name'],
+            "legal_name": SITE['legal_name'],
+            "tagline": SITE['tagline'],
+            "mission": SITE['mission'],
+            "phone_display": SITE['phone_display'],
+            "phone_link": SITE['phone_link'],
+            "email": SITE['email'],
+            "domain": SITE['domain'],
+            "base_url": SITE['base_url'],
+            "address": SITE['address'],
+            "license": SITE['license'],
+            "hours": SITE['hours'],
+            "founded_year": SITE['founded_year'],
+            "service_radius_miles": SITE['service_radius_miles'],
+            "rating": float(SITE['avg_rating']),
+            "review_count": int(SITE['total_reviews']),
+            "google_profile_url": GOOGLE_PROFILE_URL,
+            "booking_url": SITE['booking_url'],
+            "quote_tool_url": SITE['quote_tool_url'],
+            "social": SITE['social'],
+        },
+        "services": [
+            {
+                "slug": s['slug'],
+                "name": s['title_short'],
+                "title_long": s['title_long'],
+                "short_desc": s['short_desc'],
+                "url": f"/services/{s['slug']}.html",
+                "keywords": s.get('keywords', []),
+                "pricing": {
+                    "label": s['pricing_label'],
+                    "value": s['pricing_value'],
+                    "note": s['pricing_note'],
+                },
+                "cta_type": s.get('cta_type', ''),
+                "warranty": s.get('warranty_label', ''),
+                "included": s.get('included', []),
+                "signs_you_need_this": s.get('signs', []),
+                "process": [{"step": p[0], "description": p[1]} for p in s.get('process', [])],
+                "faqs": [{"q": q, "a": a} for (q, a) in s.get('faqs', [])],
+            }
+            for s in SERVICES
+        ],
+        "service_areas": [
+            {
+                "slug": a['slug'],
+                "name": a['name'],
+                "url": f"/service-areas/{a['slug']}.html",
+                "zip_samples": a.get('zip_samples', []),
+                "landmarks": a.get('landmarks', ''),
+                "lat": a.get('lat'),
+                "lng": a.get('lng'),
+                "climate_note": a.get('climate_note', ''),
+                "response_claim": a.get('response_claim', ''),
+                "local_detail": a.get('local_detail', ''),
+            }
+            for a in AREAS
+        ],
+        "brands_serviced": SITE.get('brands_serviced', []),
+        "homepage_faqs": [{"q": f['q'], "a": f['a']} for f in HOME_FAQ],
+        "incentives_2026": {
+            "srp_cool_cash": "Active. Pays $75/ton single-stage, $150/ton two-stage, $225/ton variable-speed (up to $1,125 on 5-ton variable-speed). We file the paperwork for SRP customers at no charge.",
+            "aps_rebates": "Ended January 1, 2026. APS-territory customers no longer receive a utility rebate on residential installs.",
+            "federal_25c_credit": "EXPIRED December 31, 2025 for air-source heat pumps. Geothermal still 30% through 2032.",
+            "arizona_hear": "Active. Income-qualifying households up to $8,000 toward HVAC and electrification.",
+            "arizona_homes": "Launching in Arizona later 2026. No income cap, performance-based, up to $4,000 per home.",
+        },
+        "refrigerant_transition_2026": {
+            "new_standard": "R-454B (also sold as Puron Advance, Opteon XL41, Solstice 454B). Some manufacturers use R-32.",
+            "old_standard": "R-410A — phased out for new residential installs as of January 1, 2026 per the EPA AIM Act.",
+            "price_impact": "New R-454B systems cost approximately 5-10% more than equivalent 2025 R-410A models, due to added safety equipment (leak sensors, redesigned valves).",
+            "existing_r410a_systems": "Still fine. R-410A refrigerant remains available for service, parts are still being manufactured, and the rule only affects new system installs.",
+            "safety": "A2L classification = mildly flammable, but at concentrations that are exceedingly difficult to reach in a properly installed residential system. Equivalent to automotive A/C refrigerant safety class.",
+        },
+        "response_times": {
+            "standard_service": "Same-day appointments are the norm",
+            "emergencies": "Most emergency calls in Phoenix and the North Valley are on-site within 4 hours",
+            "after_hours": "We answer the phone 24/7. After-hours emergency call-out: $149, waived with completed repair, $0 for Comfort Club members",
+        },
+        "warranty_policy": {
+            "residential_repairs": "90-day parts warranty on the work performed",
+            "residential_installs_ac_heating": "Manufacturer's 10-year parts warranty included as standard. Extended labor warranty available as a paid add-on, terms quoted at sale.",
+            "commercial_installs": "1-year manufacturer parts AND labor warranty",
+            "indoor_air_quality": "Manufacturer's parts warranty (varies by product) + 90-day labor",
+        },
+        "chatbot": {
+            "quick_replies": QUICK_REPLIES,
+            "intents": INTENTS,
+            "fallback": FALLBACK,
+            "match_threshold": 0.5,
+            "greeting": INTENTS[0]['response'] if INTENTS else "Hi! How can I help?",
+        },
+        "llm_system_prompt": SYSTEM_PROMPT,
+        "site_pages": {
+            "home": "/",
+            "services_hub": "/services/",
+            "service_areas_hub": "/service-areas/",
+            "blog": "/blog/",
+            "about": "/about.html",
+            "reviews": "/reviews.html",
+            "contact": "/contact.html",
+            "financing": "/financing.html",
+            "comfort_club": "/maintenance-plan.html",
+            "instant_quote_tool": SITE['quote_tool_url'],
+        },
+    }
+
+    # Write a pretty-printed copy at a stable public URL.
+    out_dir = OUT / "assets" / "data"
+    out_dir.mkdir(parents=True, exist_ok=True)
+    json_path = out_dir / "iha-knowledge.json"
+    json_path.write_text(json.dumps(knowledge, indent=2, ensure_ascii=False))
+    print(f"  wrote assets/data/iha-knowledge.json ({json_path.stat().st_size} bytes)")
+
+
 def build_redirects():
     """Generate two layers of redirects from legacy URLs to current pages:
 
@@ -2080,6 +2215,7 @@ def main():
     build_manifest()
     build_google_verification_files()
     build_redirects()
+    build_chatbot_knowledge()
 
     # If a BASE_PATH is set (e.g. "/instantheatingandair" for GitHub Pages project site),
     # prefix every internal path in the rendered HTML. This runs last so it catches
