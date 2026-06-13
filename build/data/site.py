@@ -147,6 +147,10 @@ HOME_FAQ = [
         "a": "Absolutely. Arizona ROC License #348556. Every technician is fully insured and background-checked. We carry this on the truck and every invoice because you should never wonder."
     },
     {
+        "q": "What warranty comes with a new system install?",
+        "a": "Every Instant Heating and Air residential AC or heating installation includes three warranties as standard: the manufacturer's <strong>10-year parts warranty</strong>, a <strong>2-year labor warranty</strong>, and a <strong>2-year workmanship warranty</strong>. Want longer labor coverage? An extended <strong>10-year labor warranty</strong> is available as a paid add-on at the time of sale — ask your installer for current pricing. Commercial installations carry a 1-year manufacturer parts and labor warranty. All warranties are in writing."
+    },
+    {
         "q": "What's included in the $18/month Comfort Club?",
         "a": "Two precision tune-ups per year (spring + fall), 15% off all repairs, priority dispatch when you need us, no after-hours or overtime fees, an extended warranty credit, and a no-breakdown guarantee between tune-ups. You can cancel any time."
     }

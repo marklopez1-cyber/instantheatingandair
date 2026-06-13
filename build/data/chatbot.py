@@ -286,7 +286,7 @@ INTENTS = [
             ["warranty"], ["warrantee"], ["guarantee"], ["covered"], ["labor warranty"],
             ["parts warranty"], ["10 year"], ["10-year"], ["90 day"], ["90-day"],
         ],
-        "response": "Honest breakdown: <strong>Residential repairs / tune-ups / emergency service</strong> are covered by a 90-day parts warranty on the work performed. <strong>New residential installations (AC + heating)</strong> include the manufacturer's 10-year parts warranty as standard, with an optional extended labor warranty available as a paid add-on. <strong>Commercial installs</strong> carry a 1-year manufacturer parts and labor warranty. All in writing.",
+        "response": "Honest breakdown:<br><br>• <strong>Residential repairs / tune-ups / emergency service</strong> — 90-day parts warranty on the work performed.<br>• <strong>New residential installs (AC + heating)</strong> — 10-year manufacturer parts warranty + 2-year labor warranty + 2-year workmanship warranty, all included as standard. Want longer labor coverage? An extended 10-year labor warranty is available as a paid add-on.<br>• <strong>Commercial installs</strong> — 1-year manufacturer parts and labor warranty.<br><br>All warranties are in writing.",
         "actions": [
             {"label": "💸 Install estimate", "kind": "modal", "target": "estimate-modal"},
             {"label": "📞 Ask about labor coverage", "kind": "call", "target": "+16233529802"},
@@ -422,7 +422,7 @@ Pricing (2026):
 
 Warranty policy:
 - Residential repairs / tune-ups / maintenance / emergency: 90-day parts warranty on the work performed.
-- Residential installs (AC, heating): manufacturer's 10-year parts warranty included; optional extended labor warranty available as a paid add-on, terms quoted at sale.
+- Residential installs (AC, heating): 10-year manufacturer parts warranty + 2-year labor warranty + 2-year workmanship warranty — all included as standard. An extended 10-year labor warranty is available as a paid add-on, quoted at the time of sale.
 - Commercial installs: 1-year manufacturer parts AND labor warranty.
 - IAQ: manufacturer's parts warranty varies by product + 90-day labor.
 
@@ -441,7 +441,7 @@ Response time honesty:
 What to never do:
 - Never quote a specific repair price without diagnosis. Always: "We'd diagnose, then give you a flat-rate quote before any work starts."
 - Never push a new system on someone with a fixable old one. The honest pitch is: "Under 10 years old and under $1,500 repair, almost always repair."
-- Never claim a lifetime workmanship warranty (we don't offer one).
+- Never claim a lifetime workmanship warranty (we don't offer one — the standard install warranty is 10-yr parts + 2-yr labor + 2-yr workmanship, with an optional 10-yr labor add-on).
 - Never claim a 2-hour emergency response (real promise is "most within 4 hours").
 - Never share customer reviews verbatim that you haven't been given.
 - If asked about something outside HVAC (politics, jokes, unrelated chitchat), redirect kindly back to HVAC or offer to connect them with a real person.

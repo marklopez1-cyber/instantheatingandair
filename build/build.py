@@ -2001,7 +2001,7 @@ def build_chatbot_knowledge():
         },
         "warranty_policy": {
             "residential_repairs": "90-day parts warranty on the work performed",
-            "residential_installs_ac_heating": "Manufacturer's 10-year parts warranty included as standard. Extended labor warranty available as a paid add-on, terms quoted at sale.",
+            "residential_installs_ac_heating": "10-year manufacturer parts warranty + 2-year labor warranty + 2-year workmanship warranty — all included as standard. Extended 10-year labor warranty available as a paid add-on, quoted at the time of sale.",
             "commercial_installs": "1-year manufacturer parts AND labor warranty",
             "indoor_air_quality": "Manufacturer's parts warranty (varies by product) + 90-day labor",
         },
@@ -2195,7 +2195,7 @@ def main():
         "Terms governing the use of our website and services. Last updated April 2026.",
         [
             ("Services", "All services provided by Instant Heating and Air, LLC are subject to a written agreement or work order signed at the time of service."),
-            ("Warranty", "Residential repair, tune-up, maintenance, and emergency service work carries a 90-day parts warranty on the work performed. New residential installations (AC, heating) include the manufacturer's 10-year parts warranty as standard, with an optional extended labor warranty available as a paid add-on, quoted at the time of sale. Commercial installations carry a 1-year manufacturer parts and labor warranty. Indoor Air Quality product warranties vary by manufacturer. All warranty service requires proof of original work."),
+            ("Warranty", "Residential repair, tune-up, maintenance, and emergency service work carries a 90-day parts warranty on the work performed. New residential installations (AC, heating) include the manufacturer's 10-year parts warranty, a 2-year labor warranty, and a 2-year workmanship warranty — all included as standard. An extended 10-year labor warranty is available as a paid add-on quoted at the time of sale. Commercial installations carry a 1-year manufacturer parts and labor warranty. Indoor Air Quality product warranties vary by manufacturer with a 90-day labor warranty. All warranty service requires proof of original work."),
             ("Limitation of Liability", "Our liability is limited to the amount paid for the specific service at issue. We are not responsible for consequential or incidental damages."),
             ("Payment", "Payment is due at the time of service unless financing has been arranged in advance. We accept credit card, check, ACH, and approved financing."),
             ("Governing Law", "These terms are governed by the laws of the State of Arizona.")

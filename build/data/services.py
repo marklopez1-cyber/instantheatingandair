@@ -76,9 +76,9 @@ SERVICES = [
         "bg_image": "/assets/img/services/ac-installation-job.jpg",
         "bg_alt": "Newly installed packaged HVAC unit on a tile-roof Phoenix home by Instant Heating and Air",
         "meta_title": "AC Installation Phoenix | New Unit & Replacement | Instant Heating and Air",
-        "meta_description": "Phoenix R-454B AC installation done right — proper Manual-J load calc, SRP Cool Cash rebates handled, 10-year manufacturer parts warranty, 0% financing. 5.0★ on 56 Google reviews.",
+        "meta_description": "Phoenix R-454B AC installation done right — Manual-J load calc, SRP Cool Cash rebates handled, 10-yr parts + 2-yr labor & workmanship warranties included, 0% financing. 5.0★ on 56 Google reviews.",
         "keywords": ["ac installation phoenix", "new ac unit phoenix", "air conditioner replacement phoenix", "ac install cost phoenix", "r-454b phoenix", "srp cool cash rebate", "a2l refrigerant phoenix"],
-        "short_desc": "Right-sized systems, proper load calc, 10-year manufacturer parts warranty.",
+        "short_desc": "Right-sized systems, proper load calc, 10-yr parts + 2-yr labor & workmanship warranties standard.",
         "hero_subhead": "The new AC you'll forget about — because it just works.",
         "intro": (
             "A new AC is the single biggest appliance purchase most Arizona homeowners make. We treat it that way. Every Instant install "
@@ -86,7 +86,8 @@ SERVICES = [
             "the #1 cause of humid homes, short cycling, and premature compressor failure. As of 2026 we exclusively install R-454B "
             "(A2L) systems per federal requirements, and we file the SRP Cool Cash rebate paperwork for SRP customers at no extra "
             "charge — that's up to $1,125 back on a variable-speed system. We right-size, install clean, and stand behind the work "
-            "with the manufacturer's full 10-year parts warranty included on every system."
+            "with the manufacturer's full 10-year parts warranty plus 2-year labor and 2-year workmanship warranties — all included on every install. "
+            "Want longer labor coverage? An extended 10-year labor warranty is available as a paid add-on at the time of sale."
         ),
         "included": [
             "Manual-J load calculation sized to your home — not your neighbor's",
@@ -97,7 +98,7 @@ SERVICES = [
             "SRP Cool Cash rebate paperwork filed for you (SRP customers, up to $1,125 back)",
             "Haul-away of the old unit",
             "Full commissioning with superheat/subcooling log",
-            "10-year manufacturer parts warranty included · optional extended labor warranty available for an additional fee — ask for pricing"
+            "10-year manufacturer parts warranty + 2-year labor warranty + 2-year workmanship warranty — all included on every install · optional extended 10-year labor warranty available as a paid add-on"
         ],
         "signs": [
             "Your AC is 12+ years old",
@@ -118,7 +119,7 @@ SERVICES = [
         "pricing_value": "$8,400",
         "pricing_note": "3-ton 14.3 SEER2 R-454B — financing from $115/mo OAC · Free in-home estimate · SRP Cool Cash filed for you",
         "cta_type": "free_estimate",
-        "warranty_label": "10-year manufacturer parts · labor warranty as paid add-on",
+        "warranty_label": "10-yr parts + 2-yr labor + 2-yr workmanship included · 10-yr labor add-on available",
         "faqs": [
             ("What does a new AC cost in Phoenix in 2026?", "Installed pricing ranges from $8,400 for a basic 3-ton single-stage R-454B system up to $17,000 for a high-efficiency variable-speed system. Most North Valley homes land in the $10,000–$12,500 range. Prices ticked up roughly 5–10% in 2026 because of the new A2L refrigerant requirement."),
             ("What is R-454B and why does my new AC use it?", "R-454B is the low-global-warming-potential refrigerant the EPA's AIM Act required for all new residential systems installed January 1, 2026 or later. It replaces R-410A. The chemistry is different (78% lower GWP), the safety equipment is more extensive, and the install cost runs 5–10% higher — but performance, efficiency, and reliability are functionally the same. Your existing R-410A system is fine; the change only affects new installs."),
@@ -127,7 +128,7 @@ SERVICES = [
             ("What SEER rating should I buy in Arizona?", "SEER2 15.2 is the 2023+ federal minimum for the Southwest. For most Phoenix homes, 16–18 SEER2 is the efficiency sweet spot — higher ratings only pay back in large, heavily-cooled homes."),
             ("How long does the install take?", "Most residential replacements are done in a single day. Full-system changeouts with new line-set and duct work can run into a second day."),
             ("Do you offer financing?", "Yes — 0% APR for qualified buyers plus 12-, 24-, 36-, and 60-month terms through our financing partners."),
-            ("Is there a warranty?", "Yes — the manufacturer's 10-year parts warranty is included as standard on every new system. An extended labor warranty is available as an add-on for an additional fee — ask your installer for current pricing and terms. All warranties are in writing.")
+            ("Is there a warranty?", "Yes — every new install includes the manufacturer's 10-year parts warranty, a 2-year labor warranty, and a 2-year workmanship warranty, all standard. If you want longer labor coverage, an extended 10-year labor warranty is available as a paid add-on at the time of sale — ask your installer for current pricing. All warranties are in writing.")
         ],
         "related": ["ac-repair", "ac-maintenance", "heating-installation"]
     },
@@ -249,7 +250,7 @@ SERVICES = [
         "bg_image": "/assets/img/services/heating-installation-crane.jpg",
         "bg_alt": "Crane lifting a new HVAC unit onto a Phoenix tile-roof home for an Instant Heating and Air install",
         "meta_title": "Furnace & Heat Pump Installation Phoenix | Instant Heating and Air",
-        "meta_description": "New furnace and heat pump installation in Phoenix and the North Valley. Right-sized, code-compliant, 10-year manufacturer parts warranty included.",
+        "meta_description": "New furnace and heat pump installation in Phoenix and the North Valley. Right-sized, code-compliant, 10-yr manufacturer parts + 2-yr labor & workmanship warranties included.",
         "keywords": ["heating installation phoenix", "new furnace phoenix", "heat pump installation arizona", "furnace replacement phoenix"],
         "short_desc": "Gas furnace, heat pump, or dual-fuel — sized and installed right.",
         "hero_subhead": "The last heating system you'll think about for 20 years.",
@@ -265,7 +266,7 @@ SERVICES = [
             "Code-compliant flue, gas-line, and condensate",
             "CO and combustion-air testing",
             "Haul-away of the old unit",
-            "10-year manufacturer parts warranty included · optional labor warranty available as an add-on for an additional fee"
+            "10-year manufacturer parts warranty + 2-year labor warranty + 2-year workmanship warranty — all included on every install · optional extended 10-year labor warranty available as a paid add-on"
         ],
         "signs": [
             "Furnace is 15+ years old",
@@ -285,7 +286,7 @@ SERVICES = [
         "pricing_value": "$5,900",
         "pricing_note": "80% AFUE gas furnace — heat pumps and dual-fuel from $9,800 · Free in-home estimate",
         "cta_type": "free_estimate",
-        "warranty_label": "10-year manufacturer parts · labor warranty as paid add-on",
+        "warranty_label": "10-yr parts + 2-yr labor + 2-yr workmanship included · 10-yr labor add-on available",
         "faqs": [
             ("Heat pump or furnace in Phoenix?", "For most homes, a heat pump wins on operating cost and moves less carbon. If you already have cheap gas and a newer AC, a matched gas furnace is still fine."),
             ("What's dual-fuel?", "A heat pump that does the heavy lifting down to ~30°F, handing off to a gas furnace below that. Best of both worlds for the North Valley."),
