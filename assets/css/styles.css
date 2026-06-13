@@ -1027,6 +1027,11 @@ a:focus-visible, button:focus-visible, [role="button"]:focus-visible, summary:fo
   overflow: hidden;
   animation: chatbot-pop 0.22s ease-out;
 }
+/* When the X is clicked, JS sets the hidden attribute. The explicit
+   display:flex above otherwise overrides the browser default of
+   display:none on [hidden], so the panel would stay visible. This rule
+   honors the hidden attribute and actually closes the panel. */
+.chatbot-panel[hidden] { display: none; }
 @keyframes chatbot-pop {
   from { opacity: 0; transform: translateY(8px) scale(0.98); }
   to   { opacity: 1; transform: translateY(0) scale(1); }

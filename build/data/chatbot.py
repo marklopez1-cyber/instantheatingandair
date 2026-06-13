@@ -230,6 +230,57 @@ INTENTS = [
         ],
     },
     {
+        "id": "installation_includes_general",
+        "patterns": [
+            ["what", "included"], ["what's", "included"], ["whats included"],
+            ["what", "come with"], ["what", "comes with"],
+            ["what", "you install"], ["installation", "includes"], ["install", "includes"],
+            ["new ac", "include"], ["new ac", "what"], ["full install"],
+            ["scope of work"], ["what do i get"], ["what's in"], ["whats in"],
+            ["new install", "include"], ["new system", "include"],
+            ["install package"], ["package includes"], ["package include"],
+        ],
+        "response": "Great question — what's included depends on where your unit is installed. We have two install scopes:<br><br>• <strong>Package System</strong> — if your unit sits on the roof.<br>• <strong>Split System</strong> — if your unit is in the attic, garage, closet, or on a ground pad outside.<br><br>Which one fits your home? (If you're not sure, look outside: a single big box on the roof = package; an indoor unit + an outdoor condenser at ground level = split.)",
+        "actions": [
+            {"label": "🏠 Split system (ground/attic)", "kind": "quick", "target": "what's included with a split system install"},
+            {"label": "🏢 Package system (roof unit)", "kind": "quick", "target": "what's included with a package system install"},
+            {"label": "📞 Not sure — call us", "kind": "call", "target": "+16233529802"},
+        ],
+    },
+    {
+        "id": "split_system_includes",
+        "patterns": [
+            ["split system", "install"], ["split system", "include"], ["split system", "what"],
+            ["split system", "come with"],
+            ["split", "installation"], ["split", "package"],
+            ["ground pad"], ["attic unit"], ["indoor unit", "outdoor"],
+            ["not on the roof"], ["not on roof"], ["not a rooftop"],
+            ["unit in", "attic"], ["unit in", "garage"], ["unit in", "closet"],
+        ],
+        "response": "Every Instant Heating and Air <strong>split-system installation</strong> (ground/attic-mounted unit) includes — no surprise add-ons after the quote:<br><br>✓ Licensed contractor installation<br>✓ 10-year manufacturer warranty<br>✓ 2-year labor warranty<br>✓ 2-year workmanship warranty<br>✓ Emergency drain overflow shutoff switch<br>✓ P-trap with cleanout<br>✓ B-vent for furnace installs<br>✓ Air-handler hang kit<br>✓ Drain pan<br>✓ Line-set flush<br>✓ Plenums<br>✓ Wi-Fi-capable thermostat<br>✓ Electrical whip / disconnect<br>✓ New condenser pad<br><br>Want a written quote for your home?",
+        "actions": [
+            {"label": "💸 Get free estimate", "kind": "modal", "target": "estimate-modal"},
+            {"label": "🧮 Instant online quote", "kind": "link", "target": "https://instant-hvac-quote.com"},
+            {"label": "📞 Talk to an installer", "kind": "call", "target": "+16233529802"},
+        ],
+    },
+    {
+        "id": "package_system_includes",
+        "patterns": [
+            ["package system"], ["package", "install"], ["package", "include"],
+            ["package", "come with"], ["package unit"],
+            ["roof unit"], ["rooftop unit"], ["rooftop", "install"], ["rooftop", "include"],
+            ["on the roof"], ["unit on roof"], ["unit on the roof"],
+            ["rtu"], ["rooftop ac"], ["roof ac"], ["roof top"],
+        ],
+        "response": "Every Instant Heating and Air <strong>package-system installation</strong> (rooftop unit) includes — no surprise add-ons after the quote:<br><br>✓ Licensed contractor installation<br>✓ 10-year manufacturer warranty<br>✓ 2-year labor warranty<br>✓ 2-year workmanship warranty<br>✓ Emergency drain overflow shutoff switch<br>✓ P-trap / PVC drain<br>✓ Sheetmetal curb or elbow and stand<br>✓ Crane (residential)<br>✓ Wi-Fi-capable thermostat<br>✓ Electrical whip / disconnect<br><br>Want a written quote for your home?",
+        "actions": [
+            {"label": "💸 Get free estimate", "kind": "modal", "target": "estimate-modal"},
+            {"label": "🧮 Instant online quote", "kind": "link", "target": "https://instant-hvac-quote.com"},
+            {"label": "📞 Talk to an installer", "kind": "call", "target": "+16233529802"},
+        ],
+    },
+    {
         "id": "warranty",
         "patterns": [
             ["warranty"], ["warrantee"], ["guarantee"], ["covered"], ["labor warranty"],
