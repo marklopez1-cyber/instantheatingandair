@@ -414,11 +414,14 @@ p { margin: 0 0 1em; }
   flex-direction: column;
   height: 100%;
 }
+/* Solid white icon tile with navy glyph + a soft dark shadow — matches the
+   photo-background service cards' icon treatment so the look is consistent
+   sitewide and the icon reads instantly against any photo. */
 .why-card .ic {
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.22);
-  color: #fff;
-  backdrop-filter: blur(4px);
+  background: rgba(255, 255, 255, 0.97);
+  color: var(--navy);
+  border: 0;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
 }
 .why-card h3 {
   color: #fff;
