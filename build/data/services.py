@@ -179,7 +179,7 @@ SERVICES = [
             ("Report", "Photo report card emailed to you — no high-pressure upsells, just facts.")
         ],
         "pricing_label": "Single Tune-Up",
-        "pricing_value": "$99",
+        "pricing_value": "$84.50",
         "pricing_note": "Or $18/mo Comfort Club includes 2 visits + 15% off repairs",
         "cta_type": "service_call",
         "warranty_label": "90-day parts warranty on any repairs made",

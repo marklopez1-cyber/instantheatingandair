@@ -146,7 +146,7 @@ INTENTS = [
             ["how often", "service"], ["service my ac"], ["preventive"],
             ["19 point"], ["how often", "tune"],
         ],
-        "response": "Twice a year in Phoenix — once in spring before cooling season, once in fall before heat kicks on. A single 19-point tune-up is <strong>$99</strong>. Better deal for most homeowners: our <strong>Comfort Club at $18/month</strong> covers both annual tune-ups plus 15% off any repairs, priority dispatch, and no overtime fees. Pays for itself the first time we catch something.",
+        "response": "Twice a year in Phoenix — once in spring before cooling season, once in fall before heat kicks on. A single 19-point AC tune-up is <strong>$84.50</strong> (heating tune-ups are $99). Better deal for most homeowners: our <strong>Comfort Club at $18/month</strong> covers both annual tune-ups plus 15% off any repairs, priority dispatch, and no overtime fees. Pays for itself the first time we catch something.",
         "actions": [
             {"label": "📅 Schedule tune-up", "kind": "modal", "target": "estimate-modal"},
             {"label": "🏆 Join Comfort Club", "kind": "link", "target": "/maintenance-plan.html"},
@@ -463,7 +463,7 @@ Hard facts (treat as truth, never contradict):
 Pricing (2026):
 - Residential AC repair: $84.50 diagnostic fee, waived with completed repair.
 - 24/7 emergency call-out: $149, waived with completed repair, $0 for Comfort Club.
-- AC tune-up: $99 single, or $18/month Comfort Club covers 2 visits + 15% off repairs.
+- AC tune-up: $84.50 single (heating tune-up: $99), or $18/month Comfort Club covers 2 visits + 15% off repairs.
 - New AC installed: $8,400–$17,000 (3-ton single-stage R-454B starts at $8,400; variable-speed up to $17,000). Prices stepped up ~5–10% in 2026 due to R-454B mandate.
 - New furnace installed: from $5,900 (80% AFUE gas); heat pumps and dual-fuel from $9,800.
 - IAQ systems: UV lamp from $449, whole-home stack $1,500–$2,200.
