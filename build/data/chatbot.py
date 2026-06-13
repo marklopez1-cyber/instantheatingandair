@@ -242,8 +242,11 @@ INTENTS = [
         ],
         "response": "Great question — what's included depends on where your unit is installed. We have two install scopes:<br><br>• <strong>Package System</strong> — if your unit sits on the roof.<br>• <strong>Split System</strong> — if your unit is in the attic, garage, closet, or on a ground pad outside.<br><br>Which one fits your home? (If you're not sure, look outside: a single big box on the roof = package; an indoor unit + an outdoor condenser at ground level = split.)",
         "actions": [
-            {"label": "🏠 Split system (ground/attic)", "kind": "quick", "target": "what's included with a split system install"},
-            {"label": "🏢 Package system (roof unit)", "kind": "quick", "target": "what's included with a package system install"},
+            # Use "intent" kind here so the button dispatches directly to the
+            # named intent — avoids a feedback loop where the button's natural-
+            # language target would re-match this general intent.
+            {"label": "🏠 Split system (ground/attic)", "kind": "intent", "target": "split_system_includes"},
+            {"label": "🏢 Package system (roof unit)", "kind": "intent", "target": "package_system_includes"},
             {"label": "📞 Not sure — call us", "kind": "call", "target": "+16233529802"},
         ],
     },

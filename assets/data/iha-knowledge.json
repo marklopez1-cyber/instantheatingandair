@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-06-13T02:43:19Z",
+  "generated_at": "2026-06-13T02:56:15Z",
   "company": {
     "name": "Instant Heating and Air",
     "legal_name": "Instant Heating and Air, LLC",
@@ -1896,13 +1896,13 @@
         "actions": [
           {
             "label": "🏠 Split system (ground/attic)",
-            "kind": "quick",
-            "target": "what's included with a split system install"
+            "kind": "intent",
+            "target": "split_system_includes"
           },
           {
             "label": "🏢 Package system (roof unit)",
-            "kind": "quick",
-            "target": "what's included with a package system install"
+            "kind": "intent",
+            "target": "package_system_includes"
           },
           {
             "label": "📞 Not sure — call us",

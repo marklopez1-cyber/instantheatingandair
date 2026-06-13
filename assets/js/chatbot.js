@@ -224,6 +224,28 @@
           // Treat as if the user typed this
           handleUserMessage(action.target, log);
           break;
+        case 'intent':
+          // Direct intent dispatch by ID — bypasses pattern matching so the
+          // chosen intent fires deterministically, no matter how its response
+          // text overlaps with other intents.
+          var intentsArr = (knowledge.chatbot && knowledge.chatbot.intents) || [];
+          var matched = null;
+          for (var i = 0; i < intentsArr.length; i++) {
+            if (intentsArr[i].id === action.target) { matched = intentsArr[i]; break; }
+          }
+          if (matched) {
+            appendUserMessage(log, action.label || matched.id);
+            track('chatbot_intent_dispatch', { intent: matched.id });
+            var typing = appendTypingIndicator(log);
+            setTimeout(function () {
+              typing.remove();
+              appendBotMessage(log, matched.response, matched.actions || []);
+            }, 280 + Math.random() * 220);
+          } else {
+            // Intent ID not found — fall back to natural-language matching
+            handleUserMessage(action.label || action.target, log);
+          }
+          break;
         case 'link':
         default:
           // External link in new tab, internal in same tab
