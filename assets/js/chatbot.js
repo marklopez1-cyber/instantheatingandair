@@ -288,7 +288,17 @@
         // pattern is array of required keywords. All must be present (in any order)
         // for the pattern to score. Score = (matched / total in pattern) for now.
         var matched = pattern.filter(function (keyword) {
-          return lower.indexOf(keyword.toLowerCase()) !== -1;
+          var kw = keyword.toLowerCase();
+          // Short keywords (<= 3 chars) are dangerous as bare substring matches —
+          // e.g. "hi" hits inside "this", "ac" hits inside "back". Require a
+          // word boundary on either side so short tokens only match as whole
+          // words. Longer keywords keep their substring behavior so we can do
+          // partial-stem matches like "cool" → "cooling", "install" → "installation".
+          if (kw.length <= 3) {
+            var safe = kw.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+            return new RegExp('\\b' + safe + '\\b').test(lower);
+          }
+          return lower.indexOf(kw) !== -1;
         }).length;
         if (matched === pattern.length && pattern.length > 0) {
           // Reward longer-pattern (more specific) matches over short ones.

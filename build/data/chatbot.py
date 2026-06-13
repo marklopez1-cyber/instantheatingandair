@@ -18,7 +18,9 @@ the JSON refreshes automatically — no JS changes required.
 # ---------------------------------------------------------------------------
 QUICK_REPLIES = [
     {"label": "💸 Free estimate",          "query": "I'd like a free estimate"},
-    {"label": "❄️ My AC isn't cooling",    "query": "My AC isn't cooling"},
+    # User-facing label keeps the natural "isn't" — but the query we send
+    # to the matcher uses "is not" so the existing ac_not_cooling patterns hit.
+    {"label": "❄️ My AC isn't cooling",    "query": "My AC is not cooling"},
     {"label": "🆕 What is R-454B?",         "query": "What is R-454B?"},
     {"label": "💰 SRP rebates",             "query": "Do you handle SRP Cool Cash rebates?"},
     {"label": "🛠️ Tune-up & maintenance",  "query": "How often should I tune up my AC?"},
@@ -54,6 +56,14 @@ INTENTS = [
             ["ac", "wont", "work"], ["ac", "won't", "work"], ["ac", "down"],
             ["no", "cold", "air"], ["air conditioner", "broken"],
             ["ac", "stopped"], ["ac", "broke"], ["no", "ac"],
+            # Contracted forms — "n't" doesn't contain "not" as a substring, so
+            # these need their own patterns or free-text users get the fallback.
+            ["ac", "isn't"], ["ac", "isnt"], ["isn't", "cooling"], ["isnt", "cooling"],
+            ["ac", "won't", "cool"], ["ac", "wont", "cool"],
+            ["ac", "doesn't", "cool"], ["ac", "doesnt", "cool"],
+            ["ac", "doesn't", "work"], ["ac", "doesnt", "work"],
+            ["ac", "no longer", "cool"], ["ac", "quit"], ["ac", "quit working"],
+            ["ac", "dead"], ["ac", "out"], ["a/c", "not"], ["a/c", "isn't"],
         ],
         "response": "Sorry — that's the worst, especially this time of year. Most AC \"no cool\" calls in Phoenix come down to one of a few things (low refrigerant, weak capacitor, dirty coil, frozen evaporator). We can usually diagnose it same-day. Our diagnostic visit is <strong>$84.50, waived the moment you approve the repair</strong>. Want to schedule, or call us right now?",
         "actions": [
@@ -65,9 +75,10 @@ INTENTS = [
     {
         "id": "emergency",
         "patterns": [
-            ["emergency"], ["urgent"], ["asap"], ["right now"], ["right away"],
+            ["emergency"], ["emergencies"], ["urgent"], ["asap"], ["right now"], ["right away"],
             ["middle of", "night"], ["after hours"], ["24/7"], ["24 hour"],
             ["no ac", "now"], ["no heat", "now"], ["weekend"], ["holiday"],
+            ["do you do", "emergenc"], ["after hours"], ["overnight"],
         ],
         "response": "We answer the phone <strong>24/7</strong> for emergencies. Call <strong>(623) 352-9802</strong> any time and we'll dispatch the closest licensed tech — most Phoenix-area emergencies are on-site within 4 hours. After-hours emergency call-out is $149 (waived with completed repair, $0 for Comfort Club members).",
         "actions": [
@@ -171,6 +182,9 @@ INTENTS = [
         "patterns": [
             ["diagnostic"], ["service call"], ["call out", "fee"], ["trip charge"],
             ["how much", "come out"], ["how much", "visit"], ["84.50"], ["84"],
+            ["cost", "come out"], ["cost", "visit"], ["charge", "come out"],
+            ["what does it cost", "come"], ["what's the cost", "come"],
+            ["how much", "to come"], ["how much", "show up"], ["service fee"],
         ],
         "response": "Our diagnostic fee is <strong>$84.50</strong> for residential service calls. That covers the trip, a full system inspection, and a written flat-rate repair quote. It's <strong>waived the moment you approve the repair</strong>, so most repair customers pay nothing extra. Comfort Club members pay $0 for diagnostics. After-hours emergencies are $149 (also waived on completed repair).",
         "actions": [
@@ -253,6 +267,7 @@ INTENTS = [
     {
         "id": "split_system_includes",
         "patterns": [
+            ["split system"], ["split-system"],
             ["split system", "install"], ["split system", "include"], ["split system", "what"],
             ["split system", "come with"],
             ["split", "installation"], ["split", "package"],
@@ -270,9 +285,10 @@ INTENTS = [
     {
         "id": "package_system_includes",
         "patterns": [
-            ["package system"], ["package", "install"], ["package", "include"],
+            ["package system"], ["package-system"],
+            ["package", "install"], ["package", "include"],
             ["package", "come with"], ["package unit"],
-            ["roof unit"], ["rooftop unit"], ["rooftop", "install"], ["rooftop", "include"],
+            ["roof unit"], ["rooftop"], ["rooftop unit"], ["rooftop", "install"], ["rooftop", "include"],
             ["on the roof"], ["unit on roof"], ["unit on the roof"],
             ["rtu"], ["rooftop ac"], ["roof ac"], ["roof top"],
         ],
@@ -314,6 +330,8 @@ INTENTS = [
             ["air quality"], ["iaq"], ["dust"], ["allergies"], ["allergen"],
             ["air filter"], ["uv lamp"], ["air purifier"], ["duct cleaning"],
             ["merv"], ["pollen"], ["mold"],
+            ["indoor air"], ["air clean"], ["ducts dirty"], ["air smells"],
+            ["filtration"], ["purifier"], ["humidity"], ["filter change"],
         ],
         "response": "Phoenix air is harder on homes than most cities — desert dust, monsoon mold, and 6+ months of closed-up cooling. Our three-layer stack: (1) MERV 11 media filter cabinet, (2) UV-C germicidal lamp inside the air handler, (3) active purifier like iWave. Full stack typically runs $1,500–$2,200 installed.",
         "actions": [
@@ -351,6 +369,10 @@ INTENTS = [
             ["who are you"], ["about you"], ["about the company"], ["family owned"],
             ["how long"], ["years in business"], ["licensed"], ["bonded"], ["insured"],
             ["roc"], ["owner"],
+            # Need this 2-keyword pattern so it beats commercial's bare ["business"]
+            # match on tie-break scoring.
+            ["how long", "business"], ["years", "business"],
+            ["how old", "company"], ["established"], ["since when"],
         ],
         "response": "We're <strong>Instant Heating and Air, LLC</strong> — family-owned and based in the North Phoenix Valley since 2019. Arizona ROC License #348556, fully bonded and insured, all technicians background-checked. Our techs live in the same North Valley ZIPs we serve, which is why we know what a 118° attic does to a condenser.",
         "actions": [

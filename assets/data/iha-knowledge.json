@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-06-13T02:56:15Z",
+  "generated_at": "2026-06-13T03:12:08Z",
   "company": {
     "name": "Instant Heating and Air",
     "legal_name": "Instant Heating and Air, LLC",
@@ -978,7 +978,7 @@
       },
       {
         "label": "❄️ My AC isn't cooling",
-        "query": "My AC isn't cooling"
+        "query": "My AC is not cooling"
       },
       {
         "label": "🆕 What is R-454B?",
@@ -1107,6 +1107,81 @@
           [
             "no",
             "ac"
+          ],
+          [
+            "ac",
+            "isn't"
+          ],
+          [
+            "ac",
+            "isnt"
+          ],
+          [
+            "isn't",
+            "cooling"
+          ],
+          [
+            "isnt",
+            "cooling"
+          ],
+          [
+            "ac",
+            "won't",
+            "cool"
+          ],
+          [
+            "ac",
+            "wont",
+            "cool"
+          ],
+          [
+            "ac",
+            "doesn't",
+            "cool"
+          ],
+          [
+            "ac",
+            "doesnt",
+            "cool"
+          ],
+          [
+            "ac",
+            "doesn't",
+            "work"
+          ],
+          [
+            "ac",
+            "doesnt",
+            "work"
+          ],
+          [
+            "ac",
+            "no longer",
+            "cool"
+          ],
+          [
+            "ac",
+            "quit"
+          ],
+          [
+            "ac",
+            "quit working"
+          ],
+          [
+            "ac",
+            "dead"
+          ],
+          [
+            "ac",
+            "out"
+          ],
+          [
+            "a/c",
+            "not"
+          ],
+          [
+            "a/c",
+            "isn't"
           ]
         ],
         "response": "Sorry — that's the worst, especially this time of year. Most AC \"no cool\" calls in Phoenix come down to one of a few things (low refrigerant, weak capacitor, dirty coil, frozen evaporator). We can usually diagnose it same-day. Our diagnostic visit is <strong>$84.50, waived the moment you approve the repair</strong>. Want to schedule, or call us right now?",
@@ -1133,6 +1208,9 @@
         "patterns": [
           [
             "emergency"
+          ],
+          [
+            "emergencies"
           ],
           [
             "urgent"
@@ -1172,6 +1250,16 @@
           ],
           [
             "holiday"
+          ],
+          [
+            "do you do",
+            "emergenc"
+          ],
+          [
+            "after hours"
+          ],
+          [
+            "overnight"
           ]
         ],
         "response": "We answer the phone <strong>24/7</strong> for emergencies. Call <strong>(623) 352-9802</strong> any time and we'll dispatch the closest licensed tech — most Phoenix-area emergencies are on-site within 4 hours. After-hours emergency call-out is $149 (waived with completed repair, $0 for Comfort Club members).",
@@ -1571,6 +1659,37 @@
           ],
           [
             "84"
+          ],
+          [
+            "cost",
+            "come out"
+          ],
+          [
+            "cost",
+            "visit"
+          ],
+          [
+            "charge",
+            "come out"
+          ],
+          [
+            "what does it cost",
+            "come"
+          ],
+          [
+            "what's the cost",
+            "come"
+          ],
+          [
+            "how much",
+            "to come"
+          ],
+          [
+            "how much",
+            "show up"
+          ],
+          [
+            "service fee"
           ]
         ],
         "response": "Our diagnostic fee is <strong>$84.50</strong> for residential service calls. That covers the trip, a full system inspection, and a written flat-rate repair quote. It's <strong>waived the moment you approve the repair</strong>, so most repair customers pay nothing extra. Comfort Club members pay $0 for diagnostics. After-hours emergencies are $149 (also waived on completed repair).",
@@ -1915,6 +2034,12 @@
         "id": "split_system_includes",
         "patterns": [
           [
+            "split system"
+          ],
+          [
+            "split-system"
+          ],
+          [
             "split system",
             "install"
           ],
@@ -1996,6 +2121,9 @@
             "package system"
           ],
           [
+            "package-system"
+          ],
+          [
             "package",
             "install"
           ],
@@ -2012,6 +2140,9 @@
           ],
           [
             "roof unit"
+          ],
+          [
+            "rooftop"
           ],
           [
             "rooftop unit"
@@ -2201,6 +2332,30 @@
           ],
           [
             "mold"
+          ],
+          [
+            "indoor air"
+          ],
+          [
+            "air clean"
+          ],
+          [
+            "ducts dirty"
+          ],
+          [
+            "air smells"
+          ],
+          [
+            "filtration"
+          ],
+          [
+            "purifier"
+          ],
+          [
+            "humidity"
+          ],
+          [
+            "filter change"
           ]
         ],
         "response": "Phoenix air is harder on homes than most cities — desert dust, monsoon mold, and 6+ months of closed-up cooling. Our three-layer stack: (1) MERV 11 media filter cabinet, (2) UV-C germicidal lamp inside the air handler, (3) active purifier like iWave. Full stack typically runs $1,500–$2,200 installed.",
@@ -2345,6 +2500,24 @@
           ],
           [
             "owner"
+          ],
+          [
+            "how long",
+            "business"
+          ],
+          [
+            "years",
+            "business"
+          ],
+          [
+            "how old",
+            "company"
+          ],
+          [
+            "established"
+          ],
+          [
+            "since when"
           ]
         ],
         "response": "We're <strong>Instant Heating and Air, LLC</strong> — family-owned and based in the North Phoenix Valley since 2019. Arizona ROC License #348556, fully bonded and insured, all technicians background-checked. Our techs live in the same North Valley ZIPs we serve, which is why we know what a 118° attic does to a condenser.",
