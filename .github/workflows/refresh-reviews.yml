@@ -51,13 +51,31 @@ jobs:
           git add build/data/google_reviews.json
           if git diff --staged --quiet; then
             echo "✔ No changes — Google returned the same snapshot."
-          else
-            # Read review counts from the JSON so the commit message is informative.
-            RATING=$(grep -o '"rating"[[:space:]]*:[[:space:]]*[0-9.]*' build/data/google_reviews.json \
-              | head -1 | grep -o '[0-9.]*$')
-            TOTAL=$(grep -o '"user_ratings_total"[[:space:]]*:[[:space:]]*[0-9]*' build/data/google_reviews.json \
-              | head -1 | grep -o '[0-9]*$')
-            git commit -m "chore(reviews): auto-refresh — ${RATING}★ on ${TOTAL} reviews"
-            git push
-            echo "✓ Pushed updated reviews. Sevalla will redeploy in ~60s."
+            exit 0
+          fi
+
+          # Read review counts from the JSON so the commit message is informative.
+          RATING=$(grep -o '"rating"[[:space:]]*:[[:space:]]*[0-9.]*' build/data/google_reviews.json \
+            | head -1 | grep -o '[0-9.]*$')
+          TOTAL=$(grep -o '"user_ratings_total"[[:space:]]*:[[:space:]]*[0-9]*' build/data/google_reviews.json \
+            | head -1 | grep -o '[0-9]*$')
+          git commit -m "chore(reviews): auto-refresh — ${RATING}★ on ${TOTAL} reviews"
+
+          # Push with retry: if main has moved since checkout, rebase our single
+          # commit onto the latest main and try again. Up to 3 attempts handles
+          # the rare case of multiple concurrent pushes.
+          push_ok=0
+          for attempt in 1 2 3; do
+            if git push; then
+              push_ok=1
+              echo "✓ Pushed on attempt ${attempt}. Sevalla will redeploy in ~60s."
+              break
+            fi
+            echo "⚠ Push attempt ${attempt} rejected (remote moved). Rebasing on latest main…"
+            git pull --rebase origin main
+          done
+
+          if [ "$push_ok" != "1" ]; then
+            echo "❌ Push still failing after 3 attempts. Aborting."
+            exit 1
           fi
