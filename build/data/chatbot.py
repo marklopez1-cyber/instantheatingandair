@@ -400,6 +400,30 @@ INTENTS = [
         "response": "You bet. Anytime you need us, we're at <strong>(623) 352-9802</strong> — 24/7 for emergencies. Stay cool out there. 👋",
         "actions": [],
     },
+    # ----- Affirmative reply catcher ----------------------------------------
+    # Placed LAST so iteration order means it loses ties with every other
+    # intent. Only fires when the user response is unambiguously a "yes" with
+    # nothing more specific to match. When it does fire, route them straight
+    # to the instant HVAC quote tool (the main-page CTA, also linked from
+    # multiple intents above).
+    {
+        "id": "affirmative_quote",
+        "patterns": [
+            ["yes"], ["yeah"], ["yep"], ["yup"],
+            ["yes please"], ["yes please send"], ["yes send"],
+            ["sounds good"], ["sounds great"], ["sounds like a plan"],
+            ["i would"], ["i'd like that"], ["i would like"], ["i'd love that"],
+            ["let's do it"], ["lets do it"], ["let's go"], ["lets go"],
+            ["go ahead"], ["why not"], ["sign me up"], ["that works"],
+            ["absolutely"], ["of course"], ["definitely"],
+        ],
+        "response": "Awesome — our <strong>Instant HVAC Quote Tool</strong> gives you itemized pricing in about 90 seconds. No phone call, no commitment, just real numbers for a new system in your home:",
+        "actions": [
+            {"label": "🧮 Open Instant Quote Tool →", "kind": "link", "target": "https://instant-hvac-quote.com"},
+            {"label": "🏠 Or schedule in-home estimate", "kind": "modal", "target": "estimate-modal"},
+            {"label": "📞 Or call (623) 352-9802", "kind": "call", "target": "+16233529802"},
+        ],
+    },
 ]
 
 # ---------------------------------------------------------------------------
