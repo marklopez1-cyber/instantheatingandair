@@ -148,7 +148,7 @@ HOME_FAQ = [
     },
     {
         "q": "What warranty comes with a new system install?",
-        "a": "Every Instant Heating and Air residential AC or heating installation includes three warranties as standard: the manufacturer's <strong>10-year parts warranty</strong>, a <strong>2-year labor warranty</strong>, and a <strong>2-year workmanship warranty</strong>. Want longer labor coverage? An extended <strong>10-year labor warranty</strong> is available as a paid add-on at the time of sale — ask your installer for current pricing. Commercial installations carry a 1-year manufacturer parts and labor warranty. All warranties are in writing."
+        "a": "Every Instant Heating and Air residential AC or heating installation includes three warranties as standard: (1) the equipment manufacturer's <strong>10-year parts warranty</strong> (we register it for you and assist with claims), (2) a <strong>2-year labor warranty</strong> covering the labor to replace any manufacturer-covered part (fan motors, blower motors, compressors, etc.), and (3) a <strong>lifetime craftsmanship warranty</strong> covering the original installation workmanship — brazed connections, equipment mounting, line-set routing — for the life of the installed unit. Want longer labor coverage? An extended <strong>10-year labor warranty</strong> is available as a paid add-on at the time of sale. Commercial installations carry a 1-year manufacturer parts and labor warranty. All warranties are in writing."
     },
     {
         "q": "What's included in the $18/month Comfort Club?",

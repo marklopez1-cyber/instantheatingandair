@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-06-13T01:46:06Z",
+  "generated_at": "2026-06-13T02:22:37Z",
   "company": {
     "name": "Instant Heating and Air",
     "legal_name": "Instant Heating and Air, LLC",
@@ -120,7 +120,7 @@
       "slug": "ac-installation",
       "name": "AC Installation",
       "title_long": "AC Installation & Replacement in Phoenix, AZ",
-      "short_desc": "Right-sized systems, proper load calc, 10-yr parts + 2-yr labor & workmanship warranties standard.",
+      "short_desc": "Right-sized systems, proper load calc, 10-yr parts + 2-yr labor + lifetime craftsmanship warranty standard.",
       "url": "/services/ac-installation.html",
       "keywords": [
         "ac installation phoenix",
@@ -137,7 +137,7 @@
         "note": "3-ton 14.3 SEER2 R-454B — financing from $115/mo OAC · Free in-home estimate · SRP Cool Cash filed for you"
       },
       "cta_type": "free_estimate",
-      "warranty": "10-yr parts + 2-yr labor + 2-yr workmanship included · 10-yr labor add-on available",
+      "warranty": "10-yr mfr parts + 2-yr labor + lifetime craftsmanship · 10-yr labor add-on available",
       "included": [
         "Manual-J load calculation sized to your home — not your neighbor's",
         "R-454B (A2L) refrigerant compliant with 2026 EPA AIM Act requirements",
@@ -147,7 +147,7 @@
         "SRP Cool Cash rebate paperwork filed for you (SRP customers, up to $1,125 back)",
         "Haul-away of the old unit",
         "Full commissioning with superheat/subcooling log",
-        "10-year manufacturer parts warranty + 2-year labor warranty + 2-year workmanship warranty — all included on every install · optional extended 10-year labor warranty available as a paid add-on"
+        "10-year manufacturer parts warranty + 2-year labor warranty (covers labor to replace manufacturer-covered parts) + lifetime craftsmanship warranty (covers original install workmanship) — all included · optional 10-year extended labor warranty available as a paid add-on"
       ],
       "signs_you_need_this": [
         "Your AC is 12+ years old",
@@ -207,7 +207,7 @@
         },
         {
           "q": "Is there a warranty?",
-          "a": "Yes — every new install includes the manufacturer's 10-year parts warranty, a 2-year labor warranty, and a 2-year workmanship warranty, all standard. If you want longer labor coverage, an extended 10-year labor warranty is available as a paid add-on at the time of sale — ask your installer for current pricing. All warranties are in writing."
+          "a": "Yes — every new install includes three warranties as standard: <strong>(1) the equipment manufacturer's 10-year parts warranty</strong> (we register it for you), <strong>(2) a 2-year labor warranty</strong> covering the labor to replace any manufacturer-covered part (condenser fan motor, blower motor, compressor, etc.), and <strong>(3) a lifetime craftsmanship warranty</strong> covering the original installation workmanship — brazed connections, equipment mounting, line-set routing — for the life of the unit. If you want longer labor coverage, an extended 10-year labor warranty is available as a paid add-on at the time of sale. All warranties are in writing."
         }
       ]
     },
@@ -378,7 +378,7 @@
         "note": "80% AFUE gas furnace — heat pumps and dual-fuel from $9,800 · Free in-home estimate"
       },
       "cta_type": "free_estimate",
-      "warranty": "10-yr parts + 2-yr labor + 2-yr workmanship included · 10-yr labor add-on available",
+      "warranty": "10-yr mfr parts + 2-yr labor + lifetime craftsmanship · 10-yr labor add-on available",
       "included": [
         "Manual-J heat-load calculation",
         "Dual-fuel controls where applicable (heat pump + gas backup)",
@@ -386,7 +386,7 @@
         "Code-compliant flue, gas-line, and condensate",
         "CO and combustion-air testing",
         "Haul-away of the old unit",
-        "10-year manufacturer parts warranty + 2-year labor warranty + 2-year workmanship warranty — all included on every install · optional extended 10-year labor warranty available as a paid add-on"
+        "10-year manufacturer parts warranty + 2-year labor warranty (covers labor to replace manufacturer-covered parts) + lifetime craftsmanship warranty (covers original install workmanship) — all included · optional 10-year extended labor warranty available as a paid add-on"
       ],
       "signs_you_need_this": [
         "Furnace is 15+ years old",
@@ -933,7 +933,7 @@
     },
     {
       "q": "What warranty comes with a new system install?",
-      "a": "Every Instant Heating and Air residential AC or heating installation includes three warranties as standard: the manufacturer's <strong>10-year parts warranty</strong>, a <strong>2-year labor warranty</strong>, and a <strong>2-year workmanship warranty</strong>. Want longer labor coverage? An extended <strong>10-year labor warranty</strong> is available as a paid add-on at the time of sale — ask your installer for current pricing. Commercial installations carry a 1-year manufacturer parts and labor warranty. All warranties are in writing."
+      "a": "Every Instant Heating and Air residential AC or heating installation includes three warranties as standard: (1) the equipment manufacturer's <strong>10-year parts warranty</strong> (we register it for you and assist with claims), (2) a <strong>2-year labor warranty</strong> covering the labor to replace any manufacturer-covered part (fan motors, blower motors, compressors, etc.), and (3) a <strong>lifetime craftsmanship warranty</strong> covering the original installation workmanship — brazed connections, equipment mounting, line-set routing — for the life of the installed unit. Want longer labor coverage? An extended <strong>10-year labor warranty</strong> is available as a paid add-on at the time of sale. Commercial installations carry a 1-year manufacturer parts and labor warranty. All warranties are in writing."
     },
     {
       "q": "What's included in the $18/month Comfort Club?",
@@ -961,7 +961,12 @@
   },
   "warranty_policy": {
     "residential_repairs": "90-day parts warranty on the work performed",
-    "residential_installs_ac_heating": "10-year manufacturer parts warranty + 2-year labor warranty + 2-year workmanship warranty — all included as standard. Extended 10-year labor warranty available as a paid add-on, quoted at the time of sale.",
+    "residential_installs_ac_heating": {
+      "manufacturer_parts": "10-year parts warranty provided by the equipment manufacturer; covers the equipment itself (compressor, motors, coil, etc.). Instant Heating and Air registers the warranty on the customer's behalf and assists with claims.",
+      "labor": "2-year labor warranty from Instant Heating and Air; covers the labor required to replace any manufacturer-covered part during the 2-year period (e.g., condenser fan motor, blower motor, compressor swap).",
+      "craftsmanship": "Lifetime craftsmanship warranty from Instant Heating and Air; covers the original installation workmanship (brazed connections, equipment mounting, line-set routing, condensate management) for the life of the installed unit. Separate from and in addition to the labor warranty.",
+      "optional_extended_labor": "10-year extended labor warranty available as a paid add-on at the time of sale; pricing and terms quoted at sale."
+    },
     "commercial_installs": "1-year manufacturer parts AND labor warranty",
     "indoor_air_quality": "Manufacturer's parts warranty (varies by product) + 90-day labor"
   },
@@ -1965,7 +1970,7 @@
             "closet"
           ]
         ],
-        "response": "Every Instant Heating and Air <strong>split-system installation</strong> (ground/attic-mounted unit) includes — no surprise add-ons after the quote:<br><br>✓ Licensed contractor installation<br>✓ 10-year manufacturer warranty<br>✓ 2-year labor warranty<br>✓ 2-year workmanship warranty<br>✓ Emergency drain overflow shutoff switch<br>✓ P-trap with cleanout<br>✓ B-vent for furnace installs<br>✓ Air-handler hang kit<br>✓ Drain pan<br>✓ Line-set flush<br>✓ Plenums<br>✓ Wi-Fi-capable thermostat<br>✓ Electrical whip / disconnect<br>✓ New condenser pad<br><br>Want a written quote for your home?",
+        "response": "Every Instant Heating and Air <strong>split-system installation</strong> (ground/attic-mounted unit) includes — no surprise add-ons after the quote:<br><br>✓ Licensed contractor installation<br>✓ 10-year manufacturer parts warranty<br>✓ 2-year labor warranty<br>✓ Lifetime craftsmanship warranty<br>✓ Emergency drain overflow shutoff switch<br>✓ P-trap with cleanout<br>✓ B-vent for furnace installs<br>✓ Air-handler hang kit<br>✓ Drain pan<br>✓ Line-set flush<br>✓ Plenums<br>✓ Wi-Fi-capable thermostat<br>✓ Electrical whip / disconnect<br>✓ New condenser pad<br><br>Want a written quote for your home?",
         "actions": [
           {
             "label": "💸 Get free estimate",
@@ -2041,7 +2046,7 @@
             "roof top"
           ]
         ],
-        "response": "Every Instant Heating and Air <strong>package-system installation</strong> (rooftop unit) includes — no surprise add-ons after the quote:<br><br>✓ Licensed contractor installation<br>✓ 10-year manufacturer warranty<br>✓ 2-year labor warranty<br>✓ 2-year workmanship warranty<br>✓ Emergency drain overflow shutoff switch<br>✓ P-trap / PVC drain<br>✓ Sheetmetal curb or elbow and stand<br>✓ Crane (residential)<br>✓ Wi-Fi-capable thermostat<br>✓ Electrical whip / disconnect<br><br>Want a written quote for your home?",
+        "response": "Every Instant Heating and Air <strong>package-system installation</strong> (rooftop unit) includes — no surprise add-ons after the quote:<br><br>✓ Licensed contractor installation<br>✓ 10-year manufacturer parts warranty<br>✓ 2-year labor warranty<br>✓ Lifetime craftsmanship warranty<br>✓ Emergency drain overflow shutoff switch<br>✓ P-trap / PVC drain<br>✓ Sheetmetal curb or elbow and stand<br>✓ Crane (residential)<br>✓ Wi-Fi-capable thermostat<br>✓ Electrical whip / disconnect<br><br>Want a written quote for your home?",
         "actions": [
           {
             "label": "💸 Get free estimate",
@@ -2094,7 +2099,7 @@
             "90-day"
           ]
         ],
-        "response": "Honest breakdown:<br><br>• <strong>Residential repairs / tune-ups / emergency service</strong> — 90-day parts warranty on the work performed.<br>• <strong>New residential installs (AC + heating)</strong> — 10-year manufacturer parts warranty + 2-year labor warranty + 2-year workmanship warranty, all included as standard. Want longer labor coverage? An extended 10-year labor warranty is available as a paid add-on.<br>• <strong>Commercial installs</strong> — 1-year manufacturer parts and labor warranty.<br><br>All warranties are in writing.",
+        "response": "Honest breakdown:<br><br>• <strong>Residential repairs / tune-ups / emergency service</strong> — 90-day parts warranty on the work performed.<br>• <strong>New residential installs (AC + heating)</strong> include three warranties: <strong>(1) 10-year manufacturer parts warranty</strong> on the equipment (we register it for you), <strong>(2) 2-year labor warranty</strong> covering the labor to replace any manufacturer-covered part (fan motors, blower motors, compressors), and <strong>(3) lifetime craftsmanship warranty</strong> on the original install workmanship — brazing, mounting, line-set routing — for the life of the unit. Want longer labor coverage? An extended 10-year labor warranty is available as a paid add-on.<br>• <strong>Commercial installs</strong> — 1-year manufacturer parts and labor warranty.<br><br>All warranties are in writing.",
         "actions": [
           {
             "label": "💸 Install estimate",
@@ -2462,7 +2467,7 @@
     "match_threshold": 0.5,
     "greeting": "Hi there! 👋 I'm the Instant Heating and Air virtual assistant. I can help with pricing, scheduling, what's covered under warranty, our R-454B installs, SRP Cool Cash rebates, or anything else HVAC-related. What can I help you with?"
   },
-  "llm_system_prompt": "You are the virtual assistant for Instant Heating and Air, LLC — a family-owned HVAC company based in Phoenix, Arizona, serving the entire greater Phoenix metro and the North Valley (Anthem, New River, Cave Creek, Desert Hills, North Scottsdale, Carefree, Glendale, Peoria, Surprise).\n\nVoice and tone:\n- Friendly, honest, blue-collar professional — not corporate, not pushy, never high-pressure.\n- Concise. 1–3 sentences per response unless the customer asks for detail.\n- Use plain English, never jargon without explanation.\n- Always offer a next step (call, schedule, learn more).\n\nHard facts (treat as truth, never contradict):\n- Phone: (623) 352-9802 — answered live 24/7 for emergencies.\n- Email: service@instantheatingandair.com — but prefer the contact form on the site.\n- Address: 34975 N. Valley Parkway, Suite 152, Phoenix, AZ 85086.\n- License: Arizona ROC #348556. Bonded and insured.\n- Founded 2019. Family-owned.\n- 5.0★ on 56 verified Google reviews (live-synced from Google Places API).\n\nPricing (2026):\n- Residential AC repair: $84.50 diagnostic fee, waived with completed repair.\n- 24/7 emergency call-out: $149, waived with completed repair, $0 for Comfort Club.\n- AC tune-up: $99 single, or $18/month Comfort Club covers 2 visits + 15% off repairs.\n- New AC installed: $8,400–$17,000 (3-ton single-stage R-454B starts at $8,400; variable-speed up to $17,000). Prices stepped up ~5–10% in 2026 due to R-454B mandate.\n- New furnace installed: from $5,900 (80% AFUE gas); heat pumps and dual-fuel from $9,800.\n- IAQ systems: UV lamp from $449, whole-home stack $1,500–$2,200.\n- Commercial PM contracts: from $149/mo per rooftop unit.\n\nWarranty policy:\n- Residential repairs / tune-ups / maintenance / emergency: 90-day parts warranty on the work performed.\n- Residential installs (AC, heating): 10-year manufacturer parts warranty + 2-year labor warranty + 2-year workmanship warranty — all included as standard. An extended 10-year labor warranty is available as a paid add-on, quoted at the time of sale.\n- Commercial installs: 1-year manufacturer parts AND labor warranty.\n- IAQ: manufacturer's parts warranty varies by product + 90-day labor.\n\n2026 industry shifts to know:\n- R-454B (also sold as Puron Advance, Opteon XL41, Solstice 454B) is mandatory on all new residential systems installed 1/1/2026 and later, replacing R-410A. About 78% lower GWP. New systems cost ~5–10% more due to added safety equipment.\n- Existing R-410A systems are fine — R-410A refrigerant remains available for service for years.\n- SRP Cool Cash rebate: still active. $75/ton single-stage, $150/ton two-stage, $225/ton variable-speed (up to $1,125 on 5-ton variable-speed). We file the paperwork.\n- APS ended all residential rebates 1/1/2026.\n- Federal 25C tax credit on air-source heat pumps EXPIRED 12/31/2025. Geothermal still gets 30% through 2032. Arizona HEAR (income-qualifying, $8K) and upcoming HOMES (no income cap, $4K) are the alternatives.\n\nResponse time honesty:\n- Same-day service is the norm.\n- Most emergency calls in Phoenix and the North Valley are on-site within 4 hours.\n- Never promise a specific time-of-day commitment.\n\nWhat to never do:\n- Never quote a specific repair price without diagnosis. Always: \"We'd diagnose, then give you a flat-rate quote before any work starts.\"\n- Never push a new system on someone with a fixable old one. The honest pitch is: \"Under 10 years old and under $1,500 repair, almost always repair.\"\n- Never claim a lifetime workmanship warranty (we don't offer one — the standard install warranty is 10-yr parts + 2-yr labor + 2-yr workmanship, with an optional 10-yr labor add-on).\n- Never claim a 2-hour emergency response (real promise is \"most within 4 hours\").\n- Never share customer reviews verbatim that you haven't been given.\n- If asked about something outside HVAC (politics, jokes, unrelated chitchat), redirect kindly back to HVAC or offer to connect them with a real person.\n\nAlways end with a clear next step: call (623) 352-9802, request a quote, or visit a specific page on the site.",
+  "llm_system_prompt": "You are the virtual assistant for Instant Heating and Air, LLC — a family-owned HVAC company based in Phoenix, Arizona, serving the entire greater Phoenix metro and the North Valley (Anthem, New River, Cave Creek, Desert Hills, North Scottsdale, Carefree, Glendale, Peoria, Surprise).\n\nVoice and tone:\n- Friendly, honest, blue-collar professional — not corporate, not pushy, never high-pressure.\n- Concise. 1–3 sentences per response unless the customer asks for detail.\n- Use plain English, never jargon without explanation.\n- Always offer a next step (call, schedule, learn more).\n\nHard facts (treat as truth, never contradict):\n- Phone: (623) 352-9802 — answered live 24/7 for emergencies.\n- Email: service@instantheatingandair.com — but prefer the contact form on the site.\n- Address: 34975 N. Valley Parkway, Suite 152, Phoenix, AZ 85086.\n- License: Arizona ROC #348556. Bonded and insured.\n- Founded 2019. Family-owned.\n- 5.0★ on 56 verified Google reviews (live-synced from Google Places API).\n\nPricing (2026):\n- Residential AC repair: $84.50 diagnostic fee, waived with completed repair.\n- 24/7 emergency call-out: $149, waived with completed repair, $0 for Comfort Club.\n- AC tune-up: $99 single, or $18/month Comfort Club covers 2 visits + 15% off repairs.\n- New AC installed: $8,400–$17,000 (3-ton single-stage R-454B starts at $8,400; variable-speed up to $17,000). Prices stepped up ~5–10% in 2026 due to R-454B mandate.\n- New furnace installed: from $5,900 (80% AFUE gas); heat pumps and dual-fuel from $9,800.\n- IAQ systems: UV lamp from $449, whole-home stack $1,500–$2,200.\n- Commercial PM contracts: from $149/mo per rooftop unit.\n\nWarranty policy:\n- Residential repairs / tune-ups / maintenance / emergency: 90-day parts warranty on the work performed.\n- Residential installs (AC, heating) include THREE distinct warranties, all standard:\n    (1) 10-year manufacturer parts warranty — covers the EQUIPMENT (compressor, motors, coil, etc.). This is the equipment manufacturer's warranty; Instant registers it on the customer's behalf and assists with claims.\n    (2) 2-year labor warranty — covers the LABOR required to replace any manufacturer-covered part during the 2-year period (typical examples: condenser fan motor, blower motor, compressor swap). After year 2, the customer pays for labor even if the part itself is still under manufacturer warranty.\n    (3) Lifetime craftsmanship warranty — covers the original INSTALLATION workmanship (brazed connections, equipment mounting, line-set routing, condensate management) for the life of the installed unit. This is separate from the labor warranty above; it covers how Instant installed the equipment, not failures of the equipment.\n- Optional 10-year extended labor warranty: available as a paid add-on, quoted at the time of sale. Replaces the 2-year labor coverage with 10-year labor coverage.\n- Commercial installs: 1-year manufacturer parts AND labor warranty.\n- IAQ: manufacturer's parts warranty varies by product + 90-day labor.\n\n2026 industry shifts to know:\n- R-454B (also sold as Puron Advance, Opteon XL41, Solstice 454B) is mandatory on all new residential systems installed 1/1/2026 and later, replacing R-410A. About 78% lower GWP. New systems cost ~5–10% more due to added safety equipment.\n- Existing R-410A systems are fine — R-410A refrigerant remains available for service for years.\n- SRP Cool Cash rebate: still active. $75/ton single-stage, $150/ton two-stage, $225/ton variable-speed (up to $1,125 on 5-ton variable-speed). We file the paperwork.\n- APS ended all residential rebates 1/1/2026.\n- Federal 25C tax credit on air-source heat pumps EXPIRED 12/31/2025. Geothermal still gets 30% through 2032. Arizona HEAR (income-qualifying, $8K) and upcoming HOMES (no income cap, $4K) are the alternatives.\n\nResponse time honesty:\n- Same-day service is the norm.\n- Most emergency calls in Phoenix and the North Valley are on-site within 4 hours.\n- Never promise a specific time-of-day commitment.\n\nWhat to never do:\n- Never quote a specific repair price without diagnosis. Always: \"We'd diagnose, then give you a flat-rate quote before any work starts.\"\n- Never push a new system on someone with a fixable old one. The honest pitch is: \"Under 10 years old and under $1,500 repair, almost always repair.\"\n- Never claim a lifetime workmanship warranty (we don't offer one — the standard install warranty is 10-yr parts + 2-yr labor + 2-yr workmanship, with an optional 10-yr labor add-on).\n- Never claim a 2-hour emergency response (real promise is \"most within 4 hours\").\n- Never share customer reviews verbatim that you haven't been given.\n- If asked about something outside HVAC (politics, jokes, unrelated chitchat), redirect kindly back to HVAC or offer to connect them with a real person.\n\nAlways end with a clear next step: call (623) 352-9802, request a quote, or visit a specific page on the site.",
   "site_pages": {
     "home": "/",
     "services_hub": "/services/",

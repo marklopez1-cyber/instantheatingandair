@@ -257,7 +257,7 @@ INTENTS = [
             ["not on the roof"], ["not on roof"], ["not a rooftop"],
             ["unit in", "attic"], ["unit in", "garage"], ["unit in", "closet"],
         ],
-        "response": "Every Instant Heating and Air <strong>split-system installation</strong> (ground/attic-mounted unit) includes — no surprise add-ons after the quote:<br><br>✓ Licensed contractor installation<br>✓ 10-year manufacturer warranty<br>✓ 2-year labor warranty<br>✓ 2-year workmanship warranty<br>✓ Emergency drain overflow shutoff switch<br>✓ P-trap with cleanout<br>✓ B-vent for furnace installs<br>✓ Air-handler hang kit<br>✓ Drain pan<br>✓ Line-set flush<br>✓ Plenums<br>✓ Wi-Fi-capable thermostat<br>✓ Electrical whip / disconnect<br>✓ New condenser pad<br><br>Want a written quote for your home?",
+        "response": "Every Instant Heating and Air <strong>split-system installation</strong> (ground/attic-mounted unit) includes — no surprise add-ons after the quote:<br><br>✓ Licensed contractor installation<br>✓ 10-year manufacturer parts warranty<br>✓ 2-year labor warranty<br>✓ Lifetime craftsmanship warranty<br>✓ Emergency drain overflow shutoff switch<br>✓ P-trap with cleanout<br>✓ B-vent for furnace installs<br>✓ Air-handler hang kit<br>✓ Drain pan<br>✓ Line-set flush<br>✓ Plenums<br>✓ Wi-Fi-capable thermostat<br>✓ Electrical whip / disconnect<br>✓ New condenser pad<br><br>Want a written quote for your home?",
         "actions": [
             {"label": "💸 Get free estimate", "kind": "modal", "target": "estimate-modal"},
             {"label": "🧮 Instant online quote", "kind": "link", "target": "https://instant-hvac-quote.com"},
@@ -273,7 +273,7 @@ INTENTS = [
             ["on the roof"], ["unit on roof"], ["unit on the roof"],
             ["rtu"], ["rooftop ac"], ["roof ac"], ["roof top"],
         ],
-        "response": "Every Instant Heating and Air <strong>package-system installation</strong> (rooftop unit) includes — no surprise add-ons after the quote:<br><br>✓ Licensed contractor installation<br>✓ 10-year manufacturer warranty<br>✓ 2-year labor warranty<br>✓ 2-year workmanship warranty<br>✓ Emergency drain overflow shutoff switch<br>✓ P-trap / PVC drain<br>✓ Sheetmetal curb or elbow and stand<br>✓ Crane (residential)<br>✓ Wi-Fi-capable thermostat<br>✓ Electrical whip / disconnect<br><br>Want a written quote for your home?",
+        "response": "Every Instant Heating and Air <strong>package-system installation</strong> (rooftop unit) includes — no surprise add-ons after the quote:<br><br>✓ Licensed contractor installation<br>✓ 10-year manufacturer parts warranty<br>✓ 2-year labor warranty<br>✓ Lifetime craftsmanship warranty<br>✓ Emergency drain overflow shutoff switch<br>✓ P-trap / PVC drain<br>✓ Sheetmetal curb or elbow and stand<br>✓ Crane (residential)<br>✓ Wi-Fi-capable thermostat<br>✓ Electrical whip / disconnect<br><br>Want a written quote for your home?",
         "actions": [
             {"label": "💸 Get free estimate", "kind": "modal", "target": "estimate-modal"},
             {"label": "🧮 Instant online quote", "kind": "link", "target": "https://instant-hvac-quote.com"},
@@ -286,7 +286,7 @@ INTENTS = [
             ["warranty"], ["warrantee"], ["guarantee"], ["covered"], ["labor warranty"],
             ["parts warranty"], ["10 year"], ["10-year"], ["90 day"], ["90-day"],
         ],
-        "response": "Honest breakdown:<br><br>• <strong>Residential repairs / tune-ups / emergency service</strong> — 90-day parts warranty on the work performed.<br>• <strong>New residential installs (AC + heating)</strong> — 10-year manufacturer parts warranty + 2-year labor warranty + 2-year workmanship warranty, all included as standard. Want longer labor coverage? An extended 10-year labor warranty is available as a paid add-on.<br>• <strong>Commercial installs</strong> — 1-year manufacturer parts and labor warranty.<br><br>All warranties are in writing.",
+        "response": "Honest breakdown:<br><br>• <strong>Residential repairs / tune-ups / emergency service</strong> — 90-day parts warranty on the work performed.<br>• <strong>New residential installs (AC + heating)</strong> include three warranties: <strong>(1) 10-year manufacturer parts warranty</strong> on the equipment (we register it for you), <strong>(2) 2-year labor warranty</strong> covering the labor to replace any manufacturer-covered part (fan motors, blower motors, compressors), and <strong>(3) lifetime craftsmanship warranty</strong> on the original install workmanship — brazing, mounting, line-set routing — for the life of the unit. Want longer labor coverage? An extended 10-year labor warranty is available as a paid add-on.<br>• <strong>Commercial installs</strong> — 1-year manufacturer parts and labor warranty.<br><br>All warranties are in writing.",
         "actions": [
             {"label": "💸 Install estimate", "kind": "modal", "target": "estimate-modal"},
             {"label": "📞 Ask about labor coverage", "kind": "call", "target": "+16233529802"},
@@ -422,7 +422,11 @@ Pricing (2026):
 
 Warranty policy:
 - Residential repairs / tune-ups / maintenance / emergency: 90-day parts warranty on the work performed.
-- Residential installs (AC, heating): 10-year manufacturer parts warranty + 2-year labor warranty + 2-year workmanship warranty — all included as standard. An extended 10-year labor warranty is available as a paid add-on, quoted at the time of sale.
+- Residential installs (AC, heating) include THREE distinct warranties, all standard:
+    (1) 10-year manufacturer parts warranty — covers the EQUIPMENT (compressor, motors, coil, etc.). This is the equipment manufacturer's warranty; Instant registers it on the customer's behalf and assists with claims.
+    (2) 2-year labor warranty — covers the LABOR required to replace any manufacturer-covered part during the 2-year period (typical examples: condenser fan motor, blower motor, compressor swap). After year 2, the customer pays for labor even if the part itself is still under manufacturer warranty.
+    (3) Lifetime craftsmanship warranty — covers the original INSTALLATION workmanship (brazed connections, equipment mounting, line-set routing, condensate management) for the life of the installed unit. This is separate from the labor warranty above; it covers how Instant installed the equipment, not failures of the equipment.
+- Optional 10-year extended labor warranty: available as a paid add-on, quoted at the time of sale. Replaces the 2-year labor coverage with 10-year labor coverage.
 - Commercial installs: 1-year manufacturer parts AND labor warranty.
 - IAQ: manufacturer's parts warranty varies by product + 90-day labor.
 
