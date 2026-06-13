@@ -58,17 +58,28 @@ jobs:
         # but the rendered HTML + assets/data/iha-knowledge.json that Sevalla
         # actually serves would still show the old count. Run the same build
         # script we run locally so source + output stay in sync.
-        run: python build/build.py
+        #
+        # build.py writes its output to ./site/, but Mark's deploy.sh ships
+        # the contents of site/ to the REPO ROOT (where Sevalla actually
+        # serves from). So after building, we promote site/* to root and
+        # drop the now-stale site/ subfolder so the commit only contains
+        # the files that get served. Otherwise the workflow would push the
+        # rebuilt files to ./site/* (a path Sevalla ignores) and the live
+        # site would never change.
+        run: |
+          python build/build.py
+          # Use cp -R with the trailing /. idiom to copy CONTENTS only.
+          cp -R site/. .
+          rm -rf site
 
       - name: Commit + push if reviews changed
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          # Stage both the source JSON AND the rebuilt site/ output — the
-          # rebuild can regenerate many files (every HTML page that shows
-          # the review count, plus assets/data/iha-knowledge.json). All of
-          # them need to land together so the live site stays consistent.
-          git add build/data/google_reviews.json site/
+          # Stage everything that changed — build.py regenerated files at
+          # the repo root (after the cp -R site/. . step above), plus the
+          # source JSON. Use `git add -A` so renames + deletions both land.
+          git add -A
           if git diff --staged --quiet; then
             echo "✔ No changes — Google returned the same snapshot."
             exit 0
