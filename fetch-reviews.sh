@@ -26,25 +26,29 @@ set -e
 ENV_FILE="$HOME/.iha-env"
 OUT_FILE="build/data/google_reviews.json"
 
-if [[ ! -f "$ENV_FILE" ]]; then
-  echo "❌ Config file not found: $ENV_FILE"
-  echo ""
-  echo "   Create it with these two lines:"
-  echo "   GOOGLE_PLACES_API_KEY=AIzaSy...your-key"
-  echo "   GOOGLE_PLACE_ID=ChIJ...your-place-id"
-  echo ""
-  echo "   Then run: chmod 600 ~/.iha-env"
-  exit 1
+# Load secrets from one of two places, in priority order:
+#   1. Env vars already set in the environment (used by the GitHub Action,
+#      which sets them from repo secrets).
+#   2. Plain-text ~/.iha-env file (used for local runs from Git Bash).
+# This dual mode lets the same script work in CI and on Mark's laptop.
+if [[ -z "$GOOGLE_PLACES_API_KEY" || -z "$GOOGLE_PLACE_ID" ]]; then
+  if [[ -f "$ENV_FILE" ]]; then
+    set -a
+    # shellcheck disable=SC1090
+    source "$ENV_FILE"
+    set +a
+  fi
 fi
 
-# Load env vars (shell-style: VAR=value per line)
-set -a
-# shellcheck disable=SC1090
-source "$ENV_FILE"
-set +a
-
 if [[ -z "$GOOGLE_PLACES_API_KEY" || -z "$GOOGLE_PLACE_ID" ]]; then
-  echo "❌ Missing GOOGLE_PLACES_API_KEY or GOOGLE_PLACE_ID in $ENV_FILE"
+  echo "❌ Missing GOOGLE_PLACES_API_KEY and/or GOOGLE_PLACE_ID."
+  echo ""
+  echo "   Local usage — create $ENV_FILE with these two lines:"
+  echo "       GOOGLE_PLACES_API_KEY=AIzaSy...your-key"
+  echo "       GOOGLE_PLACE_ID=ChIJ...your-place-id"
+  echo "   Then: chmod 600 $ENV_FILE"
+  echo ""
+  echo "   CI usage — set both as environment variables before running."
   exit 1
 fi
 

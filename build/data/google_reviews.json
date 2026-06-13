@@ -19,25 +19,13 @@
             "translated" : false
          },
          {
-            "author_name" : "Lonnie G.",
-            "author_url" : "https://www.google.com/maps/contrib/103258657097649695771/reviews",
-            "language" : "en",
-            "original_language" : "en",
-            "profile_photo_url" : "https://lh3.googleusercontent.com/a/ACg8ocIPeQRwxtI5QsTgx1Nc4qv60O7Ok-hxL1LO8iCCO75TBQDdtA=s128-c0x00000000-cc-rp-mo",
-            "rating" : 5,
-            "relative_time_description" : "2 months ago",
-            "text" : "The team from Instant Heating and Air arrived on time, their responsiveness and reliability gave me confidence, and I appreciated the follow up to make sure everything was working perfectly. I highly recommend them for any HVAC repair services.",
-            "time" : 1775046967,
-            "translated" : false
-         },
-         {
             "author_name" : "Jenn Popp",
             "author_url" : "https://www.google.com/maps/contrib/108279287106158828845/reviews",
             "language" : "en",
             "original_language" : "en",
             "profile_photo_url" : "https://lh3.googleusercontent.com/a-/ALV-UjXjhLIbDD1M9I0S9GfJuZVH9RKTJs3mnFN4yHLKpEiZ1-5HwhWz=s128-c0x00000000-cc-rp-mo",
             "rating" : 5,
-            "relative_time_description" : "5 months ago",
+            "relative_time_description" : "4 months ago",
             "text" : "Very thorough and professional! The technician was on time and efficient. He explained everything he did and what the outcomes were.",
             "time" : 1768345478,
             "translated" : false
@@ -61,14 +49,26 @@
             "original_language" : "en",
             "profile_photo_url" : "https://lh3.googleusercontent.com/a-/ALV-UjVyabKU7xioEtLPJQZ32ATOSC5HkWPOaOKdUw2HJGeQQS_XbFlr=s128-c0x00000000-cc-rp-mo-ba3",
             "rating" : 5,
-            "relative_time_description" : "6 months ago",
+            "relative_time_description" : "5 months ago",
             "text" : "Always great , honest and quick service. As a Poperty Manager they take care of all my properties and will continue to use their service!",
             "time" : 1765503456,
+            "translated" : false
+         },
+         {
+            "author_name" : "Raghu Kote",
+            "author_url" : "https://www.google.com/maps/contrib/110178234472717843159/reviews",
+            "language" : "en",
+            "original_language" : "en",
+            "profile_photo_url" : "https://lh3.googleusercontent.com/a/ACg8ocJl20OFKMWYnnhnfacvoEylMJ7VN-SO90PLS-G1tSWjIkVGlw=s128-c0x00000000-cc-rp-mo",
+            "rating" : 5,
+            "relative_time_description" : "9 months ago",
+            "text" : "We needed an emergency visit assured as AC unit stopped working and we had the tech visit us the next morning. The issue is identified and fixed (had to wait for parts) in no time and I could get AC back on. I will use Instant heating and cooling for all my future needs. Definitely recommend them.",
+            "time" : 1755059252,
             "translated" : false
          }
       ],
       "url" : "https://maps.google.com/?cid=2213854254172440049",
-      "user_ratings_total" : 57
+      "user_ratings_total" : 56
    },
    "status" : "OK"
 }

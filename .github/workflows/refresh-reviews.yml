@@ -1,0 +1,63 @@
+name: Refresh Google reviews
+
+# ---------------------------------------------------------------------------
+# Runs every Monday at 6 AM Phoenix time. Pulls the latest 5 reviews Google
+# considers "most relevant" from the Places API, writes them to
+# build/data/google_reviews.json, commits the change, and pushes to main —
+# which Sevalla picks up and auto-deploys within ~60 seconds.
+#
+# To run on demand, click "Run workflow" on the Actions tab in GitHub.
+#
+# Prerequisites (one-time GitHub setup):
+#   Repo → Settings → Secrets and variables → Actions → New repository secret
+#     • GOOGLE_PLACES_API_KEY  (the Places API key restricted to Places API)
+#     • GOOGLE_PLACE_ID        (ChIJ…)
+# ---------------------------------------------------------------------------
+
+on:
+  schedule:
+    # Cron is in UTC. Phoenix is MST year-round (UTC−7, no DST).
+    # 6 AM Phoenix = 13:00 UTC. Monday = day-of-week 1.
+    - cron: "0 13 * * 1"
+  workflow_dispatch: {}   # Allows on-demand runs via the Actions tab UI.
+
+permissions:
+  contents: write          # Required so the bot can commit + push back to main.
+
+concurrency:
+  group: refresh-reviews
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+        with:
+          # Use the default GITHUB_TOKEN; permissions block above grants write.
+          persist-credentials: true
+
+      - name: Run fetch-reviews.sh
+        env:
+          GOOGLE_PLACES_API_KEY: ${{ secrets.GOOGLE_PLACES_API_KEY }}
+          GOOGLE_PLACE_ID: ${{ secrets.GOOGLE_PLACE_ID }}
+        run: bash fetch-reviews.sh
+
+      - name: Commit + push if reviews changed
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add build/data/google_reviews.json
+          if git diff --staged --quiet; then
+            echo "✔ No changes — Google returned the same snapshot."
+          else
+            # Read review counts from the JSON so the commit message is informative.
+            RATING=$(grep -o '"rating"[[:space:]]*:[[:space:]]*[0-9.]*' build/data/google_reviews.json \
+              | head -1 | grep -o '[0-9.]*$')
+            TOTAL=$(grep -o '"user_ratings_total"[[:space:]]*:[[:space:]]*[0-9]*' build/data/google_reviews.json \
+              | head -1 | grep -o '[0-9]*$')
+            git commit -m "chore(reviews): auto-refresh — ${RATING}★ on ${TOTAL} reviews"
+            git push
+            echo "✓ Pushed updated reviews. Sevalla will redeploy in ~60s."
+          fi
