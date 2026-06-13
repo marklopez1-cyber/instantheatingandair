@@ -38,17 +38,37 @@ jobs:
           # Use the default GITHUB_TOKEN; permissions block above grants write.
           persist-credentials: true
 
-      - name: Run fetch-reviews.sh
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Install build dependencies
+        # build.py uses Pillow to handle hero images.
+        run: pip install --quiet pillow
+
+      - name: Fetch fresh reviews from Google Places API
         env:
           GOOGLE_PLACES_API_KEY: ${{ secrets.GOOGLE_PLACES_API_KEY }}
           GOOGLE_PLACE_ID: ${{ secrets.GOOGLE_PLACE_ID }}
         run: bash fetch-reviews.sh
 
+      - name: Rebuild the site
+        # Without this, the workflow would update build/data/google_reviews.json
+        # but the rendered HTML + assets/data/iha-knowledge.json that Sevalla
+        # actually serves would still show the old count. Run the same build
+        # script we run locally so source + output stay in sync.
+        run: python build/build.py
+
       - name: Commit + push if reviews changed
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add build/data/google_reviews.json
+          # Stage both the source JSON AND the rebuilt site/ output — the
+          # rebuild can regenerate many files (every HTML page that shows
+          # the review count, plus assets/data/iha-knowledge.json). All of
+          # them need to land together so the live site stays consistent.
+          git add build/data/google_reviews.json site/
           if git diff --staged --quiet; then
             echo "✔ No changes — Google returned the same snapshot."
             exit 0
