@@ -193,7 +193,7 @@ def head(title, description, path="", og_type="website", extra_head="", canonica
   <a class="skip-link" href="#main">Skip to content</a>
 """
 
-_TEMP_SVG = '<svg class="temp-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/></svg>'
+_TEMP_SVG = '<svg class="temp-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/><circle cx="11.5" cy="17.5" r="1.5" fill="currentColor"/></svg>'
 
 def topbar():
     return f"""<div class="topbar">

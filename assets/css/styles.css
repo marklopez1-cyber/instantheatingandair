@@ -95,56 +95,108 @@ p { margin: 0 0 1em; }
 .topbar .pill { background: var(--orange); color: #fff; padding: 3px 10px; border-radius: 999px; font-weight: 700; font-size: 0.7rem; letter-spacing: 0.06em; text-transform: uppercase; margin-right: 6px; }
 .topbar-right { display: inline-flex; align-items: center; gap: 6px; flex-wrap: wrap; }
 
-/* Live Phoenix temperature pill — shared visual */
+/* Live Phoenix temperature pill — shared visual.
+   Boosted prominence: larger font, beefier padding, brand-colored gradients,
+   subtle pulsing live-dot, and stronger borders so it pops on the navy
+   topbar instead of fading into it. */
 .temp-chip {
+  position: relative;
   display: inline-flex;
   align-items: center;
-  gap: 5px;
-  padding: 3px 10px 3px 8px;
+  gap: 6px;
+  padding: 5px 13px 5px 11px;
   border-radius: 999px;
-  font-weight: 700;
-  font-size: 0.7rem;
+  font-weight: 800;
+  font-size: 0.8125rem;
   letter-spacing: 0.04em;
   white-space: nowrap;
-  transition: background 0.3s, color 0.3s, border-color 0.3s;
+  transition: background 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s, transform 0.2s;
 }
+.temp-chip:hover { transform: translateY(-1px); }
 .temp-chip[hidden] { display: none !important; }
-.temp-chip .temp-icon { flex-shrink: 0; }
+.temp-chip .temp-icon {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+}
+
+/* "Live data" pulsing dot — added via ::before so we don't need to touch
+   the markup. Sits just before the thermometer icon. */
+.temp-chip::before {
+  content: '';
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #38d77a;
+  box-shadow: 0 0 0 0 rgba(56, 215, 122, 0.6);
+  animation: temp-pulse 1.8s ease-out infinite;
+  margin-right: 2px;
+}
+@keyframes temp-pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(56, 215, 122, 0.55); transform: scale(1);   }
+  70%  { box-shadow: 0 0 0 9px rgba(56, 215, 122, 0);  transform: scale(1.05); }
+  100% { box-shadow: 0 0 0 0 rgba(56, 215, 122, 0);    transform: scale(1);   }
+}
+@media (prefers-reduced-motion: reduce) {
+  .temp-chip::before { animation: none; }
+}
 
 /* Dark variant (navy topbar) */
 .temp-chip-dark {
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.15);
-  color: #dbe7f0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.18), rgba(255,255,255,0.10));
+  border: 1px solid rgba(255,255,255,0.30);
+  color: #ffffff;
   margin-right: 4px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.22), inset 0 1px 0 rgba(255,255,255,0.18);
 }
 .temp-chip-dark.temp-hot {
-  background: rgba(236,138,35,0.22);
-  border-color: rgba(236,138,35,0.45);
-  color: #ffd9a8;
+  background: linear-gradient(135deg, rgba(243,119,33,0.92), rgba(220,90,20,0.85));
+  border-color: rgba(255,180,100,0.55);
+  color: #ffffff;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.30);
+  box-shadow: 0 2px 12px rgba(243,119,33,0.45), inset 0 1px 0 rgba(255,255,255,0.22);
 }
+.temp-chip-dark.temp-hot::before {
+  background: #fff5d6;
+  box-shadow: 0 0 0 0 rgba(255,245,214,0.7);
+}
+@keyframes temp-pulse-hot {
+  0%   { box-shadow: 0 0 0 0 rgba(255,245,214,0.7); transform: scale(1);   }
+  70%  { box-shadow: 0 0 0 9px rgba(255,245,214,0); transform: scale(1.05); }
+  100% { box-shadow: 0 0 0 0 rgba(255,245,214,0);   transform: scale(1);   }
+}
+.temp-chip-dark.temp-hot::before { animation-name: temp-pulse-hot; }
+
 .temp-chip-dark.temp-cold {
-  background: rgba(135,180,230,0.18);
-  border-color: rgba(135,180,230,0.4);
-  color: #b6d6f5;
+  background: linear-gradient(135deg, rgba(74,144,226,0.85), rgba(40,108,190,0.78));
+  border-color: rgba(155,200,245,0.55);
+  color: #ffffff;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.28);
+  box-shadow: 0 2px 12px rgba(40,108,190,0.45), inset 0 1px 0 rgba(255,255,255,0.18);
 }
 
 /* Light variant (white header — mobile only) */
 .temp-chip-light {
-  background: var(--sand);
-  border: 1px solid var(--line);
+  background: linear-gradient(135deg, #FFF4E2, #FCE3C7);
+  border: 1px solid var(--orange);
   color: var(--navy);
   flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(243,119,33,0.18);
 }
 .temp-chip-light.temp-hot {
-  background: rgba(236,138,35,0.14);
-  border-color: rgba(236,138,35,0.4);
-  color: var(--orange-dk);
+  background: linear-gradient(135deg, var(--orange), #D85B14);
+  border-color: #B84A0E;
+  color: #ffffff;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.25);
+  box-shadow: 0 2px 10px rgba(243,119,33,0.45);
 }
+.temp-chip-light.temp-hot::before { background: #fff5d6; }
 .temp-chip-light.temp-cold {
-  background: rgba(20,60,94,0.08);
-  border-color: rgba(20,60,94,0.25);
+  background: linear-gradient(135deg, #DCE9F7, #B6D6F5);
+  border-color: #4A90E2;
   color: var(--navy);
+  box-shadow: 0 2px 10px rgba(74,144,226,0.32);
 }
 
 /* Show dark chip on desktop only; light chip on mobile only */
@@ -152,7 +204,7 @@ p { margin: 0 0 1em; }
   .temp-chip-dark { display: none !important; }
   .topbar .lic { display: none; }
   .topbar .row { justify-content: center; gap: 8px; }
-  .temp-chip { font-size: 0.66rem; }
+  .temp-chip { font-size: 0.75rem; padding: 4px 11px 4px 9px; }
 }
 @media (min-width: 641px) {
   .temp-chip-light { display: none !important; }
