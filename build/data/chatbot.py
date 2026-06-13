@@ -292,7 +292,7 @@ INTENTS = [
             ["on the roof"], ["unit on roof"], ["unit on the roof"],
             ["rtu"], ["rooftop ac"], ["roof ac"], ["roof top"],
         ],
-        "response": "Every Instant Heating and Air <strong>package-system installation</strong> (rooftop unit) includes — no surprise add-ons after the quote:<br><br>✓ Licensed contractor installation<br>✓ 10-year manufacturer parts warranty<br>✓ 2-year labor warranty<br>✓ Lifetime craftsmanship warranty<br>✓ Emergency drain overflow shutoff switch<br>✓ P-trap / PVC drain<br>✓ Sheetmetal curb or elbow and stand<br>✓ Crane (residential)<br>✓ Wi-Fi-capable thermostat<br>✓ Electrical whip / disconnect<br><br>Want a written quote for your home?",
+        "response": "Every Instant Heating and Air <strong>package-system installation</strong> (rooftop unit) includes — no surprise add-ons after the quote:<br><br>✓ Licensed contractor installation<br>✓ 10-year manufacturer parts warranty<br>✓ 2-year labor warranty<br>✓ Lifetime craftsmanship warranty<br>✓ P-trap / PVC drain<br>✓ Sheetmetal curb or elbow and stand<br>✓ Crane (residential)<br>✓ Wi-Fi-capable thermostat<br>✓ Electrical whip / disconnect<br><br>Want a written quote for your home?",
         "actions": [
             {"label": "💸 Get free estimate", "kind": "modal", "target": "estimate-modal"},
             {"label": "🧮 Instant online quote", "kind": "link", "target": "https://instant-hvac-quote.com"},
