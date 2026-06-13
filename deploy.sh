@@ -95,9 +95,61 @@ echo "💾 Committing: $COMMIT_MSG"
 git add -A
 git commit -m "$COMMIT_MSG"
 
+# ---------------------------------------------------------------------------
+# Push with auto-rebase-on-rejection.
+#
+# The GitHub Action (.github/workflows/refresh-reviews.yml) auto-commits the
+# refreshed Google reviews JSON to main on its weekly schedule. Those commits
+# never touch your laptop, so the next time you deploy, your local main can
+# be one (or more) commits behind. A naive `git push` would be rejected with
+# "Updates were rejected because the remote contains work you don't have."
+#
+# This block tries up to 3 times: if push is rejected, it rebases your one
+# new commit onto whatever has landed on origin/main, then retries. If the
+# rebase pauses on a conflict in build/data/google_reviews.json (the only
+# file the workflow modifies), it auto-resolves by keeping the remote's copy
+# — that file is the workflow's responsibility, not the deploy zip's.
+# ---------------------------------------------------------------------------
 echo ""
 echo "⬆️  Pushing to GitHub..."
-git push
+
+push_ok=0
+for attempt in 1 2 3; do
+  if git push 2>&1; then
+    push_ok=1
+    echo "✓ Pushed on attempt ${attempt}."
+    break
+  fi
+  echo ""
+  echo "⚠ Push rejected (remote moved). Rebasing on latest origin/main…"
+
+  if ! git pull --rebase origin main; then
+    # Rebase paused — check whether it's just the reviews JSON
+    if git diff --name-only --diff-filter=U | grep -q "build/data/google_reviews.json"; then
+      echo "  · Conflict on build/data/google_reviews.json — auto-resolving with remote version (workflow owns this file)"
+      git checkout --theirs build/data/google_reviews.json
+      git add build/data/google_reviews.json
+      git rebase --continue
+    else
+      echo ""
+      echo "❌ Rebase paused on an unexpected conflict. Aborting auto-recovery."
+      echo "   Resolve manually with:"
+      echo "     git status                  # see which files conflict"
+      echo "     # edit them, then:"
+      echo "     git add <file>"
+      echo "     git rebase --continue"
+      echo "     git push"
+      exit 1
+    fi
+  fi
+done
+
+if [[ "$push_ok" != "1" ]]; then
+  echo ""
+  echo "❌ Push still failing after 3 attempts."
+  echo "   Investigate with: git status && git log --oneline -5"
+  exit 1
+fi
 
 echo ""
 echo "✅ Deploy complete!"
