@@ -205,7 +205,7 @@ def topbar():
         Phoenix <span data-phx-temp-value>--</span>°F
       </span>
       <span class="pill">Open Now</span>
-      <a href="tel:{SITE['phone_link']}" data-track="phone_click">📞 {SITE['phone_display']} · 24/7 Emergency</a>
+      <a href="tel:{SITE['phone_link']}" data-track="phone_click">📞 {SITE['phone_display']}</a>
     </div>
   </div>
 </div>"""
