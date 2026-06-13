@@ -19,7 +19,10 @@
   'use strict';
 
   // ---- Config ------------------------------------------------------------
-  var KNOWLEDGE_URL = '/assets/data/iha-knowledge.json';
+  // Cache-bust the knowledge URL on each page load so browsers can't serve
+  // a stale copy that's missing newer intents. Daily granularity is plenty —
+  // we don't redeploy intra-day often enough to need finer.
+  var KNOWLEDGE_URL = '/assets/data/iha-knowledge.json?v=' + new Date().toISOString().slice(0, 10);
   var STORAGE_KEY = 'iha_chat_open';
   var MATCH_THRESHOLD = 0.5;
 
