@@ -7,15 +7,15 @@
       "reviews" : 
       [
          {
-            "author_name" : "Super Kat",
-            "author_url" : "https://www.google.com/maps/contrib/106759471199662489078/reviews",
+            "author_name" : "Tom Lopez",
+            "author_url" : "https://www.google.com/maps/contrib/118248977045577617373/reviews",
             "language" : "en",
             "original_language" : "en",
-            "profile_photo_url" : "https://lh3.googleusercontent.com/a-/ALV-UjXhdrCl2l_jpAdp7TvHY6fnZoRbv5H97VveKm60eQ9ZAHwpKr3F=s128-c0x00000000-cc-rp-mo-ba2",
+            "profile_photo_url" : "https://lh3.googleusercontent.com/a-/ALV-UjUVvfviuNOLeu3xON42CcFgfiBcWM31P6rk99MvtDMJOtI53n0=s128-c0x00000000-cc-rp-mo",
             "rating" : 5,
-            "relative_time_description" : "4 months ago",
-            "text" : "Mark came to inspect and explained his findings in a way that a non-havc person, such as myself, could easily understand. It really felt like he gave an honest opinion on moving forward rather than a sales pitch. I will definitely call Instant Heating & Air next time I need service.  You should too.",
-            "time" : 1768418196,
+            "relative_time_description" : "a month ago",
+            "text" : "Instant Air and Heat provided outstanding service from start to finish. The technician was professional, knowledgeable, and took the time to thoroughly inspect everything while clearly explaining the results. I appreciated their honesty, attention to detail, and friendly attitude. It’s great to work with a company that truly cares about customer satisfaction and quality service. Highly recommend Instant Air and Heat for anyone needing reliable HVAC service.",
+            "time" : 1778776252,
             "translated" : false
          },
          {
@@ -31,15 +31,27 @@
             "translated" : false
          },
          {
-            "author_name" : "Jenn Popp",
-            "author_url" : "https://www.google.com/maps/contrib/108279287106158828845/reviews",
+            "author_name" : "Alexander A",
+            "author_url" : "https://www.google.com/maps/contrib/107750450190986119819/reviews",
             "language" : "en",
             "original_language" : "en",
-            "profile_photo_url" : "https://lh3.googleusercontent.com/a-/ALV-UjXjhLIbDD1M9I0S9GfJuZVH9RKTJs3mnFN4yHLKpEiZ1-5HwhWz=s128-c0x00000000-cc-rp-mo",
+            "profile_photo_url" : "https://lh3.googleusercontent.com/a/ACg8ocK-ThoCMJ6xo3Q76HJPlDibbhzOpoRold3DKlbqXqW2_TCEcQ=s128-c0x00000000-cc-rp-mo-ba3",
+            "rating" : 5,
+            "relative_time_description" : "a month ago",
+            "text" : "Placed a claim through my warranty and this is the company they had chosen. They were able to send a person by the very next morning who got us up and running that morning (Mark Lopez). Thanks again for all the help!",
+            "time" : 1778182947,
+            "translated" : false
+         },
+         {
+            "author_name" : "Super Kat",
+            "author_url" : "https://www.google.com/maps/contrib/106759471199662489078/reviews",
+            "language" : "en",
+            "original_language" : "en",
+            "profile_photo_url" : "https://lh3.googleusercontent.com/a-/ALV-UjXhdrCl2l_jpAdp7TvHY6fnZoRbv5H97VveKm60eQ9ZAHwpKr3F=s128-c0x00000000-cc-rp-mo-ba2",
             "rating" : 5,
             "relative_time_description" : "5 months ago",
-            "text" : "Very thorough and professional! The technician was on time and efficient. He explained everything he did and what the outcomes were.",
-            "time" : 1768345478,
+            "text" : "Mark came to inspect and explained his findings in a way that a non-havc person, such as myself, could easily understand. It really felt like he gave an honest opinion on moving forward rather than a sales pitch. I will definitely call Instant Heating & Air next time I need service.  You should too.",
+            "time" : 1768418196,
             "translated" : false
          },
          {
@@ -52,18 +64,6 @@
             "relative_time_description" : "6 months ago",
             "text" : "I've received such great service from Instant Heating and Air. The owner is attentive and very knowledgeable, and is able to keep his prices much more competitive than the large companies in the valley.",
             "time" : 1763522126,
-            "translated" : false
-         },
-         {
-            "author_name" : "Sal C",
-            "author_url" : "https://www.google.com/maps/contrib/104018262943868205090/reviews",
-            "language" : "en",
-            "original_language" : "en",
-            "profile_photo_url" : "https://lh3.googleusercontent.com/a-/ALV-UjVyabKU7xioEtLPJQZ32ATOSC5HkWPOaOKdUw2HJGeQQS_XbFlr=s128-c0x00000000-cc-rp-mo-ba3",
-            "rating" : 5,
-            "relative_time_description" : "6 months ago",
-            "text" : "Always great , honest and quick service. As a Poperty Manager they take care of all my properties and will continue to use their service!",
-            "time" : 1765503456,
             "translated" : false
          }
       ],
