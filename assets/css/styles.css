@@ -320,6 +320,14 @@ p { margin: 0 0 1em; }
 .wx-alerts-mount { position: relative; z-index: 3; }
 .wx-alerts-mount:empty { display: none; }
 
+/* When a weather alert IS present, tighten the hero's top padding so the
+   banner sits close to the topbar (matches the visual density of other
+   cards on the page). No effect on quiet days — hero keeps its normal padding. */
+.hero-quote:has(.wx-alerts-mount:not(:empty)) { padding-top: 20px; }
+@media (max-width: 640px) {
+  .hero-quote:has(.wx-alerts-mount:not(:empty)) { padding-top: 14px; }
+}
+
 .wx-alert {
   position: relative;
   margin: 0 0 28px;
