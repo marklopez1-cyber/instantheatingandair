@@ -387,6 +387,7 @@ def footer():
 {estimate_modal()}
 <script src="/assets/js/main.js?v={ASSET_VERSION}" defer></script>
 <script src="/assets/js/chatbot.js?v={ASSET_VERSION}" defer></script>
+<script src="/assets/js/weather-alerts.js?v={ASSET_VERSION}" defer></script>
 </body>
 </html>"""
 
@@ -837,6 +838,11 @@ def build_home():
 <main id="main">
   <!-- HERO with embedded estimate tool -->
   <section class="hero hero-quote">
+    <div class="container">
+      <!-- Live NWS weather-alert callout. Only renders when Phoenix has an
+           active advisory/warning. Empty on quiet days (zero layout impact). -->
+      <div id="wx-alerts" class="wx-alerts-mount" aria-live="polite"></div>
+    </div>
     <div class="container hero-quote-grid">
       <div class="hero-text">
         <span class="badge"><span class="stars">★★★★★</span> {SITE['avg_rating']} · Google Verified · Phoenix &amp; Anthem</span>

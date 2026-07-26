@@ -312,6 +312,222 @@ p { margin: 0 0 1em; }
   .hero .row { grid-template-columns: 1fr; gap: 28px; }
 }
 
+/* =================================================================
+   Weather Alert Banner — top of hero, only when NWS has an active
+   alert for Phoenix. Populated by /assets/js/weather-alerts.js.
+   Empty mount point renders zero pixels (no layout shift).
+   ================================================================= */
+.wx-alerts-mount { position: relative; z-index: 3; }
+.wx-alerts-mount:empty { display: none; }
+
+.wx-alert {
+  position: relative;
+  margin: 0 0 28px;
+  border-radius: var(--radius-lg);
+  color: #fff;
+  box-shadow: 0 10px 30px -8px rgba(0,0,0,0.45), 0 0 0 1px rgba(255,255,255,0.08) inset;
+  overflow: hidden;
+  animation: wx-slide-in 0.5s ease-out;
+}
+@keyframes wx-slide-in {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Severity color schemes — bright + gradient so it pops on the navy hero */
+.wx-alert--extreme  { background: linear-gradient(135deg, #7f1010 0%, #C0392B 55%, #E74C3C 100%); }
+.wx-alert--severe   { background: linear-gradient(135deg, #A02214 0%, #D93A1A 55%, #F05423 100%); }
+.wx-alert--moderate { background: linear-gradient(135deg, #A85E10 0%, #EC8A23 55%, #F5A64A 100%); }
+.wx-alert--minor    { background: linear-gradient(135deg, #8A6B00 0%, #D4A017 55%, #E8BB3A 100%); }
+
+/* Subtle animated shimmer to draw the eye without being obnoxious */
+.wx-alert::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(115deg, transparent 30%, rgba(255,255,255,0.14) 50%, transparent 70%);
+  transform: translateX(-100%);
+  animation: wx-shimmer 5s ease-in-out infinite;
+}
+@keyframes wx-shimmer {
+  0%, 40% { transform: translateX(-100%); }
+  60%     { transform: translateX(100%); }
+  100%    { transform: translateX(100%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .wx-alert, .wx-alert::before { animation: none; }
+}
+
+.wx-alert__inner {
+  position: relative; z-index: 1;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 18px;
+  align-items: center;
+  padding: 16px 20px;
+}
+
+.wx-alert__icon {
+  position: relative;
+  font-size: 2rem;
+  line-height: 1;
+  width: 52px; height: 52px;
+  display: grid; place-items: center;
+  background: rgba(255,255,255,0.15);
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.25);
+  flex-shrink: 0;
+}
+.wx-alert__pulse {
+  position: absolute; top: -2px; right: -2px;
+  width: 12px; height: 12px; border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 0 0 rgba(255,255,255,0.9);
+  animation: wx-pulse 1.6s ease-out infinite;
+}
+@keyframes wx-pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(255,255,255,0.9); }
+  70%  { box-shadow: 0 0 0 10px rgba(255,255,255,0); }
+  100% { box-shadow: 0 0 0 0 rgba(255,255,255,0); }
+}
+
+.wx-alert__body { min-width: 0; }
+.wx-alert__title {
+  font-family: 'Barlow Condensed', 'Oswald', 'Arial Narrow', Impact, sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  line-height: 1.15;
+  font-size: 1.375rem;
+  margin-bottom: 4px;
+  color: #fff;
+}
+.wx-alert__title strong { color: #fff; }
+.wx-alert__meta {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.85);
+  margin-left: 4px;
+}
+.wx-alert__pitch {
+  font-size: 0.9375rem;
+  line-height: 1.4;
+  color: rgba(255,255,255,0.95);
+}
+
+.wx-alert__actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+.wx-alert__cta {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: #fff; color: #0B2436;
+  padding: 11px 18px; border-radius: var(--radius);
+  font-weight: 800; font-size: 0.85rem; letter-spacing: 0.04em;
+  text-transform: uppercase; text-decoration: none;
+  transition: transform .12s, box-shadow .12s;
+  box-shadow: 0 4px 0 rgba(0,0,0,0.25);
+  white-space: nowrap;
+}
+.wx-alert__cta:hover { color: #0B2436; transform: translateY(2px); box-shadow: 0 2px 0 rgba(0,0,0,0.25); }
+
+.wx-alert__more {
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.3);
+  padding: 9px 14px;
+  border-radius: var(--radius);
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.wx-alert__more:hover { background: rgba(255,255,255,0.25); }
+
+.wx-alert__dismiss {
+  background: transparent;
+  color: rgba(255,255,255,0.85);
+  border: 1px solid rgba(255,255,255,0.3);
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  font-size: 1.25rem;
+  line-height: 1;
+  padding: 0;
+  display: grid; place-items: center;
+}
+.wx-alert__dismiss:hover { background: rgba(255,255,255,0.15); color: #fff; }
+
+.wx-alert__detail {
+  position: relative; z-index: 1;
+  background: rgba(0,0,0,0.25);
+  padding: 16px 20px 18px;
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: rgba(255,255,255,0.95);
+  border-top: 1px solid rgba(255,255,255,0.15);
+}
+.wx-alert__detail p { margin: 0 0 8px; }
+.wx-alert__detail p:last-child { margin-bottom: 0; }
+.wx-alert__instruction {
+  margin-top: 10px;
+  padding: 10px 12px;
+  background: rgba(255,255,255,0.12);
+  border-radius: var(--radius-sm);
+}
+.wx-alert__source {
+  margin-top: 10px;
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.7);
+  letter-spacing: 0.02em;
+}
+
+.wx-alert__pager {
+  position: relative; z-index: 1;
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  padding: 8px 20px 12px;
+  font-size: 0.75rem; letter-spacing: 0.06em;
+  color: rgba(255,255,255,0.85);
+  text-transform: uppercase; font-weight: 700;
+}
+.wx-alert__nav {
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.3);
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  font-size: 1rem;
+  line-height: 1;
+  padding: 0;
+  display: grid; place-items: center;
+}
+.wx-alert__nav:hover { background: rgba(255,255,255,0.28); }
+
+/* Responsive — stack actions under body on tablet, everything on phones */
+@media (max-width: 900px) {
+  .wx-alert__inner {
+    grid-template-columns: auto 1fr;
+    grid-template-areas:
+      "icon body"
+      "actions actions";
+    gap: 14px;
+  }
+  .wx-alert__icon    { grid-area: icon; width: 44px; height: 44px; font-size: 1.6rem; }
+  .wx-alert__body    { grid-area: body; }
+  .wx-alert__actions { grid-area: actions; justify-content: flex-start; flex-wrap: wrap; }
+  .wx-alert__title   { font-size: 1.2rem; }
+}
+@media (max-width: 480px) {
+  .wx-alert__inner { padding: 14px 14px; gap: 12px; }
+  .wx-alert__title { font-size: 1.05rem; }
+  .wx-alert__meta  { display: block; margin-left: 0; margin-top: 2px; }
+  .wx-alert__pitch { font-size: 0.875rem; }
+  .wx-alert__cta   { flex: 1 1 100%; justify-content: center; }
+}
+
 /* Trust strip */
 .trustbar { background: var(--sand); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 18px 0; }
 .trustbar .row { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px; }
