@@ -11,6 +11,8 @@ import sys
 import json
 import html
 import time
+import hashlib
+import base64
 from pathlib import Path
 
 # Set BASE_PATH=/instantheatingandair (or similar) for GitHub Pages project sites
@@ -50,10 +52,64 @@ OUT = ROOT / "site"
 # Helpers
 # ---------------------------------------------------------------------------
 
+def _inline_script_hashes(html_text):
+    """Extract all inline <script> blocks (no src=) and return SHA-256 hashes
+    formatted for CSP script-src (e.g. "'sha256-BASE64='").
+
+    Chrome enforces CSP script-src on ALL <script> tags — including
+    application/ld+json — even though JSON-LD is just data, not code.
+    Without hashing, structured-data blocks trigger console errors on
+    every page load. Whitelisting their hashes lets CSP stay strict
+    (no 'unsafe-inline') while allowing our own JSON-LD to load.
+    """
+    hashes = set()
+    for m in re.finditer(
+        r'<script(?![^>]*\ssrc=)[^>]*>(.*?)</script>',
+        html_text,
+        re.DOTALL | re.IGNORECASE,
+    ):
+        content = m.group(1)
+        digest = hashlib.sha256(content.encode('utf-8')).digest()
+        hashes.add("'sha256-" + base64.b64encode(digest).decode('ascii') + "'")
+    return sorted(hashes)
+
+
+def _inject_csp_hashes(html_text):
+    """Post-process HTML: inject SHA-256 hashes of all inline scripts into
+    the CSP meta tag's script-src directive. Also normalizes: drops
+    'frame-ancestors' since browsers ignore it when set via <meta>."""
+    hashes = _inline_script_hashes(html_text)
+    if not hashes:
+        return html_text
+
+    def _fix(match):
+        csp = match.group(1)
+        # Add hashes into script-src (before the semicolon that ends it)
+        csp = re.sub(
+            r"(script-src[^;]*)",
+            lambda m: m.group(1) + ' ' + ' '.join(hashes),
+            csp,
+            count=1,
+        )
+        # frame-ancestors via <meta> is silently ignored by browsers per spec
+        # (only works via HTTP header). Strip it to keep the console clean.
+        csp = re.sub(r"\s*frame-ancestors[^;]*;?", "", csp)
+        # Collapse any double spaces left behind
+        csp = re.sub(r"\s{2,}", " ", csp).strip()
+        return f'content="{csp}"'
+
+    return re.sub(
+        r'content="(default-src[^"]*)"',
+        _fix,
+        html_text,
+        count=1,
+    )
+
+
 def write(path, content):
     full = OUT / path
     full.parent.mkdir(parents=True, exist_ok=True)
-    full.write_text(content, encoding="utf-8")
+    full.write_text(_inject_csp_hashes(content), encoding="utf-8")
     print(f"  wrote {path}")
 
 def rel_to_root(path):
