@@ -128,7 +128,15 @@ def head(title, description, path="", og_type="website", extra_head="", canonica
     ga_script = f'<script async src="https://www.googletagmanager.com/gtag/js?id={esc(ga_id)}"></script>' if ga_id else ''
     # CSP additions when GA is enabled
     ga_csp_script = ' https://www.googletagmanager.com' if ga_id else ''
-    ga_csp_connect = ' https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com' if ga_id else ''
+    # GA4 sends beacons to multiple endpoints depending on features enabled:
+    #   www.google-analytics.com          → primary hit endpoint (/g/collect for GA4)
+    #   *.google-analytics.com            → regional collectors (region1, region2, …)
+    #   analytics.google.com              → enhanced measurement, DebugView
+    #   *.analytics.google.com            → subdomains of the above
+    #   www.google.com                    → /g/collect relay used when Signals/Ads are on
+    #   stats.g.doubleclick.net           → Google Signals / audiences beacons
+    # Whitelist all six so pageviews and events aren't silently dropped by CSP.
+    ga_csp_connect = ' https://www.google-analytics.com https://*.google-analytics.com https://analytics.google.com https://*.analytics.google.com https://www.google.com https://stats.g.doubleclick.net' if ga_id else ''
 
     return f"""<!DOCTYPE html>
 <html lang="en"{ga_attr}>
