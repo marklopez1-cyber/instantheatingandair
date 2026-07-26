@@ -204,6 +204,7 @@
             <div class="wx-alert__body">
               <div class="wx-alert__title">
                 <strong>${esc(a.event)}</strong>
+                <span class="wx-alert__badge" title="Issued by ${esc(a.senderName)}">NWS</span>
                 ${endsTxt ? `<span class="wx-alert__meta">· ${esc(endsTxt)}</span>` : ''}
               </div>
               <div class="wx-alert__pitch">${esc(prof.pitch)}</div>
