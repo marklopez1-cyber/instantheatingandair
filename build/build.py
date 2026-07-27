@@ -806,15 +806,24 @@ def area_chips():
 def brand_wall():
     """Render a brand wall. Uses image logo from /assets/img/brands/<slug>.<ext>
     if it exists, otherwise falls back to a text chip. This means you can drop
-    logos in one at a time and the page picks them up on the next build."""
+    logos in one at a time and the page picks them up on the next build.
+
+    Looks in BOTH the output tree (site/) — used by local builds — AND at repo
+    root — used by the GitHub Actions rebuild, where static assets live at root
+    because the workflow promotes site/ contents to root after each build. Either
+    location working is enough to produce an <img> tag; the served file is at
+    /assets/img/brands/... in both cases.
+    """
     items = []
     for b in SITE['brands_serviced']:
         slug = b.lower().replace(' ', '-')
-        # Look for the file in any common image format
         logo_url = None
         for ext in ('svg', 'png', 'webp', 'jpg', 'jpeg'):
-            path = OUT / 'assets' / 'img' / 'brands' / f'{slug}.{ext}'
-            if path.exists():
+            candidates = (
+                OUT / 'assets' / 'img' / 'brands' / f'{slug}.{ext}',
+                ROOT / 'assets' / 'img' / 'brands' / f'{slug}.{ext}',
+            )
+            if any(p.exists() for p in candidates):
                 logo_url = f'/assets/img/brands/{slug}.{ext}'
                 break
         if logo_url:
