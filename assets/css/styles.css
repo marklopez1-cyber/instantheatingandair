@@ -554,6 +554,21 @@ p { margin: 0 0 1em; }
   .wx-alert__cta   { flex: 1 1 100%; justify-content: center; }
 }
 
+/* Honeypot fields — invisible to humans, filled by naive bots. Two-layer
+   defense: off-screen positioning + aria-hidden so screen readers skip them
+   too. `display:none` was a giveaway to smarter bots that skip hidden fields;
+   this looks like a real field in the DOM but sits 9999px off-screen. */
+.hp-field {
+  position: absolute !important;
+  left: -9999px !important;
+  top: -9999px !important;
+  width: 1px !important;
+  height: 1px !important;
+  opacity: 0 !important;
+  overflow: hidden !important;
+  pointer-events: none !important;
+}
+
 /* Trust strip */
 .trustbar { background: var(--sand); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 18px 0; }
 .trustbar .row { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px; }

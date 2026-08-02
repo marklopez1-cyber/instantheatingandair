@@ -92,6 +92,38 @@
     }
   });
 
+  // ===== Anti-bot form protection =====
+  // Two invisible defenses layered on top of HTML5 required-field validation:
+  //   1. Honeypot fields (.hp-field) — if any hidden input has a value, it's
+  //      a bot that auto-filled every field it could see.
+  //   2. Minimum time-to-fill — humans can't complete a form in under 2s.
+  //      Track when the form was first shown and reject submits faster than that.
+  // Both fail silently (pretend success) so the bot doesn't know why we
+  // rejected it and try again with a different trick.
+  const MIN_FILL_MS = 2000;
+
+  function isSpam(form) {
+    const traps = form.querySelectorAll('.hp-field input, input[name="_honey"], input[name="website"]');
+    for (const el of traps) {
+      if (el.value && el.value.trim() !== '') return 'honeypot';
+    }
+    const readyAt = parseInt(form.dataset.readyAt || '0', 10);
+    if (readyAt && (Date.now() - readyAt < MIN_FILL_MS)) return 'too_fast';
+    return null;
+  }
+
+  function stampForm(form) {
+    form.dataset.readyAt = String(Date.now());
+  }
+  document.querySelectorAll('form.ajax-form, form.timed-form').forEach(stampForm);
+  document.querySelectorAll('[data-modal-open]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      setTimeout(function () {
+        document.querySelectorAll('.modal[aria-hidden="false"] form').forEach(stampForm);
+      }, 50);
+    });
+  });
+
   // ===== AJAX form submit =====
   // Any form with class="ajax-form" submits via FormSubmit's AJAX endpoint —
   // user stays on the page, success state shown inline in the parent modal.
@@ -100,6 +132,16 @@
     if (!('fetch' in window)) return;
     form.addEventListener('submit', (e) => {
       e.preventDefault();
+
+      // Silently drop bot submissions — show success UI without POSTing so
+      // bots can't tell they were caught (and won't retry with a workaround).
+      if (isSpam(form)) {
+        form.style.display = 'none';
+        const success = form.parentElement.querySelector('.modal-success');
+        if (success) success.hidden = false;
+        return;
+      }
+
       const btn = form.querySelector('button[type="submit"]');
       const orig = btn.textContent;
       btn.disabled = true;
@@ -129,6 +171,23 @@
     });
   }
   document.querySelectorAll('form.ajax-form').forEach(setupAjaxForm);
+
+  // Anti-bot protection for non-AJAX forms (e.g. contact form on /contact.html
+  // which uses standard POST + redirect). Silently drop bots the same way.
+  document.querySelectorAll('form.timed-form:not(.ajax-form)').forEach(function (form) {
+    form.addEventListener('submit', function (e) {
+      if (isSpam(form)) {
+        e.preventDefault();
+        const success = form.parentElement.querySelector('.modal-success');
+        if (success) {
+          form.style.display = 'none';
+          success.hidden = false;
+        } else {
+          window.location.href = '/thanks.html';
+        }
+      }
+    });
+  });
 
   // ===== Reviews carousel — auto-rotating, swipeable, accessible =====
   const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;

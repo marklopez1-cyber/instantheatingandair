@@ -322,7 +322,7 @@ def estimate_modal():
   <div class="modal-dialog" role="dialog" aria-labelledby="est-heading" aria-modal="true">
     <button type="button" class="modal-close" data-modal-close aria-label="Close form">&times;</button>
 
-    <form class="club-signup ajax-form" id="estimate-form" action="{SITE['form_endpoints']['contact']}" method="POST" novalidate>
+    <form class="club-signup ajax-form" id="estimate-form" action="{SITE['form_endpoints']['contact']}" method="POST">
       <h3 id="est-heading">Request Service</h3>
       <p class="cc-policy" style="margin:-4px 0 12px;font-size:0.85rem;color:#5d6b7a;line-height:1.45">
         <strong>Free in-home estimates</strong> for new system installations and replacements.
@@ -334,17 +334,23 @@ def estimate_modal():
       <input type="hidden" name="_captcha" value="false">
       <input type="hidden" name="_next" value="{SITE['success_redirect']}">
       <input type="hidden" name="form_type" value="estimate_request">
-      <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+      <!-- Bot traps: both hidden by CSS. Real users won't touch them; bots
+           auto-fill anything with a legit-looking name attribute. -->
+      <input type="text" name="_honey" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <div class="hp-field" aria-hidden="true">
+        <label>Website (leave blank)</label>
+        <input type="text" name="website" tabindex="-1" autocomplete="off">
+      </div>
 
       <div class="cc-field">
         <label for="est-name">Full name</label>
-        <input id="est-name" name="name" type="text" required autocomplete="name" placeholder="Your name">
+        <input id="est-name" name="name" type="text" required minlength="2" autocomplete="name" placeholder="Your name">
       </div>
 
       <div class="cc-row2">
         <div class="cc-field">
           <label for="est-phone">Phone</label>
-          <input id="est-phone" name="phone" type="tel" required autocomplete="tel" placeholder="(623) 555-0123">
+          <input id="est-phone" name="phone" type="tel" required pattern="[\\d\\s().+\\-]{{10,}}" autocomplete="tel" placeholder="(623) 555-0123" title="Please enter a valid phone number (at least 10 digits)">
         </div>
         <div class="cc-field">
           <label for="est-email">Email</label>
@@ -354,7 +360,7 @@ def estimate_modal():
 
       <div class="cc-field">
         <label for="est-address">Service address</label>
-        <input id="est-address" name="address" type="text" required autocomplete="street-address" placeholder="Street, City, AZ ZIP">
+        <input id="est-address" name="address" type="text" required minlength="10" autocomplete="street-address" placeholder="Street, City, AZ ZIP" title="Please enter your full street address including city and ZIP">
       </div>
 
       <div class="cc-row2">
@@ -385,8 +391,8 @@ def estimate_modal():
       </div>
 
       <div class="cc-field">
-        <label for="est-notes">Tell us about your project <span class="cc-optional">(optional)</span></label>
-        <textarea id="est-notes" name="notes" rows="2" placeholder="System age, what's going on, urgency..."></textarea>
+        <label for="est-notes">Tell us about your project</label>
+        <textarea id="est-notes" name="notes" rows="2" required minlength="10" placeholder="System age, what's going on, urgency..." title="Please give us a brief description (at least 10 characters)"></textarea>
       </div>
 
       <button type="submit" class="btn btn-orange cc-submit">Send My Request &rarr;</button>
@@ -1491,24 +1497,28 @@ def build_maintenance_plan():
     <div class="modal-dialog" role="dialog" aria-labelledby="cc-heading" aria-modal="true">
       <button type="button" class="modal-close" data-modal-close aria-label="Close form">&times;</button>
 
-      <form class="club-signup ajax-form" id="comfort-form" action="{SITE['form_endpoints']['comfort_club']}" method="POST" novalidate>
+      <form class="club-signup ajax-form" id="comfort-form" action="{SITE['form_endpoints']['comfort_club']}" method="POST">
         <h3 id="cc-heading">Sign Up in 30 Seconds</h3>
         <input type="hidden" name="_subject" value="Comfort Club Signup — Instant Heating and Air">
         <input type="hidden" name="_template" value="table">
         <input type="hidden" name="_captcha" value="false">
         <input type="hidden" name="_next" value="{SITE['success_redirect']}">
         <input type="hidden" name="form_type" value="comfort_club">
-        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+        <input type="text" name="_honey" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="hp-field" aria-hidden="true">
+          <label>Website (leave blank)</label>
+          <input type="text" name="website" tabindex="-1" autocomplete="off">
+        </div>
 
         <div class="cc-field">
           <label for="cc-name">Full name</label>
-          <input id="cc-name" name="name" type="text" required autocomplete="name" placeholder="Your name">
+          <input id="cc-name" name="name" type="text" required minlength="2" autocomplete="name" placeholder="Your name">
         </div>
 
         <div class="cc-row2">
           <div class="cc-field">
             <label for="cc-phone">Phone</label>
-            <input id="cc-phone" name="phone" type="tel" required autocomplete="tel" placeholder="(623) 555-0123">
+            <input id="cc-phone" name="phone" type="tel" required pattern="[\\d\\s().+\\-]{{10,}}" autocomplete="tel" placeholder="(623) 555-0123" title="Please enter a valid phone number (at least 10 digits)">
           </div>
           <div class="cc-field">
             <label for="cc-email">Email</label>
@@ -1518,7 +1528,7 @@ def build_maintenance_plan():
 
         <div class="cc-field">
           <label for="cc-address">Service address</label>
-          <input id="cc-address" name="address" type="text" required autocomplete="street-address" placeholder="Street, City, AZ ZIP">
+          <input id="cc-address" name="address" type="text" required minlength="10" autocomplete="street-address" placeholder="Street, City, AZ ZIP" title="Please enter your full street address including city and ZIP">
         </div>
 
         <div class="cc-row2">
@@ -1697,21 +1707,25 @@ def build_contact():
         </div>
         <div>
           <h2>Send us a note</h2>
-          <form action="{SITE['form_endpoints']['contact']}" method="POST" class="standard" id="contact-form" aria-label="Contact form" novalidate>
+          <form action="{SITE['form_endpoints']['contact']}" method="POST" class="standard timed-form" id="contact-form" aria-label="Contact form">
             <input type="hidden" name="_subject" value="Contact form — Instant Heating and Air">
             <input type="hidden" name="_template" value="table">
-            <input type="hidden" name="_captcha" value="true">
+            <input type="hidden" name="_captcha" value="false">
             <input type="hidden" name="_next" value="{SITE['success_redirect']}">
             <input type="hidden" name="form_type" value="contact_page">
-            <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+            <input type="text" name="_honey" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <div class="hp-field" aria-hidden="true">
+              <label>Website (leave blank)</label>
+              <input type="text" name="website" tabindex="-1" autocomplete="off">
+            </div>
             <label for="c-name">Name</label>
-            <input id="c-name" name="name" required autocomplete="name">
+            <input id="c-name" name="name" required minlength="2" autocomplete="name">
             <label for="c-email">Email</label>
             <input id="c-email" name="email" type="email" required autocomplete="email">
             <label for="c-phone">Phone</label>
-            <input id="c-phone" name="phone" type="tel" autocomplete="tel">
+            <input id="c-phone" name="phone" type="tel" pattern="[\\d\\s().+\\-]{{10,}}" autocomplete="tel" title="Please enter a valid phone number (at least 10 digits)">
             <label for="c-msg">How can we help?</label>
-            <textarea id="c-msg" name="message" required></textarea>
+            <textarea id="c-msg" name="message" required minlength="10" title="Please give us a brief description (at least 10 characters)"></textarea>
             <button type="submit" class="btn btn-orange">Send Message</button>
           </form>
           <div class="modal-success" hidden style="text-align:left;padding:20px 0">

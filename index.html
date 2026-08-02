@@ -14,7 +14,7 @@
   <meta name="ICBM" content="33.854, -112.1476">
 
   <!-- Security headers (delivered via meta — GitHub Pages doesn't expose HTTP headers) -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://unpkg.com https://www.googletagmanager.com 'sha256-ls4ZknSMQkxLEyx+NsnkUEzypF0QS2DoEjWATf0Gy4U='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://unpkg.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; frame-src https://instant-hvac-quote.com https://book.housecallpro.com https://www.google.com https://maps.google.com; form-action 'self' https://formsubmit.co; connect-src 'self' https://formsubmit.co https://api.open-meteo.com https://api.weather.gov https://www.google-analytics.com https://*.google-analytics.com https://analytics.google.com https://*.analytics.google.com https://www.google.com https://stats.g.doubleclick.net; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://unpkg.com https://www.googletagmanager.com 'sha256-mCMznldbkE6DDn8GC26f8D7WDJBaKknsTDsK7zCCfTY='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://unpkg.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; frame-src https://instant-hvac-quote.com https://book.housecallpro.com https://www.google.com https://maps.google.com; form-action 'self' https://formsubmit.co; connect-src 'self' https://formsubmit.co https://api.open-meteo.com https://api.weather.gov https://www.google-analytics.com https://*.google-analytics.com https://analytics.google.com https://*.analytics.google.com https://www.google.com https://stats.g.doubleclick.net; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=(), interest-cohort=()">
@@ -53,7 +53,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Stylesheet (versioned for cache-busting) -->
-  <link rel="stylesheet" href="/assets/css/styles.css?v=202607271346">
+  <link rel="stylesheet" href="/assets/css/styles.css?v=202608011801">
 
 
 </head>
@@ -458,7 +458,7 @@
   <div class="modal-dialog" role="dialog" aria-labelledby="est-heading" aria-modal="true">
     <button type="button" class="modal-close" data-modal-close aria-label="Close form">&times;</button>
 
-    <form class="club-signup ajax-form" id="estimate-form" action="https://formsubmit.co/service@instantheatingandair.com" method="POST" novalidate>
+    <form class="club-signup ajax-form" id="estimate-form" action="https://formsubmit.co/service@instantheatingandair.com" method="POST">
       <h3 id="est-heading">Request Service</h3>
       <p class="cc-policy" style="margin:-4px 0 12px;font-size:0.85rem;color:#5d6b7a;line-height:1.45">
         <strong>Free in-home estimates</strong> for new system installations and replacements.
@@ -470,17 +470,23 @@
       <input type="hidden" name="_captcha" value="false">
       <input type="hidden" name="_next" value="https://instantheatingandair.com/thanks.html">
       <input type="hidden" name="form_type" value="estimate_request">
-      <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+      <!-- Bot traps: both hidden by CSS. Real users won't touch them; bots
+           auto-fill anything with a legit-looking name attribute. -->
+      <input type="text" name="_honey" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <div class="hp-field" aria-hidden="true">
+        <label>Website (leave blank)</label>
+        <input type="text" name="website" tabindex="-1" autocomplete="off">
+      </div>
 
       <div class="cc-field">
         <label for="est-name">Full name</label>
-        <input id="est-name" name="name" type="text" required autocomplete="name" placeholder="Your name">
+        <input id="est-name" name="name" type="text" required minlength="2" autocomplete="name" placeholder="Your name">
       </div>
 
       <div class="cc-row2">
         <div class="cc-field">
           <label for="est-phone">Phone</label>
-          <input id="est-phone" name="phone" type="tel" required autocomplete="tel" placeholder="(623) 555-0123">
+          <input id="est-phone" name="phone" type="tel" required pattern="[\d\s().+\-]{10,}" autocomplete="tel" placeholder="(623) 555-0123" title="Please enter a valid phone number (at least 10 digits)">
         </div>
         <div class="cc-field">
           <label for="est-email">Email</label>
@@ -490,7 +496,7 @@
 
       <div class="cc-field">
         <label for="est-address">Service address</label>
-        <input id="est-address" name="address" type="text" required autocomplete="street-address" placeholder="Street, City, AZ ZIP">
+        <input id="est-address" name="address" type="text" required minlength="10" autocomplete="street-address" placeholder="Street, City, AZ ZIP" title="Please enter your full street address including city and ZIP">
       </div>
 
       <div class="cc-row2">
@@ -521,8 +527,8 @@
       </div>
 
       <div class="cc-field">
-        <label for="est-notes">Tell us about your project <span class="cc-optional">(optional)</span></label>
-        <textarea id="est-notes" name="notes" rows="2" placeholder="System age, what's going on, urgency..."></textarea>
+        <label for="est-notes">Tell us about your project</label>
+        <textarea id="est-notes" name="notes" rows="2" required minlength="10" placeholder="System age, what's going on, urgency..." title="Please give us a brief description (at least 10 characters)"></textarea>
       </div>
 
       <button type="submit" class="btn btn-orange cc-submit">Send My Request &rarr;</button>
@@ -538,8 +544,8 @@
     </div>
   </div>
 </div>
-<script src="/assets/js/main.js?v=202607271346" defer></script>
-<script src="/assets/js/chatbot.js?v=202607271346" defer></script>
-<script src="/assets/js/weather-alerts.js?v=202607271346" defer></script>
+<script src="/assets/js/main.js?v=202608011801" defer></script>
+<script src="/assets/js/chatbot.js?v=202608011801" defer></script>
+<script src="/assets/js/weather-alerts.js?v=202608011801" defer></script>
 </body>
 </html>
