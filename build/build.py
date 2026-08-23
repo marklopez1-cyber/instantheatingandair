@@ -502,7 +502,10 @@ def schema_localbusiness():
         "openingHoursSpecification": [
             {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"], "opens": "00:00", "closes": "23:59"}
         ],
-        "sameAs": [SITE['social']['facebook'], SITE['social']['instagram'], SITE['social']['yelp']],
+        # sameAs links canonical identity to authoritative external profiles.
+        # GOOGLE_PROFILE_URL is the canonical GBP maps URL from the Places API —
+        # tells Google "this website IS that business" (helps knowledge panel).
+        "sameAs": [SITE['social']['facebook'], SITE['social']['instagram'], SITE['social']['yelp'], GOOGLE_PROFILE_URL],
         "hasOfferCatalog": {
             "@type": "OfferCatalog",
             "name": "HVAC services",
@@ -574,7 +577,8 @@ def schema_organization():
             SITE['social']['facebook'],
             SITE['social']['instagram'],
             SITE['social']['yelp'],
-            SITE['social']['nextdoor']
+            SITE['social']['nextdoor'],
+            GOOGLE_PROFILE_URL,  # canonical GBP link
         ]
     }
 
@@ -1956,31 +1960,60 @@ def build_404():
 # ---------------------------------------------------------------------------
 
 def build_sitemap():
+    """Sitemap with per-URL <lastmod>, per-URL image entries, and the
+    image sitemap namespace so Google Images can index photos alongside pages.
+
+    lastmod uses the current build time — every deploy triggers a full
+    rebuild, so all URLs are legitimately "modified" at build time. This
+    signals freshness to Google (higher crawl priority) without lying.
+
+    Each URL includes one or more <image:image> entries so photos on that
+    page (service hero shot, brand logos, OG banner) get indexed. Image
+    search sends real traffic for HVAC — "AC coil freezing" queries surface
+    photo results.
+    """
+    base = SITE['base_url']
+    lastmod = time.strftime("%Y-%m-%d", time.gmtime())
+    og_image = f"{base}/assets/img/og-image.jpg"
+    logo_image = f"{base}/assets/img/logo-full.png"
+
+    # (path, priority, [image_urls])
     urls = [
-        ("/", "1.0"),
-        ("/about.html", "0.7"),
-        ("/contact.html", "0.7"),
-        ("/book.html", "0.9"),
-        ("/reviews.html", "0.6"),
-        ("/maintenance-plan.html", "0.8"),
-        ("/financing.html", "0.6"),
-        ("/services/", "0.9"),
-        ("/service-areas/", "0.9"),
-        ("/blog/", "0.6"),
-        ("/privacy.html", "0.2"),
-        ("/terms.html", "0.2"),
-        ("/accessibility.html", "0.2"),
+        ("/",                        "1.0", [og_image, logo_image, f"{base}/assets/img/rooftop-banner.jpg"]),
+        ("/about.html",              "0.7", [og_image, logo_image]),
+        ("/contact.html",            "0.7", [og_image]),
+        ("/book.html",               "0.9", [og_image]),
+        ("/reviews.html",            "0.6", [og_image]),
+        ("/maintenance-plan.html",   "0.8", [og_image]),
+        ("/financing.html",          "0.6", [og_image]),
+        ("/services/",               "0.9", [og_image]),
+        ("/service-areas/",          "0.9", [og_image]),
+        ("/blog/",                   "0.6", [og_image]),
+        ("/privacy.html",            "0.2", []),
+        ("/terms.html",              "0.2", []),
+        ("/accessibility.html",      "0.2", []),
     ]
     for s in SERVICES:
-        urls.append((f"/services/{s['slug']}.html", "0.9"))
+        svc_img = s.get('bg_image', '')
+        imgs = [f"{base}{svc_img}"] if svc_img else [og_image]
+        urls.append((f"/services/{s['slug']}.html", "0.9", imgs))
     for a in AREAS:
-        urls.append((f"/service-areas/{a['slug']}.html", "0.9"))
+        urls.append((f"/service-areas/{a['slug']}.html", "0.9", [og_image]))
     for p in POSTS:
-        urls.append((f"/blog/{p['slug']}.html", "0.6"))
+        urls.append((f"/blog/{p['slug']}.html", "0.6", [og_image]))
 
-    xml = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
-    for path, pri in urls:
-        xml += f'  <url><loc>{SITE["base_url"]}{path}</loc><changefreq>weekly</changefreq><priority>{pri}</priority></url>\n'
+    xml = '<?xml version="1.0" encoding="UTF-8"?>\n'
+    xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n'
+    xml += '        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n'
+    for path, pri, images in urls:
+        xml += f'  <url>\n'
+        xml += f'    <loc>{base}{path}</loc>\n'
+        xml += f'    <lastmod>{lastmod}</lastmod>\n'
+        xml += f'    <changefreq>weekly</changefreq>\n'
+        xml += f'    <priority>{pri}</priority>\n'
+        for img in images:
+            xml += f'    <image:image><image:loc>{img}</image:loc></image:image>\n'
+        xml += f'  </url>\n'
     xml += '</urlset>\n'
     write("sitemap.xml", xml)
 
