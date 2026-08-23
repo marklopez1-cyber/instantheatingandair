@@ -709,14 +709,27 @@ def schema_quote_tool(page_url):
         }
     }
 
+def _fmt_date(iso):
+    """Convert 'YYYY-MM-DD' to 'Month D, YYYY' for human-friendly display."""
+    try:
+        y, m, d = iso.split('-')
+        months = ['January','February','March','April','May','June',
+                  'July','August','September','October','November','December']
+        return f"{months[int(m)-1]} {int(d)}, {y}"
+    except Exception:
+        return iso
+
 def schema_article(post):
+    # dateModified defaults to datePublished but posts can override with an
+    # explicit 'updated' field. Google favors recently-updated content in
+    # search rankings, so surfacing an accurate update date matters.
     return {
         "@context": "https://schema.org",
         "@type": "BlogPosting",
         "headline": post['title'],
         "description": post['meta_description'],
         "datePublished": post['date'],
-        "dateModified": post['date'],
+        "dateModified": post.get('updated', post['date']),
         "author": {"@type": "Organization", "name": SITE['name']},
         "publisher": {"@id": f"{SITE['base_url']}/#localbusiness"},
         "image": f"{SITE['base_url']}/assets/img/og-image.jpg",
@@ -1842,13 +1855,28 @@ def build_post(post):
     crumbs = [("Home","/"),("Blog","/blog/"),(post['title'], f"/blog/{post['slug']}.html")]
     page_schema = jsonld({"@context":"https://schema.org","@graph":[schema_localbusiness(), schema_breadcrumbs([(c[0], c[1]) for c in crumbs]), schema_article(post)]})
 
+    # Build the byline. Always show Published; if the post has been genuinely
+    # updated (post['updated'] > post['date']), show a second "Updated" line
+    # so visitors AND Google can tell the content is fresh.
+    pub_iso = post['date']
+    upd_iso = post.get('updated', pub_iso)
+    byline = (
+        f'<span class="eyebrow">{esc(post["category"])} · '
+        f'Published <time datetime="{esc(pub_iso)}">{esc(_fmt_date(pub_iso))}</time>'
+    )
+    if upd_iso and upd_iso != pub_iso:
+        byline += (
+            f' · Updated <time datetime="{esc(upd_iso)}">{esc(_fmt_date(upd_iso))}</time>'
+        )
+    byline += '</span>'
+
     body = f"""{header('/blog/')}
 <main id="main">
   <div class="crumbs"><div class="container"><a href="/">Home</a> → <a href="/blog/">Blog</a> → <b>{esc(post['category'])}</b></div></div>
   <article>
     <header class="page-head">
       <div class="container" style="max-width:820px">
-        <span class="eyebrow">{esc(post['category'])} · {esc(post['date'])}</span>
+        {byline}
         <h1>{esc(post['title'])}</h1>
         <p>{esc(post['hero_dek'])}</p>
       </div>
@@ -1868,10 +1896,16 @@ def build_blog_index():
     desc = "Tips, decision guides, and honest HVAC advice from licensed Phoenix technicians. Written for homeowners, not salespeople."
     cards = ""
     for p in POSTS:
+        pub_iso = p['date']
+        upd_iso = p.get('updated', pub_iso)
+        # Show updated date if newer than published, else show published
+        card_date_iso = upd_iso if upd_iso != pub_iso else pub_iso
+        card_date_label = ("Updated " if upd_iso != pub_iso else "") + _fmt_date(card_date_iso)
         cards += f"""<a class="svc-card" href="/blog/{p['slug']}.html">
   <div class="ic">📝</div>
   <h3>{esc(p['title'])}</h3>
   <p>{esc(p['hero_dek'])}</p>
+  <span class="post-card-date"><time datetime="{esc(card_date_iso)}">{esc(card_date_label)}</time> · {esc(p['category'])}</span>
   <span class="more">Read more →</span>
 </a>"""
     body = f"""{header('/blog/')}

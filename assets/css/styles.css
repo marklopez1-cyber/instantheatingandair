@@ -554,6 +554,19 @@ p { margin: 0 0 1em; }
   .wx-alert__cta   { flex: 1 1 100%; justify-content: center; }
 }
 
+/* Blog card date pill — small line under the description showing when the
+   post was last updated (or first published). Signals freshness to visitors
+   before they click, and pairs with dateModified in the article's JSON-LD. */
+.post-card-date {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--mute);
+  letter-spacing: 0.03em;
+  margin: 6px 0 4px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
 /* Honeypot fields — invisible to humans, filled by naive bots. Two-layer
    defense: off-screen positioning + aria-hidden so screen readers skip them
    too. `display:none` was a giveaway to smarter bots that skip hidden fields;
