@@ -210,7 +210,7 @@ def head(title, description, path="", og_type="website", extra_head="", canonica
   <meta name="ICBM" content="{SITE['address']['lat']}, {SITE['address']['lng']}">
 
   <!-- Security headers (delivered via meta — GitHub Pages doesn't expose HTTP headers) -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://unpkg.com{ga_csp_script}; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://unpkg.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; frame-src https://instant-hvac-quote.com https://book.housecallpro.com https://www.google.com https://maps.google.com; form-action 'self' https://formsubmit.co; connect-src 'self' https://formsubmit.co https://api.open-meteo.com https://api.weather.gov{ga_csp_connect}; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; upgrade-insecure-requests">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://unpkg.com{ga_csp_script}; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://unpkg.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; frame-src https://instant-hvac-quote.com https://serviceiq.appdepot.net https://book.housecallpro.com https://www.google.com https://maps.google.com; form-action 'self' https://formsubmit.co; connect-src 'self' https://formsubmit.co https://api.open-meteo.com https://api.weather.gov{ga_csp_connect}; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; upgrade-insecure-requests">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=(), interest-cohort=()">
@@ -269,6 +269,7 @@ def topbar():
         Phoenix <span data-phx-temp-value>--</span>°F
       </span>
       <span class="pill">Open Now</span>
+      <button type="button" class="topbar-book-btn" data-modal-open="book-modal" data-track="book_click">📅 Book Now</button>
       <a href="tel:{SITE['phone_link']}" data-track="phone_click">📞 {SITE['phone_display']}</a>
     </div>
   </div>
@@ -307,7 +308,8 @@ def final_cta(title_h2=None, p=None):
     <h2>{title_h2}</h2>
     <p>{p}</p>
     <div class="ctas">
-      <button type="button" class="btn btn-orange" data-modal-open="estimate-modal" data-track="estimate_click">Request Service →</button>
+      <button type="button" class="btn btn-orange" data-modal-open="book-modal" data-track="book_click">📅 Book Now</button>
+      <button type="button" class="btn btn-outline-white" data-modal-open="estimate-modal" data-track="estimate_click">Request Service →</button>
       <a class="btn btn-white" href="tel:{SITE['phone_link']}" data-track="phone_click">📞 {SITE['phone_display']}</a>
     </div>
     <div class="lic-line">AZ {SITE['license']} · Licensed · Bonded · Insured · Family Owned</div>
@@ -410,6 +412,45 @@ def estimate_modal():
 </div>"""
 
 
+def book_modal():
+    """Book-Now modal — iframes the ServiceIQ scheduler so visitors can pick
+    a slot without leaving the page. Included on every page via footer().
+    Opened by any element with data-modal-open="book-modal"."""
+    return f"""<!-- Book Now modal — opened by [data-modal-open="book-modal"] -->
+<div class="modal modal-book" id="book-modal" aria-hidden="true">
+  <div class="modal-backdrop" data-modal-close></div>
+  <div class="modal-dialog modal-dialog-lg" role="dialog" aria-labelledby="book-heading" aria-modal="true">
+    <button type="button" class="modal-close" data-modal-close aria-label="Close booking window">&times;</button>
+    <div class="book-modal-header">
+      <span class="quote-frame-label">
+        <span class="dot-live"></span>
+        <h2 id="book-heading" class="quote-tool-h">Book Your Service Online</h2>
+      </span>
+      <p class="book-modal-sub">Pick a day and time that works for you. We'll confirm by text within minutes.</p>
+    </div>
+    <div class="book-frame-wrap">
+      <iframe src="https://serviceiq.appdepot.net/t/instant-heating-and-air/book"
+              title="Instant Heating and Air — book service online"
+              loading="lazy"
+              allow="clipboard-write"
+              sandbox="allow-forms allow-scripts allow-popups allow-popups-to-escape-sandbox allow-same-origin"
+              referrerpolicy="strict-origin-when-cross-origin"></iframe>
+      <noscript>
+        <div class="quote-noscript">
+          <p><strong>Booking needs JavaScript to run.</strong> Open the scheduler directly:</p>
+          <p><a href="https://serviceiq.appdepot.net/t/instant-heating-and-air/book" rel="noopener" target="_blank">Book online →</a>
+             &nbsp;or call <a href="tel:{SITE['phone_link']}">{SITE['phone_display']}</a></p>
+        </div>
+      </noscript>
+    </div>
+    <p class="book-modal-foot">
+      Prefer to talk to someone? Call <a href="tel:{SITE['phone_link']}">{SITE['phone_display']}</a> —
+      we pick up 24/7 for emergencies.
+    </p>
+  </div>
+</div>"""
+
+
 def footer():
     svc_links = "".join(f'<a href="{u}">{esc(l)}</a>' for l, u in FOOTER_SERVICES)
     area_links = "".join(f'<a href="{u}">{esc(l)}</a>' for l, u in FOOTER_AREAS)
@@ -455,6 +496,7 @@ def footer():
   </div>
 </footer>
 {estimate_modal()}
+{book_modal()}
 <script src="/assets/js/main.js?v={ASSET_VERSION}" defer></script>
 <script src="/assets/js/chatbot.js?v={ASSET_VERSION}" defer></script>
 <script src="/assets/js/weather-alerts.js?v={ASSET_VERSION}" defer></script>
