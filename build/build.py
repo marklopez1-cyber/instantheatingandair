@@ -1219,15 +1219,25 @@ def build_service_page(svc):
     # and large projects. Repairs, tune-ups, and emergency calls carry a $84.50
     # diagnostic fee (waived with completed repair), so saying "free" would be
     # misleading on those pages.
+    #
+    # cta_modal picks which modal the button opens:
+    #   free_estimate  → estimate-modal (contact form; a human will call back
+    #                    to arrange the in-home visit)
+    #   service_call   → book-modal    (ServiceIQ scheduler; visitor picks a
+    #                    slot themselves — matches the "Schedule" language)
     cta_type = svc.get('cta_type', 'service_call')
     if cta_type == 'free_estimate':
         cta_button_label  = "Get Free Estimate →"
         cta_aside_heading = "Free In-Home Estimate"
         cta_aside_subtext = "Same-day appointments in Phoenix &amp; Anthem."
+        cta_modal         = "estimate-modal"
+        cta_track         = "estimate_click"
     else:  # service_call
         cta_button_label  = "Schedule Service →"
         cta_aside_heading = "Schedule a Service Visit"
         cta_aside_subtext = "Same-day appointments in Phoenix &amp; Anthem. Diagnostic fee waived with any completed repair."
+        cta_modal         = "book-modal"
+        cta_track         = "book_click"
 
     body = f"""{header('/services/')}
 <main id="main">
@@ -1245,7 +1255,7 @@ def build_service_page(svc):
           <div class="i"><b>Coverage</b><span>Phoenix, Anthem &amp; North Valley</span></div>
         </div>
         <div class="ctas">
-          <button type="button" class="btn btn-orange" data-modal-open="estimate-modal" data-track="estimate_click">{cta_button_label}</button>
+          <button type="button" class="btn btn-orange" data-modal-open="{cta_modal}" data-track="{cta_track}">{cta_button_label}</button>
           <a class="btn btn-outline" href="tel:{SITE['phone_link']}" data-track="phone_click">📞 {SITE['phone_display']}</a>
         </div>
       </div>
@@ -1254,7 +1264,7 @@ def build_service_page(svc):
         <p>{cta_aside_subtext}</p>
         <div class="price">{esc(svc['pricing_value'])}</div>
         <small>{esc(svc['pricing_label'])} — {esc(svc['pricing_note'])}</small>
-        <button type="button" class="btn btn-orange" data-modal-open="estimate-modal" data-track="estimate_click" style="width:100%">{cta_button_label}</button>
+        <button type="button" class="btn btn-orange" data-modal-open="{cta_modal}" data-track="{cta_track}" style="width:100%">{cta_button_label}</button>
         <a class="btn btn-outline-white" href="tel:{SITE['phone_link']}">📞 Call Now</a>
       </aside>
     </div>
@@ -1811,7 +1821,7 @@ def build_book():
     <div class="container">
       <span class="eyebrow">No calls · no pressure · for new systems</span>
       <h1>Get a Free <span class="o">Replacement</span> Estimate.</h1>
-      <p>Pricing a new AC, furnace, or heat pump? Answer a few quick questions and we'll show you honest pricing — the same numbers we'd give our own family. Already have a unit acting up? Repair visits are <a href="/contact.html" style="color:#fff;text-decoration:underline">scheduled here</a> with an $84.50 diagnostic fee that we waive the moment you approve the repair.</p>
+      <p>Pricing a new AC, furnace, or heat pump? Answer a few quick questions and we'll show you honest pricing — the same numbers we'd give our own family. Already have a unit acting up? <button type="button" class="linkbtn-white" data-modal-open="book-modal" data-track="book_click">Book a repair visit online</button> — $84.50 diagnostic fee, waived the moment you approve the repair.</p>
     </div>
   </section>
   <section class="section" aria-labelledby="quote-tool-h2" itemscope itemtype="https://schema.org/WebApplication">

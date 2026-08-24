@@ -554,6 +554,20 @@ p { margin: 0 0 1em; }
   .wx-alert__cta   { flex: 1 1 100%; justify-content: center; }
 }
 
+/* Inline link-style button (used inside prose where we want a button's
+   modal-open behavior but a link's visual weight — avoids the "there's a
+   giant CTA in the middle of a paragraph" feel). */
+.linkbtn-white {
+  background: none;
+  border: 0;
+  padding: 0;
+  color: #fff;
+  text-decoration: underline;
+  cursor: pointer;
+  font: inherit;
+}
+.linkbtn-white:hover { color: var(--orange); }
+
 /* Blog card date pill — small line under the description showing when the
    post was last updated (or first published). Signals freshness to visitors
    before they click, and pairs with dateModified in the article's JSON-LD. */
