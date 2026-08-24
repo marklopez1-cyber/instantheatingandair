@@ -1428,7 +1428,8 @@ def build_area_page(area):
           <div class="i"><b>License</b><span>AZ {SITE['license']}</span></div>
         </div>
         <div class="ctas">
-          <button type="button" class="btn btn-orange" data-modal-open="estimate-modal" data-track="estimate_click">Get {esc(area['name'])} Estimate →</button>
+          <button type="button" class="btn btn-orange" data-modal-open="book-modal" data-track="book_click">📅 Book Now</button>
+          <button type="button" class="btn btn-outline-white" data-modal-open="estimate-modal" data-track="estimate_click">Get {esc(area['name'])} Estimate →</button>
           <a class="btn btn-outline" href="tel:{SITE['phone_link']}" data-track="phone_click">📞 {SITE['phone_display']}</a>
         </div>
       </div>
@@ -1759,6 +1760,10 @@ def build_contact():
       <span class="eyebrow">We pick up the phone</span>
       <h1>Get in Touch.</h1>
       <p>Call, text, email, or book online — whichever is easiest. Someone human will respond during business hours; 24/7 for emergencies.</p>
+      <div class="ctas" style="margin-top:22px">
+        <button type="button" class="btn btn-orange" data-modal-open="book-modal" data-track="book_click">📅 Book Online</button>
+        <a class="btn btn-outline-white" href="tel:{SITE['phone_link']}" data-track="phone_click">📞 {SITE['phone_display']}</a>
+      </div>
     </div>
   </section>
   <section class="section">
@@ -1766,6 +1771,7 @@ def build_contact():
       <div class="twocol">
         <div>
           <h2>Contact</h2>
+          <p><strong>Book online:</strong> <button type="button" class="linkbtn-inline" data-modal-open="book-modal" data-track="book_click">Pick a service slot in about 60 seconds →</button></p>
           <p><strong>Phone:</strong> <a href="tel:{SITE['phone_link']}" data-track="phone_click">{SITE['phone_display']}</a> (24/7 for emergencies)</p>
           <p><strong>Message us:</strong> use the contact form on this page &mdash; goes straight to our service team and we reply within one business day.</p>
           <p><strong>Address:</strong><br>{SITE['address']['street']}<br>{SITE['address']['city']}, {SITE['address']['region']} {SITE['address']['postal']}</p>

@@ -554,9 +554,22 @@ p { margin: 0 0 1em; }
   .wx-alert__cta   { flex: 1 1 100%; justify-content: center; }
 }
 
-/* Inline link-style button (used inside prose where we want a button's
-   modal-open behavior but a link's visual weight — avoids the "there's a
-   giant CTA in the middle of a paragraph" feel). */
+/* Inline link-style button — matches surrounding body text. Used inside
+   prose where we want a button's modal-open behavior with a link's visual
+   weight (avoids the "there's a giant CTA in the middle of a paragraph"
+   feel). Dark-on-light variant + white-on-dark variant. */
+.linkbtn-inline {
+  background: none;
+  border: 0;
+  padding: 0;
+  color: var(--orange);
+  text-decoration: none;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+.linkbtn-inline:hover { text-decoration: underline; color: var(--orange-2); }
+
 .linkbtn-white {
   background: none;
   border: 0;

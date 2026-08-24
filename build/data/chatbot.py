@@ -17,14 +17,15 @@ the JSON refreshes automatically — no JS changes required.
 # a tappable button that submits its `query` to the bot.
 # ---------------------------------------------------------------------------
 QUICK_REPLIES = [
-    {"label": "💸 Free estimate",          "query": "I'd like a free estimate"},
+    {"label": "📅 Book service",            "query": "I'd like to book a service appointment"},
+    {"label": "💸 Free estimate",           "query": "I'd like a free estimate"},
     # User-facing label keeps the natural "isn't" — but the query we send
     # to the matcher uses "is not" so the existing ac_not_cooling patterns hit.
-    {"label": "❄️ My AC isn't cooling",    "query": "My AC is not cooling"},
-    {"label": "🆕 What is R-454B?",         "query": "What is R-454B?"},
-    {"label": "💰 SRP rebates",             "query": "Do you handle SRP Cool Cash rebates?"},
-    {"label": "🛠️ Tune-up & maintenance",  "query": "How often should I tune up my AC?"},
-    {"label": "📞 Talk to a person",        "query": "I want to talk to someone"},
+    {"label": "❄️ My AC isn't cooling",     "query": "My AC is not cooling"},
+    {"label": "🆕 What is R-454B?",          "query": "What is R-454B?"},
+    {"label": "💰 SRP rebates",              "query": "Do you handle SRP Cool Cash rebates?"},
+    {"label": "🛠️ Tune-up & maintenance",   "query": "How often should I tune up my AC?"},
+    {"label": "📞 Talk to a person",         "query": "I want to talk to someone"},
 ]
 
 # ---------------------------------------------------------------------------
@@ -68,8 +69,27 @@ INTENTS = [
         "response": "Sorry — that's the worst, especially this time of year. Most AC \"no cool\" calls in Phoenix come down to one of a few things (low refrigerant, weak capacitor, dirty coil, frozen evaporator). We can usually diagnose it same-day. Our diagnostic visit is <strong>$84.50, waived the moment you approve the repair</strong>. Want to schedule, or call us right now?",
         "actions": [
             {"label": "📞 Call now (24/7)", "kind": "call", "target": "+16233529802"},
-            {"label": "🛠️ Schedule service", "kind": "modal", "target": "estimate-modal"},
+            {"label": "📅 Book service online", "kind": "modal", "target": "book-modal"},
             {"label": "📖 AC troubleshooting tips", "kind": "link", "target": "/blog/ac-freezing-up-phoenix.html"},
+        ],
+    },
+    {
+        # Direct booking intent — user explicitly wants to schedule an appointment.
+        # Any of these phrases should surface the ServiceIQ modal immediately
+        # rather than routing through the estimate contact form.
+        "id": "book_service",
+        "patterns": [
+            ["book", "service"], ["book", "appointment"], ["book", "visit"],
+            ["book", "online"], ["book", "now"], ["schedule", "service"],
+            ["schedule", "appointment"], ["schedule", "visit"], ["schedule", "online"],
+            ["make", "appointment"], ["set up", "appointment"], ["set", "appointment"],
+            ["want to book"], ["can i book"], ["how do i book"],
+            ["how do i schedule"], ["can i schedule"], ["want to schedule"],
+        ],
+        "response": "Absolutely — you can pick a day and time that works for you and we'll confirm within minutes. Tap the button below to open our online scheduler, or call us if you'd rather talk it through.",
+        "actions": [
+            {"label": "📅 Book online now", "kind": "modal", "target": "book-modal"},
+            {"label": "📞 Call (623) 352-9802", "kind": "call", "target": "+16233529802"},
         ],
     },
     {
@@ -148,7 +168,7 @@ INTENTS = [
         ],
         "response": "Twice a year in Phoenix — once in spring before cooling season, once in fall before heat kicks on. A single 19-point AC tune-up is <strong>$84.50</strong> (heating tune-ups are $99). Better deal for most homeowners: our <strong>Comfort Club at $18/month</strong> covers both annual tune-ups plus 15% off any repairs, priority dispatch, and no overtime fees. Pays for itself the first time we catch something.",
         "actions": [
-            {"label": "📅 Schedule tune-up", "kind": "modal", "target": "estimate-modal"},
+            {"label": "📅 Book tune-up online", "kind": "modal", "target": "book-modal"},
             {"label": "🏆 Join Comfort Club", "kind": "link", "target": "/maintenance-plan.html"},
         ],
     },
@@ -188,7 +208,7 @@ INTENTS = [
         ],
         "response": "Our diagnostic fee is <strong>$84.50</strong> for residential service calls. That covers the trip, a full system inspection, and a written flat-rate repair quote. It's <strong>waived the moment you approve the repair</strong>, so most repair customers pay nothing extra. Comfort Club members pay $0 for diagnostics. After-hours emergencies are $149 (also waived on completed repair).",
         "actions": [
-            {"label": "🛠️ Schedule service", "kind": "modal", "target": "estimate-modal"},
+            {"label": "📅 Book service online", "kind": "modal", "target": "book-modal"},
             {"label": "📞 Call (623) 352-9802", "kind": "call", "target": "+16233529802"},
         ],
     },
@@ -240,7 +260,7 @@ INTENTS = [
         ],
         "response": "We service all major residential and light-commercial brands: Carrier, Trane, Lennox, Goodman, Rheem, Amana, Bryant, American Standard, York, Daikin, Mitsubishi, and Bosch. We'll also work on plenty of older units that other shops won't touch.",
         "actions": [
-            {"label": "🛠️ Book a service", "kind": "modal", "target": "estimate-modal"},
+            {"label": "📅 Book service online", "kind": "modal", "target": "book-modal"},
         ],
     },
     {

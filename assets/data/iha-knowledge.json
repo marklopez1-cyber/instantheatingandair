@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generated_at": "2026-08-24T02:19:12Z",
+  "generated_at": "2026-08-24T02:22:00Z",
   "company": {
     "name": "Instant Heating and Air",
     "legal_name": "Instant Heating and Air, LLC",
@@ -25,7 +25,7 @@
     "founded_year": 2019,
     "service_radius_miles": 40,
     "rating": 5.0,
-    "review_count": 66,
+    "review_count": 56,
     "google_profile_url": "https://maps.google.com/?cid=2213854254172440049",
     "booking_url": "https://book.housecallpro.com/book/Instant-Heating-and-Air/",
     "quote_tool_url": "https://instant-hvac-quote.com",
@@ -973,6 +973,10 @@
   "chatbot": {
     "quick_replies": [
       {
+        "label": "📅 Book service",
+        "query": "I'd like to book a service appointment"
+      },
+      {
         "label": "💸 Free estimate",
         "query": "I'd like a free estimate"
       },
@@ -1192,14 +1196,98 @@
             "target": "+16233529802"
           },
           {
-            "label": "🛠️ Schedule service",
+            "label": "📅 Book service online",
             "kind": "modal",
-            "target": "estimate-modal"
+            "target": "book-modal"
           },
           {
             "label": "📖 AC troubleshooting tips",
             "kind": "link",
             "target": "/blog/ac-freezing-up-phoenix.html"
+          }
+        ]
+      },
+      {
+        "id": "book_service",
+        "patterns": [
+          [
+            "book",
+            "service"
+          ],
+          [
+            "book",
+            "appointment"
+          ],
+          [
+            "book",
+            "visit"
+          ],
+          [
+            "book",
+            "online"
+          ],
+          [
+            "book",
+            "now"
+          ],
+          [
+            "schedule",
+            "service"
+          ],
+          [
+            "schedule",
+            "appointment"
+          ],
+          [
+            "schedule",
+            "visit"
+          ],
+          [
+            "schedule",
+            "online"
+          ],
+          [
+            "make",
+            "appointment"
+          ],
+          [
+            "set up",
+            "appointment"
+          ],
+          [
+            "set",
+            "appointment"
+          ],
+          [
+            "want to book"
+          ],
+          [
+            "can i book"
+          ],
+          [
+            "how do i book"
+          ],
+          [
+            "how do i schedule"
+          ],
+          [
+            "can i schedule"
+          ],
+          [
+            "want to schedule"
+          ]
+        ],
+        "response": "Absolutely — you can pick a day and time that works for you and we'll confirm within minutes. Tap the button below to open our online scheduler, or call us if you'd rather talk it through.",
+        "actions": [
+          {
+            "label": "📅 Book online now",
+            "kind": "modal",
+            "target": "book-modal"
+          },
+          {
+            "label": "📞 Call (623) 352-9802",
+            "kind": "call",
+            "target": "+16233529802"
           }
         ]
       },
@@ -1536,9 +1624,9 @@
         "response": "Twice a year in Phoenix — once in spring before cooling season, once in fall before heat kicks on. A single 19-point AC tune-up is <strong>$84.50</strong> (heating tune-ups are $99). Better deal for most homeowners: our <strong>Comfort Club at $18/month</strong> covers both annual tune-ups plus 15% off any repairs, priority dispatch, and no overtime fees. Pays for itself the first time we catch something.",
         "actions": [
           {
-            "label": "📅 Schedule tune-up",
+            "label": "📅 Book tune-up online",
             "kind": "modal",
-            "target": "estimate-modal"
+            "target": "book-modal"
           },
           {
             "label": "🏆 Join Comfort Club",
@@ -1695,9 +1783,9 @@
         "response": "Our diagnostic fee is <strong>$84.50</strong> for residential service calls. That covers the trip, a full system inspection, and a written flat-rate repair quote. It's <strong>waived the moment you approve the repair</strong>, so most repair customers pay nothing extra. Comfort Club members pay $0 for diagnostics. After-hours emergencies are $149 (also waived on completed repair).",
         "actions": [
           {
-            "label": "🛠️ Schedule service",
+            "label": "📅 Book service online",
             "kind": "modal",
-            "target": "estimate-modal"
+            "target": "book-modal"
           },
           {
             "label": "📞 Call (623) 352-9802",
@@ -1930,9 +2018,9 @@
         "response": "We service all major residential and light-commercial brands: Carrier, Trane, Lennox, Goodman, Rheem, Amana, Bryant, American Standard, York, Daikin, Mitsubishi, and Bosch. We'll also work on plenty of older units that other shops won't touch.",
         "actions": [
           {
-            "label": "🛠️ Book a service",
+            "label": "📅 Book service online",
             "kind": "modal",
-            "target": "estimate-modal"
+            "target": "book-modal"
           }
         ]
       },
