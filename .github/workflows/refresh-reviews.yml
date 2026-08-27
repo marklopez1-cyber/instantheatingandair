@@ -20,11 +20,6 @@ on:
     # 6 AM Phoenix = 13:00 UTC. Monday = day-of-week 1.
     - cron: "0 13 * * 1"
   workflow_dispatch: {}   # Allows on-demand runs via the Actions tab UI.
-  push:
-    # Auto-refresh after every deploy. The job-level `if:` below skips this
-    # run when the push came from the bot itself, which is what prevents an
-    # infinite loop: human push → workflow runs → bot pushes (skipped).
-    branches: [main]
 
 permissions:
   contents: write          # Required so the bot can commit + push back to main.
