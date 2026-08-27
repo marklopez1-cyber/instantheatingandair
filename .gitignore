@@ -2,3 +2,6 @@
 # build.py output — promoted to repo root by deploy, never committed
 site/
 _to_delete/
+
+__pycache__/
+*.pyc

@@ -22,7 +22,20 @@ BASE_PATH = os.environ.get("BASE_PATH", "").rstrip("/")
 # Cache-busting build stamp. Appended as ?v=ASSET_VERSION on every CSS/JS link.
 # Browsers (and CDNs) treat the URL as new on each deploy, so visitors always
 # get the latest stylesheet and scripts even if their cached HTML is stale.
-ASSET_VERSION = time.strftime("%Y%m%d%H%M")
+def _asset_version():
+    # Content-based cache-bust: hash the CSS/JS assets so the stamp changes only when those
+    # files actually change - not on every build. Rebuilds stay byte-identical when assets are
+    # unchanged, preventing spurious per-build diffs and cross-build merge conflicts on every page.
+    _root = Path(__file__).resolve().parent.parent
+    _h = hashlib.sha1()
+    for _p in sorted((_root / "assets").rglob("*")):
+        if _p.is_file() and _p.suffix.lower() in (".css", ".js"):
+            _h.update(_p.relative_to(_root).as_posix().encode())
+            _h.update(b"\x00")
+            _h.update(_p.read_bytes())
+    return _h.hexdigest()[:12]
+
+ASSET_VERSION = _asset_version()
 
 # Make the data folder importable
 ROOT = Path(__file__).resolve().parent.parent
@@ -2152,7 +2165,7 @@ def build_chatbot_knowledge():
     """
     knowledge = {
         "version": "1.0.0",
-        "generated_at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+        "generated_at": (LAST_FETCHED or time.strftime("%Y-%m-%d", time.gmtime())),
         "company": {
             "name": SITE['name'],
             "legal_name": SITE['legal_name'],
@@ -2270,7 +2283,7 @@ def build_chatbot_knowledge():
     out_dir = OUT / "assets" / "data"
     out_dir.mkdir(parents=True, exist_ok=True)
     json_path = out_dir / "iha-knowledge.json"
-    json_path.write_text(json.dumps(knowledge, indent=2, ensure_ascii=False))
+    json_path.write_text(json.dumps(knowledge, indent=2, ensure_ascii=False), encoding="utf-8")
     print(f"  wrote assets/data/iha-knowledge.json ({json_path.stat().st_size} bytes)")
 
 
