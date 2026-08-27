@@ -333,14 +333,15 @@ def estimate_modal():
       </p>
       <input type="hidden" name="_subject" value="New Estimate Request — Instant Heating and Air">
       <input type="hidden" name="_template" value="table">
-      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_blacklist" value="let me know when i am subscribed,please keep me posted,send me news and updates by email,seo services,search engine optimization,digital marketing,web design services,guest post,backlink,link building,dofollow,increase your website traffic,rank higher on google,we can help you rank,outreach specialist,cryptocurrency,crypto investment,bitcoin,casino,viagra">
+      <input type="hidden" name="_captcha" value="true">
       <input type="hidden" name="_next" value="{SITE['success_redirect']}">
       <input type="hidden" name="form_type" value="estimate_request">
       <!-- Bot traps: both hidden by CSS. Real users won't touch them; bots
            auto-fill anything with a legit-looking name attribute. -->
       <input type="text" name="_honey" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
       <div class="hp-field" aria-hidden="true">
-        <label>Website (leave blank)</label>
+        <label>Website</label>
         <input type="text" name="website" tabindex="-1" autocomplete="off">
       </div>
 
@@ -1571,12 +1572,13 @@ def build_maintenance_plan():
         <h3 id="cc-heading">Sign Up in 30 Seconds</h3>
         <input type="hidden" name="_subject" value="Comfort Club Signup — Instant Heating and Air">
         <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_blacklist" value="let me know when i am subscribed,please keep me posted,send me news and updates by email,seo services,search engine optimization,digital marketing,web design services,guest post,backlink,link building,dofollow,increase your website traffic,rank higher on google,we can help you rank,outreach specialist,cryptocurrency,crypto investment,bitcoin,casino,viagra">
+        <input type="hidden" name="_captcha" value="true">
         <input type="hidden" name="_next" value="{SITE['success_redirect']}">
         <input type="hidden" name="form_type" value="comfort_club">
         <input type="text" name="_honey" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
         <div class="hp-field" aria-hidden="true">
-          <label>Website (leave blank)</label>
+          <label>Website</label>
           <input type="text" name="website" tabindex="-1" autocomplete="off">
         </div>
 
@@ -1785,12 +1787,13 @@ def build_contact():
           <form action="{SITE['form_endpoints']['contact']}" method="POST" class="standard timed-form" id="contact-form" aria-label="Contact form">
             <input type="hidden" name="_subject" value="Contact form — Instant Heating and Air">
             <input type="hidden" name="_template" value="table">
-            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_blacklist" value="let me know when i am subscribed,please keep me posted,send me news and updates by email,seo services,search engine optimization,digital marketing,web design services,guest post,backlink,link building,dofollow,increase your website traffic,rank higher on google,we can help you rank,outreach specialist,cryptocurrency,crypto investment,bitcoin,casino,viagra">
+            <input type="hidden" name="_captcha" value="true">
             <input type="hidden" name="_next" value="{SITE['success_redirect']}">
             <input type="hidden" name="form_type" value="contact_page">
             <input type="text" name="_honey" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
             <div class="hp-field" aria-hidden="true">
-              <label>Website (leave blank)</label>
+              <label>Website</label>
               <input type="text" name="website" tabindex="-1" autocomplete="off">
             </div>
             <label for="c-name">Name</label>
@@ -1798,7 +1801,20 @@ def build_contact():
             <label for="c-email">Email</label>
             <input id="c-email" name="email" type="email" required autocomplete="email">
             <label for="c-phone">Phone</label>
-            <input id="c-phone" name="phone" type="tel" pattern="[\\d\\s().+\\-]{{10,}}" autocomplete="tel" title="Please enter a valid phone number (at least 10 digits)">
+            <input id="c-phone" name="phone" type="tel" required pattern="[\\d\\s().+\\-]{{10,}}" autocomplete="tel" title="Please enter a valid phone number (at least 10 digits)">
+            <label for="c-service">What do you need?</label>
+            <select id="c-service" name="service" required>
+              <option value="">Choose one&hellip;</option>
+              <option>AC repair</option>
+              <option>AC installation or replacement</option>
+              <option>Heating repair</option>
+              <option>Heating installation or replacement</option>
+              <option>Maintenance or tune-up</option>
+              <option>Indoor air quality</option>
+              <option>Commercial HVAC</option>
+              <option>Billing or existing appointment</option>
+              <option>Something else</option>
+            </select>
             <label for="c-msg">How can we help?</label>
             <textarea id="c-msg" name="message" required minlength="10" title="Please give us a brief description (at least 10 characters)"></textarea>
             <button type="submit" class="btn btn-orange">Send Message</button>
