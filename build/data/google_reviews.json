@@ -13,7 +13,7 @@
             "original_language" : "en",
             "profile_photo_url" : "https://lh3.googleusercontent.com/a/ACg8ocKGfB3-9Or2UUcWSmvOLhmSaLoOx3VPmeiiRawVaNYfHnkZrg=s128-c0x00000000-cc-rp-mo",
             "rating" : 5,
-            "relative_time_description" : "2 months ago",
+            "relative_time_description" : "3 months ago",
             "text" : "Mark was awesome!! He didn’t make us wait forever to get our Ac running on one of the hottest Az days. He was honest and extremely knowledgeable and professional. I now have an AC expert for my house and my clients!!",
             "time" : 1784938808,
             "translated" : false
@@ -31,18 +31,6 @@
             "translated" : false
          },
          {
-            "author_name" : "Lyn",
-            "author_url" : "https://www.google.com/maps/contrib/114069581394759078964/reviews",
-            "language" : "en",
-            "original_language" : "en",
-            "profile_photo_url" : "https://lh3.googleusercontent.com/a/ACg8ocI9FW1oZNzM1wZ9X_8LL8NrDs1-2geCjaclyNkCLfroI1jPtQ=s128-c0x00000000-cc-rp-mo",
-            "rating" : 5,
-            "relative_time_description" : "3 months ago",
-            "text" : "A new a c in gas furnace were installed. They were prompt.\nVery professional cleaned up after themselves. I became aware of this company through my home warranty plan. But I would certainly recommend them and mark the owner. It's very knowledgeable in trustworthy",
-            "time" : 1783380392,
-            "translated" : false
-         },
-         {
             "author_name" : "Tom Lopez",
             "author_url" : "https://www.google.com/maps/contrib/118248977045577617373/reviews",
             "language" : "en",
@@ -55,15 +43,27 @@
             "translated" : false
          },
          {
-            "author_name" : "Alexander A",
-            "author_url" : "https://www.google.com/maps/contrib/107750450190986119819/reviews",
+            "author_name" : "Hitesh Bhutani",
+            "author_url" : "https://www.google.com/maps/contrib/118054589886426421803/reviews",
             "language" : "en",
             "original_language" : "en",
-            "profile_photo_url" : "https://lh3.googleusercontent.com/a/ACg8ocK-ThoCMJ6xo3Q76HJPlDibbhzOpoRold3DKlbqXqW2_TCEcQ=s128-c0x00000000-cc-rp-mo-ba3",
+            "profile_photo_url" : "https://lh3.googleusercontent.com/a-/ALV-UjW1E6nKPRx8ABG6lm6xIdxDZ2yb_XKpT6EQKObHNX8VIs9Jqgwvzg=s128-c0x00000000-cc-rp-mo-ba2",
             "rating" : 5,
-            "relative_time_description" : "5 months ago",
-            "text" : "Placed a claim through my warranty and this is the company they had chosen. They were able to send a person by the very next morning who got us up and running that morning (Mark Lopez). Thanks again for all the help!",
-            "time" : 1778182947,
+            "relative_time_description" : "3 months ago",
+            "text" : "If Google had an option to give zillion stars, I wouldn't have thought even for 1 second. My HVAC blew off and my new tenants were moving within 2 days and these guys pulled it off despite being short on staff. They understood I was under a gun and did all in their capacity to make it work for me. No high pressure sales pitch, No BS just straight to the point and work done with perfection and professionalism. Their pricing is genuine too. Highly recommended.",
+            "time" : 1784942610,
+            "translated" : false
+         },
+         {
+            "author_name" : "Doug Valarik",
+            "author_url" : "https://www.google.com/maps/contrib/105531014120605790954/reviews",
+            "language" : "en",
+            "original_language" : "en",
+            "profile_photo_url" : "https://lh3.googleusercontent.com/a/ACg8ocKauvSfMJvhIjEI-r61C_GCmU-TjNAZWJV-5xXxNk97HG1Gvg=s128-c0x00000000-cc-rp-mo",
+            "rating" : 5,
+            "relative_time_description" : "2 months ago",
+            "text" : "I talked to six different companies. I was thinking two stage because inverter systems seemed out of my price range. Instant came in and quoted me an inverter system for basically what other outfits were offering for a two stage. There was no sales pitch, he simply listened to what I was thinking and gave me a quote. The installation was professional. I've had the new system for a few days now and am loving it. Highly recommend.",
+            "time" : 1786729526,
             "translated" : false
          }
       ],
